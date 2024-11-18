@@ -6,39 +6,41 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 18:06:30 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/11/16 19:30:50 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/11/18 16:55:05 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
-#include <iostream>
 
-int main()
+
+void	PhoneBook::add() //Toda esta funcion trabaja dentro del ambito del objeto  la clase PhoneBook
 {
-	presentar el menu de arranque, con los 3 comandos posibles
-	std::cout << "EXIT" << std::endl;
-	"SEARCH"
-	"ADD"
+	Declaro un objeto Contact aux;
+	Declaro un string input;
 	
-	while (bucle infinito)
-	{
-	espera un input que recoge con 'cin'
-	if(input == "ADD")
-		funcion que crea y guarda un contact(setea un nuevo objeto Contact)
-		{
-			std::cout << "first name:" ;
-			_name = cin;
-			std::cout << "last name:" ;
-			...
-			if (todos los campos llenos)
-				 anyadir el objeto como un elemento del array PhoneBook		
-		}
-			
-	if(input == "SEARCH")
-		ir a funcion que busca un contacto
-	if ("EXIT")
-		se liberan memorias si hace falta y sale del programa rompiendo el bucle
-	}
-	return (0);
+	1:
+	std::imprime "first name:"
+	std::getline(cin, input)
+	protector
+	aux::setFirstName(input)
+	
+	2:
+	imprime "second name:"
+	getline(cin, input)
+	protector
+	aux::setSecondName(input)
+	
+	...
+
+	5:
+	imprime "dark secret:"
+	getline(cin, input)
+	protector
+	setDarkSecret(input)
+	
+	Array_de_contacts[qty%8] = aux;
+	qty++; //hace referencia al atributo qty de la clase 
+
+	
 }
