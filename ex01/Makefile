@@ -6,7 +6,7 @@
 #    By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/12 16:52:12 by jocuni-p          #+#    #+#              #
-#    Updated: 2024/11/18 11:02:21 by jocuni-p         ###   ########.fr        #
+#    Updated: 2024/11/20 16:33:09 by jocuni-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = phonebook
 
 # Archivos fuente
-SRCS = PhoneBook.cpp
+SRCS = main.cpp PhoneBook.cpp Contact.cpp
 
 # Archivos objeto (creados a partir de los archivos fuente)
 OBJS = $(SRCS:.cpp=.o)

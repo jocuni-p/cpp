@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 18:06:30 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/11/20 13:45:20 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/11/20 18:24:48 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,14 @@ void	PhoneBook::add() //Toda esta funcion trabaja dentro del ambito del objeto  
 {
 	Contact		aux;
 	std::string	input;
-
-	std::cout << "Let's create a new contact." << std::endl;
+	
+//	std::cout << std::endl <<"\t*** PhoneBook ***" << std::endl << std::endl;
+//	std::cout << "Let's create a new contact." << std::endl;
 	do
 	{
-		std::cout << "Introduce a valid first name (avoid spaces/tabs before your input):" << std::endl;
+		std::cout << std::endl 
+			<< "Introduce a valid first name (avoid spaces/tabs before your input):" 
+			<< std::endl << std::endl;
 		if (!std::getline(std::cin, input))// protection
 			exit (1); //Quizas es abrupto salir con exit porque no se ejecutan los Destructores para limpiar las memorias ???
 	} while (input == "" || input[0] == ' ' || input[0] == '	');// mientras sea un string vacio, un espacio o tabulador. Provar si funciona bien!!!!!!
@@ -36,31 +39,31 @@ void	PhoneBook::add() //Toda esta funcion trabaja dentro del ambito del objeto  
 	
 	do
 	{
-		std::cout << "Last name:" << std::endl;
+		std::cout << std::endl << "Last name:" << std::endl << std::endl;
 		if (!std::getline(std::cin, input))
 			exit (1);
 	} while (input == "" || input[0] == ' ' || input[0] == '	');
 	aux.setLastName(input);
 
 	do
-		{
-			std::cout << "Nick name:" << std::endl;
-			if (!std::getline(std::cin, input))
-				exit (1);
-		} while (input == "" || input[0] == ' ' || input[0] == '	');
-		aux.setNickName(input);
-
-	do
-		{
-			std::cout << "Phone number:" << std::endl;
-			if (!std::getline(std::cin, input))
-				exit (1);
-		} while (input == "" || input[0] == ' ' || input[0] == '	');
-		aux.setPhone(input);
+	{
+		std::cout << std::endl << "Nick name:" << std::endl << std::endl;
+		if (!std::getline(std::cin, input))
+			exit (1);
+	} while (input == "" || input[0] == ' ' || input[0] == '	');
+	aux.setNickName(input);
 
 	do
 	{
-		std::cout << "Dark secret:" << std::endl;
+		std::cout << std::endl << "Phone number:" << std::endl << std::endl;
+		if (!std::getline(std::cin, input))
+			exit (1);
+	} while (input == "" || input[0] == ' ' || input[0] == '	');
+	aux.setPhone(input);
+
+	do
+	{
+		std::cout << std::endl << "Dark secret:" << std::endl << std::endl;
 		if (!std::getline(std::cin, input))
 			exit (1);
 	} while (input == "" || input[0] == ' ' || input[0] == '	');
@@ -72,28 +75,48 @@ void	PhoneBook::add() //Toda esta funcion trabaja dentro del ambito del objeto  
 
 void	PhoneBook::search()
 {
-	int	index;
+	std::string	input;
+	int			index;
 	
 	listprint();
-	do
+	while (true)
 	{
-		std::cout << "What index do you want to display (0-7)?" << std::endl;
-		index = atoi(std::cin);
-		if (index >= 0 && index <= 7)
+		std::cout << std::endl << "What index do you want to display (0-7)?" << std::endl;
+		if (!std::getline(std::cin, input)) //Recojo el valor
+				exit (1);// protection
+		
+		index = atoi(input.c_str());//c_str converts a 'std::string' to a 'char*'
+		
+		if (input.length() == 1 && std::isdigit(input[0]) && index >= 0 && index <= 7)
 		{
-			std::cout << "First name: " contactList[index]::getFirstName << std::endl;
-			std::cout << "Last name: " << contactList[index]::getLastName << std::endl;
-			std::cout << "Nick name: " << contactList[index]::getNickName << std::endl;
-			std::cout << "Phone number: " << contactList[index]::getPhone << std::endl;
-			std::cout << "Dark secret: " << contactList[index]::getDarkSecret << std::endl;
+			std::cout << std::endl 
+				<< "First name:\t " << contactList[index].getFirstName() << std::endl
+				<< "Last name:\t " << contactList[index].getLastName() << std::endl
+				<< "Nick name:\t " << contactList[index].getNickName() << std::endl
+				<< "Phone number:\t " << contactList[index].getPhone() << std::endl
+				<< "Dark secret:\t " << contactList[index].getDarkSecret() << std::endl 
+				<< std::endl;
+			break;
 		}
 		else
 			std::cout << "Invalid option" << std::endl;
 			
-	} while (index < 0 || index > 7);
-
+	}//while (index < 0 || index > 7);
 }
+
 void	PhoneBook::listprint()
 {
-	imprime el listado del PhoneBook en el formato definido por subject
+	int	i;
+
+	i = 0;
+	std::cout << std::endl;
+	std::cout << std::setw(10) << "Index|" << std::setw(10) 
+								<< "First name|" 
+								<< "Last name|" 
+								<< "Nick name|" << std::endl;
+	std::cout << "----------|----------|----------|----------|" << std::endl;
+	
+	
+	std::cout << std::setw(10) << i << "|" << i << "|" << std::endl;
+	
 }

@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 16:06:13 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/11/19 17:10:34 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/11/20 14:42:52 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 /*----------Constructor------------*/
 
-Contact::Contact(){} //No defino nada, pero ha de tener las llaves.
-//Al no definir comportamiento inicializa los 'string' a "" vacio y los 'int' al azar
+Contact::Contact(){} //instancia/crea un objeto de la clase Contact, pero sin inicializar sus atributos
+//Al no definir comportamiento inicializa los 'string' a "" vacio y los 'int' con lo que contenga la memoria
 
 
 /*-------setter' functions--------*/

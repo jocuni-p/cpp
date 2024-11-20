@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 18:01:44 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/11/20 12:06:44 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/11/20 16:39:05 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 #pragma once
 
 #include "Contact.hpp"
-#include <iostream>// For std::cout std::cin
-#include <string>//For std::string
+#include <iostream>	// std::cout, std::cin, std::endl
+#include <string>	// std::string
+#include <iomanip>	// std::setw
+#include <cstdlib>	// exit
 
 class PhoneBook
 {
