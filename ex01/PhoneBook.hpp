@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 18:01:44 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/11/20 16:39:05 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/11/21 15:06:52 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,10 @@
 class PhoneBook
 {
 private:
-	Contact	contactList[8]; //Array de clase Contact y no PhoneBook, porque contiene elementos clase Contact
-	int		counter; //counts the contact' number
-
+	Contact	contactList[8]; //Array of 'Contact' class, because contain class 'Contact' elements
+	int		counter; //counts the array' elements number
 public:
 	PhoneBook(); //Constructor, inicializes the private atribute 'cnt' to 0.
-	//Deberia declarar un destructor ~PhoneBook() ???
 	void	add();
 	void	search();
 	void	listprint(); //Prints the 'contactList' array

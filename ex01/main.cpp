@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:13:55 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/11/20 18:22:22 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/11/21 15:22:01 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,32 @@
 
 int main()
 {
-	PhoneBook phonebook; //Instancio un objeto de clase Phonebook
+	PhoneBook phonebook; //Instances a Phonebook class object
 	std::string input;
 	
-	std::cout << std::endl <<"\t*** PhoneBook ***" << std::endl << std::endl;
+	std::cout << std::endl <<"\t=================" << std::endl;
+	std::cout <<"\t*** PhoneBook ***" << std::endl;
+	std::cout <<"\t=================" << std::endl << std::endl;
 	while (true)
 	{
-		std::cout << std::endl 
-			<< "Please, choose an option to continue ( add / search / exit ):" 
-			<< std::endl << std::endl;
-
-		if (!std::getline(std::cin, input))// proteccion por error lectura o EOF
+		std::cout << "Please, choose an option to continue ( ADD / SEARCH / EXIT ): ";
+		if (!std::getline(std::cin, input))// protection in case wrong read or EOF
 		{
-			std::cerr << "Error on 'std::getline'. Exiting program." << std::endl;
+			std::cerr << std::endl << "Error: Failed to read input using 'std::getline'" << std::endl;
+			std::cout << "Exited properly." << std::endl;
 			return 1;
 		}	
-		else if (input == "add")
-			phonebook.add(); //LLamo al metodo add de mi objeto phonebook
-		else if (input == "search")
-			phonebook.search();//LLamo al metodo search de mi objeto phonebook
-		else if (input == "exit")
+		else if (input == "ADD")
+			phonebook.add(); //Calling to the method 'add' from the 'phonebook' object
+		else if (input == "SEARCH")
+			phonebook.search();//Calling to the method 'search' from the 'phonebook' object
+		else if (input == "EXIT")
 		{
-			std::cout << std::endl << "'phonebook' was closed properly!" << std::endl;
+			std::cout << std::endl << "The PhoneBook was closed properly!" << std::endl;
 			return 0;
 		}
 		else
 		 std::cout << "Invalid command. Please, try again!" << std::endl;
 	}
-	return 0; //aunque nunca se alcanza este punto, debo mantener esta linea por el standard C++98
+	return 0; //despite never arrives here it is mandatory by the C++98 standard
 }
