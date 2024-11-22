@@ -6,11 +6,13 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 11:03:56 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/11/21 14:59:36 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/11/22 12:06:25 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
 #include <iostream>
 #include <string>
@@ -36,3 +38,5 @@ public:
 	std::string	getPhone();
 	std::string	getDarkSecret();
 };
+
+#endif

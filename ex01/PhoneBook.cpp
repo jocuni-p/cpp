@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 18:06:30 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/11/21 15:13:32 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/11/22 12:19:13 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
-PhoneBook::PhoneBook() //The constructor inicializes an atribute
+PhoneBook::PhoneBook()
 {
 	counter = 0;	
 }
 
-
-void	PhoneBook::add() //This function works only inside ambito del objeto phonebook de clase PhoneBook
+//This function only works inside the scope of 'phonebook' object from PhoneBook class
+void	PhoneBook::add()
 {
 	Contact		aux;
 	std::string	input;
@@ -29,41 +29,42 @@ void	PhoneBook::add() //This function works only inside ambito del objeto phoneb
 	do
 	{
 		std::cout << std::endl 
-			<< "Introduce the first name (avoid spaces/tabs before your input): ";
+			<< "Introduce the first name (avoid spaces/tabs before your input): " 
+			<< std::endl;
 		if (!std::getline(std::cin, input))
 			exit (1);
 	} while (input == "" || input[0] == ' ' || input[0] == '	');
-	aux.setFirstName(input); //Notice we use '.' to acces the method.
+	aux.setFirstName(input);//Notice we use '.' to acces the method.
 	do
 	{
-		std::cout << std::endl << "Introduce the last name: ";
+		std::cout << std::endl << "Introduce the last name: " << std::endl;
 		if (!std::getline(std::cin, input))
 			exit (1);
 	} while (input == "" || input[0] == ' ' || input[0] == '	');
 	aux.setLastName(input);
 	do
 	{
-		std::cout << std::endl << "Introduce the nick name: ";
+		std::cout << std::endl << "Introduce the nick name: " << std::endl;;
 		if (!std::getline(std::cin, input))
 			exit (1);
 	} while (input == "" || input[0] == ' ' || input[0] == '	');
 	aux.setNickName(input);
 	do
 	{
-		std::cout << std::endl << "Introduce de phone number: ";
+		std::cout << std::endl << "Introduce de phone number: " << std::endl;
 		if (!std::getline(std::cin, input))
 			exit (1);
 	} while (input == "" || input[0] == ' ' || input[0] == '	');
 	aux.setPhone(input);
 	do
 	{
-		std::cout << std::endl << "Introduce a dark secret: ";
+		std::cout << std::endl << "Introduce a dark secret: " << std::endl << std::endl;
 		if (!std::getline(std::cin, input))
 			exit (1);
 	} while (input == "" || input[0] == ' ' || input[0] == '	');
 	aux.setDarkSecret(input);
-	contactList[counter % 8] = aux; //Overwrites the last setted element
-	counter++; //Updates the element/contact number 
+	contactList[counter % 8] = aux; // Overwrites the last setted element
+	counter++; // Updates the array element number
 }
 
 
@@ -75,10 +76,11 @@ void	PhoneBook::search()
 	listprint();
 	while (true)
 	{
-		std::cout << std::endl << "What index do you want to display (0-7)? ";
+		std::cout << std::endl << "What index do you want to display (0-7)? " 
+			<< std::endl;
 		if (!std::getline(std::cin, input))
 				exit (1);
-		index = atoi(input.c_str());//c_str converts a 'std::string' to a 'char*'
+		index = atoi(input.c_str()); // c_str converts a 'std::string' to a 'char*'
 		if (input.length() == 1 && std::isdigit(input[0]) && index >= 0 && index <= 7)
 		{
 			std::cout << std::endl 

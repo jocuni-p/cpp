@@ -6,15 +6,15 @@
 #    By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/12 16:52:12 by jocuni-p          #+#    #+#              #
-#    Updated: 2024/11/12 17:18:41 by jocuni-p         ###   ########.fr        #
+#    Updated: 2024/11/21 15:34:41 by jocuni-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Nombre del compilador
-CXX = g++
+CXX = c++
 
 # Flags de compilación (opcional)
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address
 
 # Nombre del ejecutable
 NAME = megaphone
