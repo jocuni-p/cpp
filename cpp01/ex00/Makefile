@@ -6,7 +6,7 @@
 #    By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/22 14:30:57 by jocuni-p          #+#    #+#              #
-#    Updated: 2024/11/22 14:36:03 by jocuni-p         ###   ########.fr        #
+#    Updated: 2024/11/27 17:34:14 by jocuni-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic #-fsanitize=address
 NAME = brainz
 
 # Archivos fuente
-SRCS = main.cpp
+SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 
 # Archivos objeto (creados a partir de los archivos fuente)
 OBJS = $(SRCS:.cpp=.o)

@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   randomChump.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 14:30:05 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/11/27 17:39:37 by jocuni-p         ###   ########.fr       */
+/*   Created: 2024/11/27 12:00:00 by jocuni-p          #+#    #+#             */
+/*   Updated: 2024/11/27 16:35:04 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-int	main()
+void	randomChump(std::string name)
 {
-	randomChump("Betsy");
-	randomChump("Jack");
-	
-	Zombie *thePtrZ = newZombie("Stormy");
-	thePtrZ->announce();
-	delete(thePtrZ);
-
-	
-	return 0;
+//				crea una clase Zombie
+//				le pone nombre
+//				el zombie se anuncia
+	Zombie	Chump(name);
+	Chump.announce();
+//al salir de la funcion se deberia activar el destructor
 }
