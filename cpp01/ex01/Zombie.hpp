@@ -1,24 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/27 11:57:30 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/11/28 18:18:18 by jocuni-p         ###   ########.fr       */
+/*   Created: 2024/11/28 18:24:10 by jocuni-p          #+#    #+#             */
+/*   Updated: 2024/11/28 22:28:56 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
+# include <iostream>
+# include <string>
 
-Zombie *newZombie(std::string name)
+class Zombie
 {
-	if (name.empty())//return true is the string is empty, otherwise returns 0
-		name = "unknown";
-	Zombie	*theNewOnePtr = new Zombie(name);
+private:
+	std::string	_name;
 	
-	return (theNewOnePtr);
-//	Alternativa: return(new Zombie(name));
-}
+public:
+	Zombie(); 
+	~Zombie();//entrara automaticamente antes de salir de la funcion o al invocar a 'delete'
+	
+	void	announce(void);
+	void	setName(std::string name);
+};
+
+
+Zombie*	zombieHorde( int N, std::string name );
+
+
+#endif
+

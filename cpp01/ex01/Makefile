@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/11/22 14:30:57 by jocuni-p          #+#    #+#              #
-#    Updated: 2024/11/28 18:20:19 by jocuni-p         ###   ########.fr        #
+#    Created: 2024/11/28 18:20:40 by jocuni-p          #+#    #+#              #
+#    Updated: 2024/11/28 22:35:12 by jocuni-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,10 +17,10 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic #-fsanitize=address
 
 # Nombre del ejecutable
-NAME = brainz
+NAME = hordeOfZombies
 
 # Archivos fuente
-SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRCS = main.cpp Zombie.cpp zombieHorde.cpp
 
 # Archivos objeto (creados a partir de los archivos fuente)
 OBJS = $(SRCS:.cpp=.o)

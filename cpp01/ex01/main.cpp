@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/27 12:00:00 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/11/28 18:34:11 by jocuni-p         ###   ########.fr       */
+/*   Created: 2024/11/28 18:22:42 by jocuni-p          #+#    #+#             */
+/*   Updated: 2024/11/28 22:35:24 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-/*Creates an object of Zombie class, name it with the input and announce it*/
-void	randomChump(std::string name)
-{
-	if (name.empty())//return true is the string is empty, otherwise returns 0
-		name = "unknown";
-	Zombie	Chump(name);//Al constructor le paso el parametro name
-	Chump.announce();
+int main(){	
+	
+	int	N = 3;
+	
+//	llamada a zombieHorde
+	Zombie *hordeZombie = zombieHorde(N, "hordeZombieMember");
+	if (!hordeZombie)
+	{
+		std::cout << "Memory allocation failure" << std::endl;
+		return 1;
+	}
+	
+	for (int i = 0; i < N; i++)
+	{
+		hordeZombie[i].announce();
+	}
+	delete[] hordeZombie;
+	return 0;
 }
-//al salir del ambito de la funcion automaticamente es invocado el destructor de los obejtos en el stack
