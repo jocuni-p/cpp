@@ -6,7 +6,7 @@
 #    By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/22 14:30:57 by jocuni-p          #+#    #+#              #
-#    Updated: 2024/11/27 17:34:14 by jocuni-p         ###   ########.fr        #
+#    Updated: 2024/11/28 08:25:52 by jocuni-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,6 @@ fclean: clean
 re: fclean all
 
 
-# Esto indica que all, clean, fclean y re no son archivos, 
+# .PHONY indica que all, clean, fclean y re no son archivos, 
 # sino "etiquetas" para comandos de make.
 .PHONY: all clean fclean re
