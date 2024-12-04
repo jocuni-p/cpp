@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 09:26:47 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/04 18:46:23 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/12/04 19:52:24 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
 	~HumanB();
 	
 	void	attack();
-	void 	setWeapon(Weapon& x); //no entiendo porque aqui toma una ref
+	void 	setWeapon(Weapon& x);
 };
 
 #endif
