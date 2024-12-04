@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 11:50:21 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/04 18:28:49 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/12/04 19:19:52 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 * Las referencias no pueden ser reasignadas después de ser inicializadas, 
 * por lo que es obligatorio hacerlo de esta manera.
 */
-HumanA::HumanA(std::string name, Weapon& w) : _name(name), _weaponA(w) {
-
+HumanA::HumanA(std::string name, Weapon& w) : _name(name), _weaponA(w)
+{
 std::cout << "*** Constructor HumanA '" << _name << "' called ***" << std::endl;
 }
 
