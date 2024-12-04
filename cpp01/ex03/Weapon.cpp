@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 20:04:09 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/11/30 11:48:46 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/12/04 15:51:07 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 
 /*---Constructor---*/
 
-Weapon::Weapon()
+Weapon::Weapon(std::string type)
 {
-	std::cout << "*** Constructor Weapon called ***" << std::endl;
+	setType(type);
+	std::cout << "*** Constructor Weapon '" << type << "' called ***" << std::endl;
 }
 
 
@@ -25,7 +26,7 @@ Weapon::Weapon()
 
 Weapon::~Weapon()
 {
-	std::cout << "*** Destructor " << _type << "called ***" << std::endl;
+	std::cout << "*** Destructor '" << _type << "' called ***" << std::endl;
 }
 
 /*---Access methods---*/

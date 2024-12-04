@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 09:26:47 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/11/30 12:08:09 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/12/04 18:46:23 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,15 @@
 class HumanB
 {
 private:
-	std::string _name;
-	Weapon _weaponB;
+	std::string	_name;
+	Weapon 		*_weaponB;//puede existir o no, por que es *
 
 public:
-	HumanB();
+	HumanB(std::string name);
 	~HumanB();
 	
-	void 	getWeapon(Weapon weaponB);
 	void	attack();
+	void 	setWeapon(Weapon& x); //no entiendo porque aqui toma una ref
 };
 
 #endif

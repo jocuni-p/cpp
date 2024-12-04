@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 19:02:34 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/11/30 17:59:04 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/12/04 18:42:57 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int main() {
 
 	{
-		Weapon	club = Weapon("crude spiked club");
+		Weapon	club = Weapon("crude spiked club");//Declares/inits an object
 	
 		HumanA bob("Bob", club);
 		bob.attack();

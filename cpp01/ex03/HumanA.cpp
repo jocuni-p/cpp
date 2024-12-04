@@ -6,28 +6,32 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 11:50:21 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/11/30 17:42:35 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/12/04 18:28:49 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 
-
 /*---Constructor---*/
 
-HumanA::HumanA(Weapon type)
-{
-	_weaponA = type;
-	std::cout << "HumanA constructor called" << std::endl;
+/* 
+* Inicializo _weaponA usando la lista de inicialización del constructor.
+* Las referencias no pueden ser reasignadas después de ser inicializadas, 
+* por lo que es obligatorio hacerlo de esta manera.
+*/
+HumanA::HumanA(std::string name, Weapon& w) : _name(name), _weaponA(w) {
+
+std::cout << "*** Constructor HumanA '" << _name << "' called ***" << std::endl;
 }
+
 
 /*---Destructor---*/
 
 HumanA::~HumanA()
 {
-	std::cout << "Destructor " << _name << "called" << std::endl;	
+	std::cout << "*** Destructor '" << _name << "' called ***" << std::endl;	
 }
 void	HumanA::attack()
 {
-	std::cout << _name << "attacks with their" << _weaponA <<std::endl;
+	std::cout << _name << " attacks with their " << _weaponA.getType() <<std::endl;
 }

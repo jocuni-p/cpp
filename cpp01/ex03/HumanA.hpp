@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 09:15:56 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/11/30 17:30:40 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/12/04 15:25:59 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 class HumanA
 {
 private:
-	std::string _name;
-	Weapon _weaponA;
+	std::string	_name;
+	Weapon&		_weaponA; // Existira siempre porque es una ref
 
 public:
-	HumanA(Weapon type);
+	HumanA(std::string name, Weapon& w);//& porque la weapon ya esta creada
 	~HumanA();
 	
 	void	attack();
