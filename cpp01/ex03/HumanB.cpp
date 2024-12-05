@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 12:03:13 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/04 19:55:20 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/12/05 11:59:41 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ HumanB::~HumanB()
 }
 void	HumanB::attack()
 {
-	std::cout << _name << " attacks with their " << _weaponB->getType() <<std::endl;
+	if (_weaponB)
+		std::cout << _name << " attacks with their " << _weaponB->getType() <<std::endl;
+	else // In case the _weaponB pointer is NULL
+		std::cout << _name << " has no weapon" << std::endl;
 }
 
 void	HumanB::setWeapon(Weapon& x) //pasamos la ref para garantizar que se pase un objeto valido y que no se haga una copia
