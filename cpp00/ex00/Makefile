@@ -6,7 +6,7 @@
 #    By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/12 16:52:12 by jocuni-p          #+#    #+#              #
-#    Updated: 2024/11/21 15:34:41 by jocuni-p         ###   ########.fr        #
+#    Updated: 2024/12/06 19:00:00 by jocuni-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ OBJS = $(SRCS:.cpp=.o)
 all: $(NAME)
 
 # Regla para compilar el ejecutable
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) Makefile
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 # Regla para compilar archivos .cpp en archivos .o

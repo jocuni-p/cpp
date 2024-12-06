@@ -6,7 +6,7 @@
 #    By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/29 19:04:02 by jocuni-p          #+#    #+#              #
-#    Updated: 2024/12/05 11:55:53 by jocuni-p         ###   ########.fr        #
+#    Updated: 2024/12/06 19:01:14 by jocuni-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 CXX = c++
 
 # Flags de compilación (opcional)
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -fsanitize=address
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic #-fsanitize=address
 
 # Nombre del ejecutable
 NAME = attack
@@ -29,7 +29,7 @@ OBJS = $(SRCS:.cpp=.o)
 all: $(NAME)
 
 # Regla para compilar el ejecutable
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) Makefile
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 # Regla para compilar archivos .cpp en archivos .o

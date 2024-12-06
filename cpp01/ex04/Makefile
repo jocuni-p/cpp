@@ -1,8 +1,21 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/12/06 15:39:15 by jocuni-p          #+#    #+#              #
+#    Updated: 2024/12/06 19:12:02 by jocuni-p         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+
 # Nombre del compilador
 CXX = c++
 
 # Flags de compilación (opcional)
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -fsanitize=address
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic #-fsanitize=address
 
 # Nombre del ejecutable
 NAME = replace
@@ -17,7 +30,7 @@ OBJS = $(SRCS:.cpp=.o)
 all: $(NAME)
 
 # Regla para compilar el ejecutable
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) Makefile
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 # Regla para compilar archivos .cpp en archivos .o
