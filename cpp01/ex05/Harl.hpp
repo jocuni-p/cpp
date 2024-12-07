@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 19:35:39 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/06 20:41:00 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/12/07 19:37:42 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,21 @@
 #include <iostream>
 #include <string>
 
-class Harl{
-	private:
-		void	_debug( void );
-		void	_info( void );
-		void	_warning( void );
-		void	_error( void );
+class Harl
+{
+private:
 
-	public:
-		Harl();
-		~Harl();
-		void	complain(std::string level);	
+	void	_debug(void);
+	void	_info(void);
+	void	_warning(void);
+	void	_error(void);
+
+public:
+
+	Harl();
+	~Harl();
+	
+	void	complain(std::string level);	
 };
 
 #endif

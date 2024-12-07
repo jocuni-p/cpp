@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:55:19 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/06 19:09:49 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/12/07 20:46:04 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	main(int argc, char *argv[]){
 	
 //	Verificamos num de argumentos 	
 	if (argc != 4){
-		std::cout << "Usage: ./replace [filename] [string1] [string2]" << std::endl;	
+		std::cout << "Usage: ./replace [filename] [string to replace] [new string]" << std::endl;	
 		return 1;
 	}
 //	Convertir argumentos a string
