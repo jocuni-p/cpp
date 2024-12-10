@@ -6,7 +6,7 @@
 #    By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/29 13:45:22 by jocuni-p          #+#    #+#              #
-#    Updated: 2024/12/06 19:00:57 by jocuni-p         ###   ########.fr        #
+#    Updated: 2024/12/10 16:09:39 by jocuni-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ NAME = brain
 
 # Archivos fuente
 SRCS = main.cpp
+
 
 # Archivos objeto (creados a partir de los archivos fuente)
 OBJS = $(SRCS:.cpp=.o)

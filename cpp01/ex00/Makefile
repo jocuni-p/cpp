@@ -6,7 +6,7 @@
 #    By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/22 14:30:57 by jocuni-p          #+#    #+#              #
-#    Updated: 2024/12/06 19:00:28 by jocuni-p         ###   ########.fr        #
+#    Updated: 2024/12/10 16:11:08 by jocuni-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,10 @@ NAME = brainz
 # Archivos fuente
 SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 
+
+# Archivos header (para incluirlos como dependencias y evitar re-link al compilar)
+HDR = Zombie.hpp
+
 # Archivos objeto (creados a partir de los archivos fuente)
 OBJS = $(SRCS:.cpp=.o)
 
@@ -33,7 +37,7 @@ $(NAME): $(OBJS) Makefile
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 # Regla para compilar archivos .cpp en archivos .o
-%.o: %.cpp
+%.o: %.cpp $(HDR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 # Regla para limpiar archivos generados

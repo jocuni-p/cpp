@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/06 19:35:39 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/10 15:43:31 by jocuni-p         ###   ########.fr       */
+/*   Created: 2024/12/10 16:16:17 by jocuni-p          #+#    #+#             */
+/*   Updated: 2024/12/10 17:23:49 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-# define HARL_HPP
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
 #include <iostream>
-#include <string>
 
-class Harl
-{
-private:
-
-	void	_debug(void);
-	void	_info(void);
-	void	_warning(void);
-	void	_error(void);
-
-public:
-
-	Harl();
-	~Harl();
+class Fixed{
 	
-	void	complain(std::string level);	
+	private:
+
+		int					_fixp;
+		static const int	_fractbits;
+
+
+
+	public:
+		Fixed();
+		def conts que inits fixpoint a 0
+		un copy constructor que posa valor 8 a fractbits
+		un copy asignement operator overload
+		~Fixed();
+
+		int	getRawBits(void) const; //returns raw value of fixp
+		void	setRawBits(int const raw); // Sets fixp raw value
+	
 };
 
 #endif

@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/12/06 19:34:10 by jocuni-p          #+#    #+#              #
-#    Updated: 2024/12/10 16:04:36 by jocuni-p         ###   ########.fr        #
+#    Created: 2024/12/10 16:05:52 by jocuni-p          #+#    #+#              #
+#    Updated: 2024/12/10 16:17:28 by jocuni-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,14 +17,13 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic #-fsanitize=address
 
 # Nombre del ejecutable
-NAME = harl
+NAME = fixed
 
 # Archivos fuente
-SRCS = main.cpp Harl.cpp
+SRCS = main.cpp Fixed.cpp
 
 # Archivos header (para incluirlos como dependencias y evitar re-link al compilar)
-HDR = Harl.hpp
-
+HDR = Fixed.hpp
 
 # Archivos objeto (creados a partir de los archivos fuente)
 OBJS = $(SRCS:.cpp=.o)

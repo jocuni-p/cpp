@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/06 19:35:39 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/10 15:43:31 by jocuni-p         ###   ########.fr       */
+/*   Created: 2024/12/10 16:16:00 by jocuni-p          #+#    #+#             */
+/*   Updated: 2024/12/10 17:21:37 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-# define HARL_HPP
+#include "Fixed.hpp"
 
-#include <iostream>
-#include <string>
 
-class Harl
-{
-private:
+/*-----Default Constructor-----*/
 
-	void	_debug(void);
-	void	_info(void);
-	void	_warning(void);
-	void	_error(void);
-
-public:
-
-	Harl();
-	~Harl();
+Fixed::Fixed() {
 	
-	void	complain(std::string level);	
-};
+	_fixp = 0;
+	std::cout << "Default constructor called" << std::endl;
+}
 
-#endif
+
+
+
+
+
+Fixed::~Fixed(){
+	
+	std::cout << "Destructor called" << std::endl;
+}

@@ -6,7 +6,7 @@
 #    By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/12 16:52:12 by jocuni-p          #+#    #+#              #
-#    Updated: 2024/12/06 19:00:13 by jocuni-p         ###   ########.fr        #
+#    Updated: 2024/12/10 16:12:09 by jocuni-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,9 @@ NAME = phonebook
 # Archivos fuente
 SRCS = main.cpp PhoneBook.cpp Contact.cpp
 
+# Archivos header (para incluirlos como dependencias y evitar re-link al compilar)
+HDR = Contact.hpp PhoneBook.hpp
+
 # Archivos objeto (creados a partir de los archivos fuente)
 OBJS = $(SRCS:.cpp=.o)
 
@@ -33,7 +36,7 @@ $(NAME): $(OBJS) Makefile
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 # Regla para compilar archivos .cpp en archivos .o
-%.o: %.cpp
+%.o: %.cpp $(HDR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 # Regla para limpiar archivos generados

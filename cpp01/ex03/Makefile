@@ -6,7 +6,7 @@
 #    By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/29 19:04:02 by jocuni-p          #+#    #+#              #
-#    Updated: 2024/12/06 19:01:14 by jocuni-p         ###   ########.fr        #
+#    Updated: 2024/12/10 16:08:25 by jocuni-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,9 @@ NAME = attack
 # Archivos fuente
 SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 
+# Archivos header (para incluirlos como dependencias y evitar re-link al compilar)
+HDR = HumanA.hpp HumanB.hpp Weapon.hpp
+
 # Archivos objeto (creados a partir de los archivos fuente)
 OBJS = $(SRCS:.cpp=.o)
 
@@ -33,7 +36,7 @@ $(NAME): $(OBJS) Makefile
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 # Regla para compilar archivos .cpp en archivos .o
-%.o: %.cpp
+%.o: %.cpp $(HDR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 # Regla para limpiar archivos generados
