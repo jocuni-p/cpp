@@ -6,12 +6,12 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:16:00 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/11 17:15:19 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/12/12 16:31:57 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
 #include "Fixed.hpp"
-
 
 /*-----Default Constructor-----*/
 
@@ -33,7 +33,9 @@ Fixed::~Fixed(){
 /* Se llama cuando se crea un nuevo objeto copiando otro existente.*/
 Fixed::Fixed(const Fixed& other){
 	
-	this->_rawValue = other._rawValue; // copiamos el atributo
+//	this->_rawValue = other._rawValue; // copiamos el atributo
+//	_rawValue = other._rawValue; // Alternativa
+	Fixed::setRawBits() = other.getRawBits(); //Alternativa
 	std::cout << "Copy constructor called" << std::endl;
 }
 

@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:15:41 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/11 19:25:50 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/12/12 16:20:10 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,48 +16,36 @@
 
 int	main( void ) {
 	
-	Fixed 		a; // Constructor por defecto
-	Fixed const	b(10); // Constructor de copia
-	Fixed const c(42.42f); // Constructor de copia
-	Fixed const	d(b); // Constructor de copia
+	Fixed a; // Constructor por defecto
+	Fixed b( a ); // Constructor de copia
+	Fixed c;
 	
-	a = Fixed(1234.4321f); // Operador de asignacion de copia
+	c = b; // Operador de asignacion de copia
+	 
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
 	
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
-	std::cout << "d is " << d << std::endl;
-
-	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
-
 	return 0;
 }
 
-/* ---------expected output----------
+/* ---------output----------
 $> ./a.out
 Default constructor called
-Int constructor called
-Float constructor called
 Copy constructor called
+Copy assignment operator called // <-- This line may be missing depending on your implementation
+getRawBits member function called
+Default constructor called
 Copy assignment operator called
-Float constructor called
-Copy assignment operator called
-Destructor called
-a is 1234.43
-b is 10
-c is 42.4219
-d is 10
-a is 1234 as integer
-b is 10 as integer
-c is 42 as integer
-d is 10 as integer
+getRawBits member function called
+getRawBits member function called
+0
+getRawBits member function called
+0
+getRawBits member function called
+0
 Destructor called
 Destructor called
 Destructor called
-Destructor called
-$>
-*/
+$>*/
 

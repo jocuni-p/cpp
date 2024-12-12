@@ -6,10 +6,11 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:16:00 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/11 17:15:19 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/12/12 15:54:41 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
 #include "Fixed.hpp"
 
 
@@ -30,7 +31,12 @@ Fixed::~Fixed(){
 
 
 /*------Copy constructor------*/
-/* Se llama cuando se crea un nuevo objeto copiando otro existente.*/
+/**
+ * Se llama cuando se crea un nuevo objeto copiando otro existente.
+ * Se le pasa como parametro una referencia del objeto a copiar existente y es const porque no lo va a cambiar
+ * Copiamos el valor de su atributo privado en nuestro objeto 
+ * */
+
 Fixed::Fixed(const Fixed& other){
 	
 	this->_rawValue = other._rawValue; // copiamos el atributo
