@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:15:41 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/12 16:20:10 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/12/13 12:12:52 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main( void ) {
 	return 0;
 }
 
-/* ---------output----------
+/* ---------expected output----------
 $> ./a.out
 Default constructor called
 Copy constructor called

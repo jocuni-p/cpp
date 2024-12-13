@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:16:00 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/12 16:31:57 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/12/13 12:12:11 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,12 @@ Fixed::~Fixed(){
 /* Se llama cuando se crea un nuevo objeto copiando otro existente.*/
 Fixed::Fixed(const Fixed& other){
 	
-//	this->_rawValue = other._rawValue; // copiamos el atributo
-//	_rawValue = other._rawValue; // Alternativa
-	Fixed::setRawBits() = other.getRawBits(); //Alternativa
 	std::cout << "Copy constructor called" << std::endl;
+//	this->_rawValue = other._rawValue; // Alternativa
+//	_rawValue = other._rawValue; // Alternativa
+//	Fixed::setRawBits(other.getRawBits()); //Alternativa
+	this->_rawValue = other.getRawBits(); // Forced by the subject
+
 }
 
 
@@ -44,9 +46,10 @@ Fixed::Fixed(const Fixed& other){
 /* Se llama cuando se asigna un objeto ya existente a otro ya existente*/
 Fixed& Fixed::operator=(const Fixed& other){
 	
-	if (this != &other) // verifica que no se este autoasignando
-		this->_rawValue = other._rawValue;
 	std::cout << "Copy assignment operator called" << std::endl;
+	if (this != &other) // verifica que no se este autoasignando
+//		this->_rawValue = other._rawValue; // Alternativa
+		this->_rawValue = other.getRawBits(); // Forced by the subject
 	return *this;
 }
 

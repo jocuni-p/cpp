@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:15:41 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/12 16:00:35 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/12/13 13:22:41 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 
 int	main( void ) {
 	
-	Fixed 		a; // Constructor por defecto
-	Fixed const	b(10); // Constructor de copia
-	Fixed const c(42.42f); // Constructor de copia
-	Fixed const	d(b); // Constructor de copia
+	Fixed 		a; // Default Constructor
+	Fixed const	b(10); // Int constructor
+	Fixed const c(42.42f); // Float constructor
+	Fixed const	d(b); // Copy constructor
 	
 	a = Fixed(1234.4321f); // Operador de asignacion de copia
 	
