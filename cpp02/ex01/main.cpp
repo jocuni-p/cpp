@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:15:41 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/13 13:22:41 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/12/16 16:31:49 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int	main( void ) {
 	Fixed 		a; // Default Constructor
 	Fixed const	b(10); // Int constructor
 	Fixed const c(42.42f); // Float constructor
-	Fixed const	d(b); // Copy constructor
+	Fixed const	d(b); // Copy constructor + assignment operator
 	
-	a = Fixed(1234.4321f); // Operador de asignacion de copia
+	a = Fixed(1234.4321f); // Un float constructor + copy assignment
 	
 	std::cout << "a is " << a << std::endl;
 	std::cout << "b is " << b << std::endl;
@@ -35,7 +35,6 @@ int	main( void ) {
 
 	return 0;
 }
-
 /* ---------expected output----------
 $> ./a.out
 Default constructor called
