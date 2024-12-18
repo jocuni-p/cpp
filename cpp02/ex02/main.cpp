@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:15:41 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/16 17:10:27 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/12/18 19:02:22 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 
 int	main( void ) {
-	
+
 	Fixed		a;
 	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-	
+
 	std::cout << a << std::endl;
 	std::cout << ++a << std::endl;
 	std::cout << a << std::endl;
@@ -26,11 +26,11 @@ int	main( void ) {
 	std::cout << a << std::endl;
 
 	std::cout << b << std::endl;
-	
+
 	std::cout << Fixed::max( a, b ) << std::endl;
 	
 	return 0;
-}
+} 
 
 /* ---------expected output----------
 $> ./a.out

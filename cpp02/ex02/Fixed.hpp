@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:16:17 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/16 17:29:38 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/12/18 18:53:07 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,41 +21,67 @@ class Fixed{
 		static const int	_fractBits = 8; // Se inicializa aqui
 
 	public:
+	
+/*=================Constructors - Canonic Form================*/
+
 		Fixed(); // Default constructor
+		~Fixed(); // Destructor
+		Fixed(const Fixed& other); // Copy constructor
+		Fixed&				operator=(const Fixed& other); // Copy assignment operator
+
+/*=====================Other constructors======================*/
+
 		Fixed(const int num); // Int Constructor. Convierte el argumento a un fixed-point val
 		Fixed(const float num); // Float Constructor. Convierte el argumento a un fixed-point val
-		Fixed(const Fixed& other); // Copy constructor
-		~Fixed();
 
-		Fixed& operator=(const Fixed& other); // Copy assignment operator overload
+/*=======================Access methods========================*/
 
+		int					getRawBits(void) const; //returns _rawValue
+		void				setRawBits(int const raw); // Sets _rawValue
+		
+/*=========================Member functions====================*/
+	
+		float				toFloat(void) const; // fixed-point to float
+		int					toInt(void) const; // fixed-point to int
 
-		Fixed& operator>(const Fixed& fixed);
-		Fixed& operator<(const Fixed& fixed);
-		Fixed& operator>=(const Fixed& fixed);
-		Fixed& operator>=(const Fixed& fixed);
-		Fixed& operator==(const Fixed& fixed);
-		Fixed& operator!=(const Fixed& fixed);
+/*================overload comparison operators================*/
 
+		bool 				operator>(const Fixed& fixed) const;
+		bool 				operator<(const Fixed& fixed) const;
+		bool 				operator>=(const Fixed& fixed) const;
+		bool 				operator<=(const Fixed& fixed) const;
+		bool 				operator==(const Fixed& fixed) const;
+		bool 				operator!=(const Fixed& fixed) const;
 
+/*================overload arithmetic operators================*/
 
+		Fixed 				operator+(const Fixed& fixed) const;
+		Fixed 				operator-(const Fixed& fixed) const;
+		Fixed 				operator*(const Fixed& fixed) const;
+		Fixed 				operator/(const Fixed& fixed) const;
 
-		static Fixed& min(Fixed& fixed1, Fixed& fixed2);
-		static Fixed& min(const Fixed& fixed1, const Fixed& fixed2);
-		static Fixed& max(Fixed& fixed1, Fixed& fixed2);
-		static Fixed& max(const Fixed& fixed1, const Fixed& fixed2);
+/*===========overload increment/decrement operators============*/
 
-		int		getRawBits(void) const; //returns _rawValue
-		void	setRawBits(int const raw); // Sets _rawValue
-		float	toFloat(void) const; // fixed-point to float
-		int		toInt(void) const; // fixed-point to int
+		Fixed&				operator++(); // post-increment
+		Fixed				operator++(int); // pre-increment
+		Fixed&				operator--();
+		Fixed				operator--(int);
+
+/*================overload member functions====================*/
+// Retornan una referencia a un obj de clase Fixed. Es static porque 
+// pertenece a la clase y no a una instancia específica de la clase y
+// puede ser llamada sin necesidad de crear un objeto de tipo Fixed.
+		static Fixed& 		min(Fixed& fixed1, Fixed& fixed2); // Permite que retorno y/o parametros puedan ser modificados
+		static const Fixed&	min(const Fixed& fixed1, const Fixed& fixed2);// No se podra modificar ni los parametros ni la ref devuelta
+		static Fixed& 		max(Fixed& fixed1, Fixed& fixed2);
+		static const Fixed&	max(const Fixed& fixed1, const Fixed& fixed2);
+
 
 };
 
-/*=======overload operator function========*/
-//	Inserta una representacion de tipo float (mediante toFloat) 
-// de un fixed-point (_rawValue) en el flujo de salida (la terminal) 
-// del objeto pasado como parametro.
-std::ostream&  operator<<(std::ostream& out, const Fixed& fixed); // muestra el num en formato flotante usando toFloat
+
+/*==============overload insertion operator function===========*/
+//	Muestra/inserta el valor del fixed-point de fixed en formato float 
+std::ostream&  				operator<<(std::ostream& out, const Fixed& fixed);
 
 #endif
