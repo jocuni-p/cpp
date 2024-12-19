@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:16:17 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/18 18:53:07 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/12/19 14:12:35 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,24 +59,25 @@ class Fixed{
 		Fixed 				operator-(const Fixed& fixed) const;
 		Fixed 				operator*(const Fixed& fixed) const;
 		Fixed 				operator/(const Fixed& fixed) const;
-
+// Los prototipos de funcion acabados en 'const' indican que esa funcion
+// no modificara el estado del objeto al que pertenece
 /*===========overload increment/decrement operators============*/
 
-		Fixed&				operator++(); // post-increment
-		Fixed				operator++(int); // pre-increment
-		Fixed&				operator--();
-		Fixed				operator--(int);
+		Fixed&				operator++(); // pre-increment. Increments and show the incremented value.
+		Fixed				operator++(int); // post-increment. Shows the current value and then increments it. El 'int' diferencia el pre-incremento del post-incremento.
+		Fixed&				operator--(); //pre-decrement
+		Fixed				operator--(int); //post-decrement. El 'int' diferencia el pre-incremento del post-incremento.
 
-/*================overload member functions====================*/
-// Retornan una referencia a un obj de clase Fixed. Es static porque 
-// pertenece a la clase y no a una instancia específica de la clase y
-// puede ser llamada sin necesidad de crear un objeto de tipo Fixed.
+/**================overload member functions====================
+* Retornan una referencia a un obj de clase Fixed. Es static porque 
+* pertenece a la clase y no a una instancia específica de la clase y
+* puede ser llamada sin necesidad de crear un objeto de tipo Fixed 
+* para acceder a ella. La llamamos asi: 'Fixed::max()' y no asi: 'a.max()'
+*/
 		static Fixed& 		min(Fixed& fixed1, Fixed& fixed2); // Permite que retorno y/o parametros puedan ser modificados
 		static const Fixed&	min(const Fixed& fixed1, const Fixed& fixed2);// No se podra modificar ni los parametros ni la ref devuelta
 		static Fixed& 		max(Fixed& fixed1, Fixed& fixed2);
 		static const Fixed&	max(const Fixed& fixed1, const Fixed& fixed2);
-
-
 };
 
 

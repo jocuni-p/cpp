@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:16:00 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/18 18:51:42 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/12/19 16:25:17 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ Fixed::~Fixed(){
  * */
 Fixed::Fixed(const Fixed& other){
 	std::cout << "Copy constructor called" << std::endl;
-	*this = other; // usamos el operador de asignacion de copia que ya tenemos
+	*this = other; // usamos el operador de asignacion de copia que tenemos debajo
 }
 
 /*=======Copy assignment operator======*/
@@ -101,30 +101,30 @@ float	Fixed::toFloat(void) const { // fixed-point to float
 /*===========overload comparison operators============*/
 
 bool	Fixed::operator>(const Fixed& fixed) const {
-	std::cout << "Overloaded '>'" << std::endl; // TODO: remover
+//	std::cout << "Overload '>'" << std::endl; // TODO: remover
 	return this->_rawValue > fixed._rawValue;
 }
 bool	Fixed::operator<(const Fixed& fixed) const {
-	std::cout << "Overloaded '<'" << std::endl; // TODO: remover
+//	std::cout << "Overload '<'" << std::endl; // TODO: remover
 	return this->_rawValue < fixed._rawValue;
 }
 bool	Fixed::operator>=(const Fixed& fixed) const {
-	std::cout << "Overloaded '>='" << std::endl; // TODO: remover
+//	std::cout << "Overload '>='" << std::endl; // TODO: remover
 	return this->_rawValue >= fixed._rawValue;
 }
 
 bool	Fixed::operator<=(const Fixed& fixed) const {
-	std::cout << "Overloaded '<='" << std::endl; // TODO: remover
+//	std::cout << "Overload '<='" << std::endl; // TODO: remover
 	return this->_rawValue <= fixed._rawValue;
 }
 	
 bool	Fixed::operator==(const Fixed& fixed) const {
-	std::cout << "Overloaded '=='" << std::endl; // TODO: remover
+//	std::cout << "Overload '=='" << std::endl; // TODO: remover
 	return this->_rawValue == fixed._rawValue;
 }
 
 bool	Fixed::operator!=(const Fixed& fixed) const {
-	std::cout << "Overloaded '!='" << std::endl; // TODO: remover
+//	std::cout << "Overload '!='" << std::endl; // TODO: remover
 	return this->_rawValue != fixed._rawValue;
 }
 
@@ -132,65 +132,69 @@ bool	Fixed::operator!=(const Fixed& fixed) const {
 /*================overload arithmetic operators================*/
 
 Fixed 	Fixed::operator+(const Fixed& fixed) const {
-	std::cout << "Overloaded '+'" << std::endl; // TODO: remover
-	return this->toFloat() + fixed.toFloat();
+//	std::cout << "Overload '+'" << std::endl; // TODO: remover
+	return Fixed(this->toFloat() + fixed.toFloat()); //returns a new Fixed class object constructed by the float constructor
 }
 
 Fixed 	Fixed::operator-(const Fixed& fixed) const {
-	std::cout << "Overloaded '-'" << std::endl; // TODO: remover
-	return this->toFloat() - fixed.toFloat();
+//	std::cout << "Overload '-'" << std::endl; // TODO: remover
+	return Fixed(this->toFloat() - fixed.toFloat());
 }
 
 Fixed 	Fixed::operator*(const Fixed& fixed) const {
-	std::cout << "Overloaded '*'" << std::endl; // TODO: remover
-	return this->toFloat() * fixed.toFloat();
+//	std::cout << "Overload '*'" << std::endl; // TODO: remover
+	 return Fixed(this->toFloat() * fixed.toFloat());
+//	this->setRawBits((this->toFloat() * fixed.toFloat())* (1 << this->_fractBits));//version de Roman
+	return *this;
 }
 
 Fixed 	Fixed::operator/(const Fixed& fixed) const {
-	std::cout << "Overloaded '/'" << std::endl; // TODO: remover
-	return this->toFloat() / fixed.toFloat();
+//	std::cout << "Overload '/'" << std::endl; // TODO: remover
+	return Fixed(this->toFloat() / fixed.toFloat());
 }
 
 /*===========overload increment/decrement operators============*/
 
-		Fixed&	Fixed::operator++() { // pre-increment
-			++this->_rawValue; // incremento el valor del obj
-			return *this; // devuelvo el obj con el incrementado
-		}
+Fixed&	Fixed::operator++() { // Pre-increment. Increments and show the incremented value.
+	++this->_rawValue; // incremento el valor del obj
+	return *this; // devuelvo el obj con el valor incrementado
+}
 
-		Fixed	Fixed::operator++(int) { // post-increment
-			Fixed tmp = *this; // creo una copia del obj
-			++this->_rawValue; // incremento el valor en el obj
-			return tmp; // devuelvo la copia previa al incremento
-		}
-		
-		Fixed&	Fixed::operator--() { // pre-decrement
-			--this->_rawValue;
-			return *this;
-		}
-		
-		Fixed	Fixed::operator--(int) {  // post-decrement
-			Fixed tmp = *this;
-			--this->_rawValue;
-			return tmp;
-		}
+Fixed	Fixed::operator++(int) { // post-increment. Shows the current value and then increments it.
+	Fixed tmp = *this; // creo una copia del obj
+	this->_rawValue++; // incremento el valor en el obj
+	return tmp; // devuelvo la copia previa al incremento
+}
+
+Fixed&	Fixed::operator--() { // pre-decrement
+	--this->_rawValue;
+	return *this;
+}
+
+Fixed	Fixed::operator--(int) {  // post-decrement
+	Fixed tmp = *this;
+	this->_rawValue--; // lo uso despues porque refleja mas visualmente lo que estamos haciendo, aunque asi --this->_rawValue seria igual.
+	return tmp;
+}
 
 /*================overload member functions====================*/
 
 Fixed&	Fixed::min(Fixed& fixed1, Fixed& fixed2){ // Permite que retorno y/o parametros puedan ser modificados
-	std::cout << "overload 'min'" << std::endl; // TODO: remove
+//	std::cout << "overload 'min'" << std::endl; // TODO: remove
 	return (fixed1 < fixed2) ? fixed1 : fixed2; // '<' overloaded y uso del operador ternario
 }
 
 const Fixed&	Fixed::min(const Fixed& fixed1, const Fixed& fixed2) { // const no permite modificar ni argumentos ni return
+//	std::cout << "overload const 'min'" << std::endl; // TODO: remove
 	return (fixed1 < fixed2) ? fixed1 : fixed2;
 }
 Fixed&	Fixed::max(Fixed& fixed1, Fixed& fixed2) {
-	std::cout << "overload 'max'" << std::endl; // TODO: remove
+//	std::cout << "overload 'max'" << std::endl; // TODO: remove
 	return (fixed1 > fixed2) ? fixed1 : fixed2;
 }
 
 const Fixed&	Fixed::max(const Fixed& fixed1, const Fixed& fixed2) {
+//	std::cout << "overload const 'max'" << std::endl; // TODO: remove
 	return (fixed1 > fixed2) ? fixed1 : fixed2;
 }
 
@@ -198,7 +202,7 @@ const Fixed&	Fixed::max(const Fixed& fixed1, const Fixed& fixed2) {
 /*=============Overload insertion operator==============*/
 
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed) {
-	std::cout << "Overloaded '<<' " << std::endl;;
+//	std::cout << "Overload '<<' " << std::endl;;
 	out << fixed.toFloat();
 	return out;
 }
