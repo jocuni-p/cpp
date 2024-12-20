@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:16:00 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/19 16:25:17 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/12/20 15:35:25 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 /*=========Default Constructor===========*/
 /*Entra automaticamente al instanciar un obj sin parametro*/
 Fixed::Fixed() : _rawValue(0) { //Forma optima de inicializar
-	std::cout << "Default constructor called" << std::endl;
+//	std::cout << "Default constructor called" << std::endl;
 }
 
 /*============Destructor============*/
 /*Entra automaticamente cuando ya no se usa un objeto*/
 Fixed::~Fixed(){
-	std::cout << "Destructor called" << std::endl;
+//	std::cout << "Destructor called" << std::endl;
 }
 
 /*=========Copy constructor=========*/
@@ -34,14 +34,14 @@ Fixed::~Fixed(){
  * Copiamos el valor de su atributo privado en nuestro objeto 
  * */
 Fixed::Fixed(const Fixed& other){
-	std::cout << "Copy constructor called" << std::endl;
+//	std::cout << "Copy constructor called" << std::endl;
 	*this = other; // usamos el operador de asignacion de copia que tenemos debajo
 }
 
 /*=======Copy assignment operator======*/
 /* Se usa cuando se asigna un objeto ya existente a otro ya existente*/
 Fixed& Fixed::operator=(const Fixed& other){
-	std::cout << "Copy assignment operator called" << std::endl;
+//	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other) // protector, verifica que no se este autoasignando
 		this->_rawValue = other.getRawBits();
 	return *this;
@@ -54,7 +54,7 @@ Fixed& Fixed::operator=(const Fixed& other){
  *  espacio para los bits fraccionales. 
  */
 Fixed::Fixed(const int num){
-	std::cout << "Int constructor called" << std::endl;
+//	std::cout << "Int constructor called" << std::endl;
 	this->_rawValue = num << this->_fractBits;
 //	std::cout << "rawValue as fixed-point = " << _rawValue << std::endl;// TODO: remover
 }
@@ -66,7 +66,7 @@ Fixed::Fixed(const int num){
  * precision que un simple truncado.
  */
 Fixed::Fixed(const float num){  
-	std::cout << "Float constructor called" << std::endl;
+//	std::cout << "Float constructor called" << std::endl;
 	_rawValue = static_cast<int>(roundf(num *(1 << _fractBits)));
 //	std::cout << "rawValue as fixed-point = " << _rawValue << std::endl;//TODO: remover
 }

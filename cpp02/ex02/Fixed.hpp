@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:16:17 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/19 14:12:35 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/12/20 10:37:10 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,9 @@ class Fixed{
 		Fixed 				operator-(const Fixed& fixed) const;
 		Fixed 				operator*(const Fixed& fixed) const;
 		Fixed 				operator/(const Fixed& fixed) const;
-// Los prototipos de funcion acabados en 'const' indican que esa funcion
+// Prototipos acabados en 'const' indican que esa funcion
 // no modificara el estado del objeto al que pertenece
+
 /*===========overload increment/decrement operators============*/
 
 		Fixed&				operator++(); // pre-increment. Increments and show the incremented value.
