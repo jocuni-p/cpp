@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:15:41 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/20 16:45:29 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/12/20 19:01:52 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int	main( void ) {
 	Fixed		d(10);
 	Fixed		e(2.5f);
 	Fixed		c(1);
-	Fixed  		f(50);
-	Fixed  		g(100);
+	Fixed 		f(50);
+	Fixed 		g(100);
 	
 	std::cout << "============" << std::endl;
 	std::cout << "SUBJECT TEST" << std::endl;
