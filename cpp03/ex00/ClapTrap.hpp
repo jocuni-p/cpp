@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 19:18:34 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/22 18:01:32 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/12/23 15:44:57 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,22 @@
 class ClapTrap
 {
 	private:
-		std::string		name;
-		int	hit;
-		int	energy;
-		int	damage;
+		std::string	_name;
+		int			_hitPoints;
+		int			_energyPoints;
+		int			_attackDamage; 
 
 	public:
-	//	ClapTrap();
-		ClapTrap(const std::string& name); // Constructor
-		ClapTrap(); // Copy constructor
+		ClapTrap(); // Default constructor
+		ClapTrap(const std::string& name); // Constructor for string
+		ClapTrap(const ClapTrap& other); // Copy constructor
+		ClapTrap& operator=(const ClapTrap& other);
 		~ClapTrap(); // Destructor
 		
 
-
-		void	attack(const std::string& target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
+		void		attack(const std::string& target);
+		void		takeDamage(unsigned int amount);
+		void		beRepaired(unsigned int amount);
 
 
 
