@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:16:00 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/16 16:31:18 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/12/23 11:41:39 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 /*-----Default Constructor-----*/
 
 Fixed::Fixed() : _rawValue(0) { //Forma optima de inicializar
-
 	std::cout << "Default constructor called" << std::endl;
 }
 
@@ -51,7 +50,6 @@ Fixed::Fixed(const float num){
  * Copiamos el valor de su atributo privado en nuestro objeto 
  * */
 Fixed::Fixed(const Fixed& other){
-	
 	std::cout << "Copy constructor called" << std::endl;
 	*this = other; // usamos el operador de asignacion de copia que ya tenemos
 }
@@ -68,12 +66,10 @@ Fixed& Fixed::operator=(const Fixed& other){
 /*-----Destructor------*/
 
 Fixed::~Fixed(){
-	
 	std::cout << "Destructor called" << std::endl;
 }
 
-
-/*===========Member functions============*/
+/*==========Access public methods===========*/
 
 int	Fixed::getRawBits(void) const {
 //	std::cout << "getRawBits member function called" << std::endl;
@@ -86,8 +82,9 @@ void	Fixed::setRawBits(int const raw){
 //	std::cout << "setRawBits member function called" << std::endl;
 }
 
+/*===========Member functions============*/
 
-//Convierte _rawValue a un entero desplazando bits hacia la derecha
+//Convierte _rawValue a un entero desplazando 8 bits hacia la derecha
 int	Fixed::toInt(void) const { //fixed-point to Integer
 	return _rawValue >> _fractBits;
 }

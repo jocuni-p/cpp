@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:16:17 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/16 17:04:00 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/12/23 11:23:45 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,9 @@ class Fixed{
 		
 };
 
-/*=======overload operator definition========*/
-//	Inserta una representacion de tipo float (mediante toFloat) 
-// de un fixed-point (_rawValue) en el flujo de salida (la terminal) 
-// del objeto pasado como parametro.
-std::ostream&  operator<<(std::ostream& out, const Fixed& fixed); // muestra el num en formato flotante usando toFloat
+/*=======overload "<<" operator definition========*/
+//	Inserta en el flujo de salida (ostream) el float (mediante toFloat) 
+// del _rawValue (fixed-point) del objeto pasado como parametro.
+std::ostream&  operator<<(std::ostream& out, const Fixed& fixed);
 
 #endif

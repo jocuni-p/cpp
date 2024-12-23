@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:15:41 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/13 12:12:52 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/12/23 10:59:32 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 int	main( void ) {
 	
-	Fixed a; // Constructor por defecto
-	Fixed b( a ); // Constructor de copia
+	Fixed a; // Usa el constructor por defecto
+	Fixed b( a ); // Usa el constructor de copia
 	Fixed c;
 	
 	c = b; // Operador de asignacion de copia

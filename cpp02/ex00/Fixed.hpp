@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:16:17 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/12 15:58:40 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/12/23 11:40:13 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ class Fixed{
 		Fixed(); // Default constructor
 		Fixed(const Fixed& other); // Copy constructor
 		Fixed& operator=(const Fixed& other); // Copy assignment operator overload
-		~Fixed();
+		~Fixed(); // Destructor
+
+/*------Access public methods--------*/
 
 		int		getRawBits(void) const; //returns _rawValue
 		void	setRawBits(int const raw); // Sets _rawValue raw value
