@@ -6,12 +6,12 @@
 #    By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 15:49:52 by jocuni-p          #+#    #+#              #
-#    Updated: 2024/12/21 19:17:20 by jocuni-p         ###   ########.fr        #
+#    Updated: 2024/12/24 16:09:01 by jocuni-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = fixed_more
+NAME = clap
 
 # Nombre del compilador
 CXX = c++
