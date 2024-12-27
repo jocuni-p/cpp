@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 12:21:43 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/27 14:18:03 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/12/27 16:33:15 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include <iostream>
 # include <string>
 
+/** ScavTrap es una clase derivada/heredada/hija de ClapTrap que modifica el
+ * valor de algunos atributos, de la funcion attack y anyade la funcion 
+ * guardGate*/
 class ScavTrap : public ClapTrap {
 	
 	public:

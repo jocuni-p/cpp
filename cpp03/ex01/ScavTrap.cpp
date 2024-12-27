@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 12:22:01 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/27 14:23:11 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/12/27 17:45:21 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,31 +16,31 @@
 
 /*----Default constructor----*/
 
-ScavTrap::ScavTrap() : ClapTrap("default"), _hitPoints(100), _energyPoints(50), _attackDamage(20) {
-//	_hitPoints = 100;
-//	_energyPoints = 50;
-//	_attackDamage = 20;
+ScavTrap::ScavTrap() : ClapTrap("default") {
+	_hitPoints = 100;
+	_energyPoints = 50;
+	_attackDamage = 20;
 	std::cout << "ScavTrap default constructor called" << std::endl;
 }
 
 /*--------Constructor overload--------*/
 
-ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name), _hitPoints(100), _energyPoints(50), _attackDamage(20) {
-//	_hitPoints = 100;
-//	_energyPoints = 50;
-//	_attackDamage = 20;
+ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name) {
+	_hitPoints = 100;
+	_energyPoints = 50;
+	_attackDamage = 20;
 	std::cout << "ScavTrap overloaded constructor called for " << _name << std::endl; //chequear si _name sale bien
 }
 
 /*----Copy constructor----*/
 
 ScavTrap::ScavTrap(const ScavTrap& other) {
+	std::cout << "ScavTrap copy constructor called for " << _name << std::endl; //chequear si _name sale bien
 	*this = other;
 //	_name = other._name; // Alternativa
 //	_hitPoints = other._hitPoints; // Alternativa
 //	_energyPoints = other._energyPoints; // Alternativa
 //	_attackDamage = other._attackDamage; // Alternativa
-	std::cout << "ScavTrap copy constructor called for " << _name << std::endl; //chequear si _name sale bien
 }
 
 /*----Copy asignment operator overloaded----*/
