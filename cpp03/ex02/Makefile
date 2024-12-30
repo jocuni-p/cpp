@@ -6,7 +6,7 @@
 #    By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 15:49:52 by jocuni-p          #+#    #+#              #
-#    Updated: 2024/12/28 16:27:18 by jocuni-p         ###   ########.fr        #
+#    Updated: 2024/12/30 11:18:41 by jocuni-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,9 +24,6 @@ DEPFLAGS = -MMD -MP
 
 # Archivos fuente
 SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
-
-# Archivos header (para incluirlos como dependencias y evitar re-link al compilar)
-HDR = ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
 
 # Directorio para los objetos
 DIR_OBJS = objs/
@@ -48,7 +45,7 @@ $(NAME): $(OBJS) Makefile
 
 # Regla para compilar archivos .cpp en archivos .o
 # Incluyo HDR como dependencia (si cambia algo en .hpp el compilador regenerara los archivos .o relacionados)
-$(DIR_OBJS)%.o: %.cpp $(HDR)
+$(DIR_OBJS)%.o: %.cpp
 	$(CXX) $(CXXFLAGS) $(DEPFLAGS) -c $< -o $@
 
 # Regla para limpiar archivos generados
