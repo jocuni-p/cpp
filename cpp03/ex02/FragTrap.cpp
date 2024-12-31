@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 16:27:39 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/29 21:02:47 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/12/31 12:22:58 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 /*----Default constructor----*/
 
 FragTrap::FragTrap() : ClapTrap("default") {
-	setHitPoints(100); // Usamos los metodos de acceso protected, porque los atributos son private
+	setHitPoints(100); // Podemos usar los metodos de acceso protected o ir directo al atributo
 	setEnergyPoints(100);
 	setAttackDamage(30);
 	std::cout << "FragTrap default constructor called for " << getName() << std::endl;
@@ -35,7 +35,6 @@ FragTrap::FragTrap(const std::string& name) : ClapTrap(name) {
 
 FragTrap::FragTrap(const FragTrap& copy) : ClapTrap(copy) {
 	std::cout << "FragTrap copy constructor called for " << getName() << std::endl; //chequear si _name sale bien
-//	*this = other;
 }
 
 /*----Assignment operator overloaded----*/

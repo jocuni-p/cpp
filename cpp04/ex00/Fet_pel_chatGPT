@@ -1,0 +1,281 @@
+// Animal.hpp
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
+
+#include <iostream>
+#include <string>
+
+class Animal {
+protected:
+    std::string type;
+
+public:
+    Animal();
+    virtual ~Animal();
+    Animal(const Animal& other);
+    Animal& operator=(const Animal& other);
+
+    virtual void makeSound() const;
+    std::string getType() const;
+};
+
+#endif
+
+// Animal.cpp
+#include "Animal.hpp"
+
+Animal::Animal() : type("Animal") {
+    std::cout << "Animal constructor called" << std::endl;
+}
+
+Animal::~Animal() {
+    std::cout << "Animal destructor called" << std::endl;
+}
+
+Animal::Animal(const Animal& other) : type(other.type) {
+    std::cout << "Animal copy constructor called" << std::endl;
+}
+
+Animal& Animal::operator=(const Animal& other) {
+    if (this != &other) {
+        type = other.type;
+    }
+    std::cout << "Animal assignment operator called" << std::endl;
+    return *this;
+}
+
+void Animal::makeSound() const {
+    std::cout << "Animal makes a sound" << std::endl;
+}
+
+std::string Animal::getType() const {
+    return type;
+}
+
+// Dog.hpp
+#ifndef DOG_HPP
+#define DOG_HPP
+
+#include "Animal.hpp"
+
+class Dog : public Animal {
+public:
+    Dog();
+    ~Dog();
+    Dog(const Dog& other);
+    Dog& operator=(const Dog& other);
+
+    void makeSound() const override;
+};
+
+#endif
+
+// Dog.cpp
+#include "Dog.hpp"
+
+Dog::Dog() {
+    type = "Dog";
+    std::cout << "Dog constructor called" << std::endl;
+}
+
+Dog::~Dog() {
+    std::cout << "Dog destructor called" << std::endl;
+}
+
+Dog::Dog(const Dog& other) : Animal(other) {
+    std::cout << "Dog copy constructor called" << std::endl;
+}
+
+Dog& Dog::operator=(const Dog& other) {
+    if (this != &other) {
+        Animal::operator=(other);
+    }
+    std::cout << "Dog assignment operator called" << std::endl;
+    return *this;
+}
+
+void Dog::makeSound() const {
+    std::cout << "Woof! Woof!" << std::endl;
+}
+
+// Cat.hpp
+#ifndef CAT_HPP
+#define CAT_HPP
+
+#include "Animal.hpp"
+
+class Cat : public Animal {
+public:
+    Cat();
+    ~Cat();
+    Cat(const Cat& other);
+    Cat& operator=(const Cat& other);
+
+    void makeSound() const override;
+};
+
+#endif
+
+// Cat.cpp
+#include "Cat.hpp"
+
+Cat::Cat() {
+    type = "Cat";
+    std::cout << "Cat constructor called" << std::endl;
+}
+
+Cat::~Cat() {
+    std::cout << "Cat destructor called" << std::endl;
+}
+
+Cat::Cat(const Cat& other) : Animal(other) {
+    std::cout << "Cat copy constructor called" << std::endl;
+}
+
+Cat& Cat::operator=(const Cat& other) {
+    if (this != &other) {
+        Animal::operator=(other);
+    }
+    std::cout << "Cat assignment operator called" << std::endl;
+    return *this;
+}
+
+void Cat::makeSound() const {
+    std::cout << "Meow! Meow!" << std::endl;
+}
+
+// WrongAnimal.hpp
+#ifndef WRONGANIMAL_HPP
+#define WRONGANIMAL_HPP
+
+#include <iostream>
+#include <string>
+
+class WrongAnimal {
+protected:
+    std::string type;
+
+public:
+    WrongAnimal();
+    virtual ~WrongAnimal();
+    WrongAnimal(const WrongAnimal& other);
+    WrongAnimal& operator=(const WrongAnimal& other);
+
+    void makeSound() const;
+    std::string getType() const;
+};
+
+#endif
+
+// WrongAnimal.cpp
+#include "WrongAnimal.hpp"
+
+WrongAnimal::WrongAnimal() : type("WrongAnimal") {
+    std::cout << "WrongAnimal constructor called" << std::endl;
+}
+
+WrongAnimal::~WrongAnimal() {
+    std::cout << "WrongAnimal destructor called" << std::endl;
+}
+
+WrongAnimal::WrongAnimal(const WrongAnimal& other) : type(other.type) {
+    std::cout << "WrongAnimal copy constructor called" << std::endl;
+}
+
+WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other) {
+    if (this != &other) {
+        type = other.type;
+    }
+    std::cout << "WrongAnimal assignment operator called" << std::endl;
+    return *this;
+}
+
+void WrongAnimal::makeSound() const {
+    std::cout << "WrongAnimal makes a wrong sound" << std::endl;
+}
+
+std::string WrongAnimal::getType() const {
+    return type;
+}
+
+// WrongCat.hpp
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
+
+#include "WrongAnimal.hpp"
+
+class WrongCat : public WrongAnimal {
+public:
+    WrongCat();
+    ~WrongCat();
+    WrongCat(const WrongCat& other);
+    WrongCat& operator=(const WrongCat& other);
+
+    void makeSound() const;
+};
+
+#endif
+
+// WrongCat.cpp
+#include "WrongCat.hpp"
+
+WrongCat::WrongCat() {
+    type = "WrongCat";
+    std::cout << "WrongCat constructor called" << std::endl;
+}
+
+WrongCat::~WrongCat() {
+    std::cout << "WrongCat destructor called" << std::endl;
+}
+
+WrongCat::WrongCat(const WrongCat& other) : WrongAnimal(other) {
+    std::cout << "WrongCat copy constructor called" << std::endl;
+}
+
+WrongCat& WrongCat::operator=(const WrongCat& other) {
+    if (this != &other) {
+        WrongAnimal::operator=(other);
+    }
+    std::cout << "WrongCat assignment operator called" << std::endl;
+    return *this;
+}
+
+void WrongCat::makeSound() const {
+    std::cout << "Wrong Meow!" << std::endl;
+}
+
+// main.cpp
+#include "Animal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
+
+int main() {
+    const Animal* meta = new Animal();
+    const Animal* j = new Dog();
+    const Animal* i = new Cat();
+
+    std::cout << j->getType() << " " << std::endl;
+    std::cout << i->getType() << " " << std::endl;
+
+    i->makeSound(); // will output the cat sound!
+    j->makeSound(); // will output the dog sound!
+    meta->makeSound(); // will output the animal sound!
+
+    delete meta;
+    delete j;
+    delete i;
+
+    const WrongAnimal* wrongMeta = new WrongAnimal();
+    const WrongAnimal* wrongI = new WrongCat();
+
+    std::cout << wrongI->getType() << " " << std::endl;
+    wrongI->makeSound(); // will output the WrongAnimal sound
+    wrongMeta->makeSound(); // will output the WrongAnimal sound
+
+    delete wrongMeta;
+    delete wrongI;
+
+    return 0;
+}
