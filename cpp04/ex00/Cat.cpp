@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 10:19:58 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/31 12:33:57 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/01/01 22:32:03 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ Cat::Cat() : Animal("Cat") {
 	std::cout << "Cat default constructor called" << std::endl;
 }
 
-/*--------Constructor overload--------*/
+/*--------Parameterized Constructor--------*/
 
 Cat::Cat(const std::string& type) : Animal(type) {
-	std::cout << "Cat overloaded constructor called for " << _type << std::endl;
+	std::cout << "Cat parameterized constructor called for " << _type << std::endl;
 }
 
 /*----Copy constructor----*/
@@ -49,5 +49,5 @@ Cat::~Cat() {
 /*--------Member functions---------*/
 
 void	Cat::makeSound(void) const {
-	std::cout << std::endl << _type << " sounds like baaaark" << std::endl;
+	std::cout << std::endl << _type << " sounds like meeeeow!!" << std::endl;
 }

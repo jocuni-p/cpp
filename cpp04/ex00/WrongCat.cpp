@@ -49,5 +49,5 @@ WrongCat::~WrongCat() {
 /*--------Member functions---------*/
 
 void	WrongCat::makeSound(void) const {
-	std::cout << std::endl << _type << " sounds like grrrrrrr" << std::endl;
+	std::cout << std::endl << "WrongCat " << _type << " sounds like Wrong grrrrrrr" << std::endl;
 }

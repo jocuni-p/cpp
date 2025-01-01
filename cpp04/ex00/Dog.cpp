@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 10:19:11 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/31 12:33:42 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/01/01 22:33:59 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ Dog::Dog() : Animal("Dog") {
 	std::cout << "Dog default constructor called" << std::endl;
 }
 
-/*--------Constructor overload--------*/
+/*--------Parameterized Constructor--------*/
 
-Dog::Dog(const std::string& type) : Animal(type) { // maybe Animal("Dog")
-	std::cout << "Dog overloaded constructor called for " << _type << std::endl;
+Dog::Dog(const std::string& type) : Animal(type) {
+	std::cout << "Dog parameterized constructor called for " << _type << std::endl;
 }
 
 /*----Copy constructor----*/
@@ -51,6 +51,7 @@ Dog::~Dog() {
 
 void	Dog::makeSound(void) const {
 	std::cout << std::endl << getType() << " sounds like baaaark" << std::endl;
-	std::cout << std::endl << _type << " sounds like baaaark" << std::endl;
+	std::cout << std::endl << _type << " sounds like woof! woof!" << std::endl;
 	
 }
+//com he d'accedir a type: amb '_type' o 'getType()' ????

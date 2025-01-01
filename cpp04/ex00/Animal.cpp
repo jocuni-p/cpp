@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 10:15:58 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/31 14:44:11 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/01/01 22:31:00 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ Animal::~Animal() {
 	std::cout << "Animal destructor called for " << _type << std::endl;
 }
 
-/*--------Constructor overloaded--------*/
+/*--------Parameterized Constructor--------*/
 
 Animal::Animal(const std::string& type) : _type(type) {
-	std::cout << "Animal overloaded constructor called for " << _type << std::endl;
+	std::cout << "Animal parameterized constructor called for " << _type << std::endl;
 }
 
 /*----Copy constructor----*/
@@ -45,6 +45,12 @@ Animal& Animal::operator=(const Animal& other) {
 	}
 	std::cout << "Animal assignment operator called for " << _type << std::endl;
 	return *this;
+}
+
+/*--------Member functions--------*/
+
+void	Animal::makeSound() const {
+	std::cout << std::endl << "Animal hasn't a specific sound" << std::endl;
 }
 
 /*-------Accessors---------*/

@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 10:19:48 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/31 15:01:05 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/01/01 22:25:40 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "Animal.hpp"
 
-class Cat : public Animal { //AVERIGUAR PERQUE AQUI public 
+class Cat : public Animal { //La clase derivada tiene una herencia tipo 'public' 
 
 	public: // accesible from everywhere of the program
 		Cat(); 	// Default constructor
@@ -28,4 +28,3 @@ class Cat : public Animal { //AVERIGUAR PERQUE AQUI public
 };
 
 #endif
-

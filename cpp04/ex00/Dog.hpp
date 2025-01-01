@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 10:19:00 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/31 15:00:29 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/01/01 22:25:09 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Dog : public Animal { //AVERIGUAR PERQUE AQUI public
 		Dog(const Dog& copy); // Copy constructor
 		Dog&	operator=(const Dog& other); // Copy asignment operator overloaded
 				
-		void	makeSound() const;
+		void	makeSound() const; 
 };
 
 
