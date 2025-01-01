@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 17:40:49 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/29 20:48:20 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/01/01 14:51:20 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,20 @@ ClapTrap::ClapTrap() : _name("default"), _hitPoints(10), _energyPoints(10), _att
 	std::cout << "ClapTrap default constructor called" << std::endl;
 }
 
-/*--------Constructor overload--------*/
+/*--------Parameterized constructor--------*/
 
 ClapTrap::ClapTrap(const std::string& name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
-	std::cout << "ClapTrap overloaded constructor called for " << _name << std::endl; //chequear si _name sale bien
+	std::cout << "ClapTrap parameterized constructor called for " << _name << std::endl; //chequear si _name sale bien
 }
 
 /*----Copy constructor----*/
 
 ClapTrap::ClapTrap(const ClapTrap& other) {
 	*this = other; // aqui usara la sobrecarga del operador de asignacion
-//	_name = other._name; // Alternativa
-//	_hitPoints = other._hitPoints; // Alternativa
-//	_energyPoints = other._energyPoints; // Alternativa
-//	_attackDamage = other._attackDamage; // Alternativa
 	std::cout << "ClapTrap copy constructor called for " << _name << std::endl; //chequear si _name sale bien
 }
 
-/*----Copy asignment operator overloaded----*/
+/*----Copy assignment operator overloaded----*/
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other) {
 	if(this != &other) {
@@ -96,7 +92,6 @@ void	ClapTrap::setAttackDamage(int attackDamage) {
 }
 
 
-
 /*--------Member functions----------*/
 
 void	ClapTrap::attack(const std::string& target) {
@@ -132,7 +127,6 @@ void	ClapTrap::beRepaired(unsigned int amount) {
 }
 
 void	ClapTrap::printStatus(void) const {
-//	std::cout << "*** "<< getName() << " status ***" << std::endl;
 	std::cout << std::endl << "//" << " name:         " << getName() << std::endl;
 	std::cout << "//" << " hitPoints:    " << getHitPoints() << std::endl;
 	std::cout << "//" << " energyPoints: " << getEnergyPoints() << std::endl;

@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 17:40:49 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/25 22:55:29 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2024/12/31 21:49:47 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 /*----Default constructor----*/
 
 ClapTrap::ClapTrap() : _name("default"), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "Default ClapTrap constructor called" << std::endl;
 }
 
 /*--------Constructor overload--------*/
 
 ClapTrap::ClapTrap(const std::string& name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
-	std::cout << "Overloaded constructor called for " << _name << std::endl; //chequear si _name sale bien
+	std::cout << "Overloaded constructor called for ClapTrap " << _name << std::endl; //chequear si _name sale bien
 }
 
 /*----Copy constructor----*/
@@ -32,7 +32,13 @@ ClapTrap::ClapTrap(const ClapTrap& other) {
 //	_hitPoints = other._hitPoints; // Alternativa
 //	_energyPoints = other._energyPoints; // Alternativa
 //	_attackDamage = other._attackDamage; // Alternativa
-	std::cout << "Copy constructor called for " << _name << std::endl; //chequear si _name sale bien
+	std::cout << "Copy constructor called for ClapTrap " << _name << std::endl; //chequear si _name sale bien
+}
+
+/*--------Destructor---------*/
+
+ClapTrap::~ClapTrap() {
+	std::cout << "Destructor called for ClapTrap " << _name << std::endl;
 }
 
 /*----Copy asignment operator overloaded----*/
@@ -44,14 +50,8 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other) {
 		this->_energyPoints = other._energyPoints;
 		this->_attackDamage = other._attackDamage;
 	}
-	std::cout << "Copy asignment operator called for " << _name << std::endl; //chequear si _name sale bien
+	std::cout << "Copy asignment operator called for ClapTrap " << _name << std::endl; //chequear si _name sale bien
 	return *this;
-}
-
-/*--------Destructor---------*/
-
-ClapTrap::~ClapTrap() {
-	std::cout << "Destructor called for " << _name << std::endl;
 }
 
 /*-------Accessor member functions--------*/

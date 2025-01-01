@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 15:09:44 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/30 12:15:54 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/01/01 14:55:13 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,8 @@ int	main(){
 	clap1 = frag1;
 	clap1.printStatus();
 
-//	clap1 = scav1;
-//	clap1.printStatus();
+	clap1 = scav1;
+	clap1.printStatus();
 	
 	std::cout << "// Destructors are called in reverse order due to FILO" << std::endl;
     return 0;
