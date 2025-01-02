@@ -18,16 +18,16 @@ WrongAnimal::WrongAnimal() : _type("def_WrongAnimal") {
 	std::cout << "WrongAnimal " << _type << " constructor called" << std::endl;
 }
 
-/*--------Constructor overload--------*/
+/*--------Destructor---------*/
 
-WrongAnimal::WrongAnimal(const std::string& type) : _type(type) {
-	std::cout << "WrongAnimal " << _type << " overloaded constructor called" << std::endl;
+WrongAnimal::~WrongAnimal() {
+	std::cout << "WrongAnimal destructor called for " << _type << std::endl;
 }
 
 /*----Copy constructor----*/
 
-WrongAnimal::WrongAnimal(const WrongAnimal& other) {
-	*this = other; // aqui usara la sobrecarga del operador de asignacion
+WrongAnimal::WrongAnimal(const WrongAnimal& other) : _type(other._type) {
+//	*this = other; // aqui usara la sobrecarga del operador de asignacion
 	std::cout << "WrongAnimal copy constructor called for " << _type << std::endl;
 }
 
@@ -41,16 +41,10 @@ WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other) {
 	return *this;
 }
 
-/*--------Destructor---------*/
-
-WrongAnimal::~WrongAnimal() {
-	std::cout << "WrongAnimal destructor called for " << _type << std::endl;
-}
-
 /*--------Member functions--------*/
 
 void	WrongAnimal::makeSound() const {
-	std::cout << std::endl << "WrongAnimal " << _type << " hasn't a specific sound" << std::endl;
+	std::cout << std::endl << _type << " makes a Wrong Sound" << std::endl;
 }
 
 /*-------Accessors---------*/

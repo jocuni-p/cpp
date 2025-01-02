@@ -6,7 +6,7 @@
 #    By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 15:49:52 by jocuni-p          #+#    #+#              #
-#    Updated: 2025/01/01 15:26:52 by jocuni-p         ###   ########.fr        #
+#    Updated: 2025/01/02 21:11:28 by jocuni-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME = animal
 CXX = c++
 
 # Flags de compilación (opcional)
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic #-fsanitize=address
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -fsanitize=address
 
 # Flags para las dependencias
 DEPFLAGS = -MMD -MP

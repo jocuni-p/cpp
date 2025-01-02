@@ -14,19 +14,20 @@
 
 /*----Default constructor----*/
 
-WrongCat::WrongCat() : WrongAnimal("WrongCat") {
+WrongCat::WrongCat() {
+	_type = "WrongCat";
 	std::cout << "WrongCat default constructor called" << std::endl;
 }
 
-/*--------Constructor overload--------*/
+/*--------Destructor---------*/
 
-WrongCat::WrongCat(const std::string& type) : WrongAnimal(type) {
-	std::cout << "WrongCat overloaded constructor called for " << _type << std::endl;
+WrongCat::~WrongCat() {
+	std::cout << "WrongCat destructor called for " << _type << std::endl;
 }
 
 /*----Copy constructor----*/
 
-WrongCat::WrongCat(const WrongCat& copy) : WrongAnimal(copy) {
+WrongCat::WrongCat(const WrongCat& other) : WrongAnimal(other) {
 	std::cout << "WrongCat copy constructor called for " << _type << std::endl;
 }
 
@@ -40,14 +41,8 @@ WrongCat& WrongCat::operator=(const WrongCat& other) {
 	return *this;
 }
 
-/*--------Destructor---------*/
-
-WrongCat::~WrongCat() {
-	std::cout << "WrongCat destructor called for " << _type << std::endl;
-}
-
 /*--------Member functions---------*/
 
 void	WrongCat::makeSound(void) const {
-	std::cout << std::endl << "WrongCat " << _type << " sounds like Wrong grrrrrrr" << std::endl;
+	std::cout << std::endl << _type << " makes Wrong Meeeeeow" << std::endl;
 }

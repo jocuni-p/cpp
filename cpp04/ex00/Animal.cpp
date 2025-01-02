@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 10:15:58 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/01/01 22:31:00 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/01/02 21:39:31 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,10 @@ Animal::~Animal() {
 	std::cout << "Animal destructor called for " << _type << std::endl;
 }
 
-/*--------Parameterized Constructor--------*/
-
-Animal::Animal(const std::string& type) : _type(type) {
-	std::cout << "Animal parameterized constructor called for " << _type << std::endl;
-}
-
 /*----Copy constructor----*/
 
-Animal::Animal(const Animal& other) {
-	*this = other; // aqui usara la sobrecarga del operador de asignacion
+Animal::Animal(const Animal& other) : _type(other._type){
+//	*this = other; // aqui usara la sobrecarga del operador de asignacion
 	std::cout << "Animal copy constructor called for " << _type << std::endl;
 }
 
@@ -50,7 +44,7 @@ Animal& Animal::operator=(const Animal& other) {
 /*--------Member functions--------*/
 
 void	Animal::makeSound() const {
-	std::cout << std::endl << "Animal hasn't a specific sound" << std::endl;
+	std::cout << std::endl << "Animal doesn't make any sound" << std::endl << std::endl;
 }
 
 /*-------Accessors---------*/

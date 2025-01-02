@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #ifndef WRONGCAT_HPP
-# define WRONGCAT_HPP
+#define WRONGCAT_HPP
 
 #include "WrongAnimal.hpp"
 
@@ -20,8 +20,8 @@ class WrongCat : public WrongAnimal { //AVERIGUAR PERQUE AQUI public
 	public: // accesible from everywhere of the program
 		WrongCat(); 	// Default constructor
 		~WrongCat(); 	// Destroyer
-		WrongCat(const std::string& type); // Overload constructor
-		WrongCat(const WrongCat& copy); // Copy constructor
+//		WrongCat(const std::string& type); // Overload constructor
+		WrongCat(const WrongCat& other); // Copy constructor
 		WrongCat&	operator=(const WrongCat& other); // Assignment operator overloaded
 				
 		void	makeSound() const;
