@@ -14,8 +14,8 @@
 
 /*----Default constructor----*/
 
-WrongAnimal::WrongAnimal() : _type("def_WrongAnimal") {
-	std::cout << "WrongAnimal " << _type << " constructor called" << std::endl;
+WrongAnimal::WrongAnimal() : _type("WrongAnimal") {
+	std::cout << "WrongAnimal default constructor called" << std::endl;
 }
 
 /*--------Destructor---------*/
@@ -44,7 +44,7 @@ WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other) {
 /*--------Member functions--------*/
 
 void	WrongAnimal::makeSound() const {
-	std::cout << std::endl << _type << " makes a Wrong Sound" << std::endl;
+	std::cout << _type << " makes a WrongAnimal sound" << std::endl;
 }
 
 /*-------Accessors---------*/

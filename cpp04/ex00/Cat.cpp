@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 10:19:58 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/01/02 21:41:18 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/01/03 13:52:48 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,5 @@ Cat& Cat::operator=(const Cat& other) {
 /*--------Member functions---------*/
 
 void	Cat::makeSound(void) const {
-	std::cout << std::endl << _type << " makes Meeeeow!!" << std::endl;
+	std::cout << _type << " makes Meeeeow!!" << std::endl;
 }

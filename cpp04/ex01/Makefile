@@ -6,7 +6,7 @@
 #    By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 15:49:52 by jocuni-p          #+#    #+#              #
-#    Updated: 2025/01/03 15:52:22 by jocuni-p         ###   ########.fr        #
+#    Updated: 2025/01/03 15:58:22 by jocuni-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -fsanitize=address
 DEPFLAGS = -MMD -MP
 
 # Archivos fuente
-SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
+SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp
 
 # Directorio para los objetos
 DIR_OBJS = objs/

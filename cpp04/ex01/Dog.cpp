@@ -1,54 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/31 10:15:58 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/01/03 13:53:19 by jocuni-p         ###   ########.fr       */
+/*   Created: 2024/12/31 10:19:11 by jocuni-p          #+#    #+#             */
+/*   Updated: 2025/01/03 18:16:41 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Dog.hpp"
 
 /*----Default constructor----*/
 
-Animal::Animal() : _type("Animal") {
-	std::cout << "Animal default constructor called" << std::endl;
+Dog::Dog() {
+	_type = "Dog";
+	_dogbrain = new Brain();
+	std::cout << "Dog default constructor called" << std::endl;
 }
 
 /*--------Destructor---------*/
 
-Animal::~Animal() {
-	std::cout << "Animal destructor called for " << _type << std::endl;
+Dog::~Dog() {
+	std::cout << "Dog destructor called for " << _type << std::endl;
+	delete _dogbrain;
 }
 
 /*----Copy constructor----*/
 
-Animal::Animal(const Animal& other) : _type(other._type){
+Dog::Dog(const Dog& other) : Animal(other) {
 //	*this = other; // aqui usara la sobrecarga del operador de asignacion
-	std::cout << "Animal copy constructor called for " << _type << std::endl;
+	std::cout << "Dog copy constructor called for " << _type << std::endl;
 }
 
 /*----Assignment operator overloaded----*/
 
-Animal& Animal::operator=(const Animal& other) {
+Dog& Dog::operator=(const Dog& other) {
 	if(this != &other) {
 		this->_type = other._type;
 	}
-	std::cout << "Animal assignment operator called for " << _type << std::endl;
+	std::cout << "Dog assignment operator called for " << _type << std::endl;
 	return *this;
 }
 
-/*--------Member functions--------*/
+/*--------Member functions---------*/
 
-void	Animal::makeSound() const {
-	std::cout << "Animal doesn't make any sound" << std::endl;
+void	Dog::makeSound(void) const {
+//	std::cout << std::endl << getType() << " makes Woof! Woof!" << std::endl;
+	std::cout << _type << " makes Woof! Woof!" << std::endl;
+	
 }
 
-/*-------Accessors---------*/
-
-std::string	Animal::getType(void) const {
-	return _type;
-}

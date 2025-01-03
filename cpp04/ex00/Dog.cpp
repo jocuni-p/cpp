@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 10:19:11 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/01/02 21:43:58 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/01/03 13:52:04 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ Dog& Dog::operator=(const Dog& other) {
 
 void	Dog::makeSound(void) const {
 //	std::cout << std::endl << getType() << " makes Woof! Woof!" << std::endl;
-	std::cout << std::endl << _type << " makes Woof! Woof!" << std::endl;
+	std::cout << _type << " makes Woof! Woof!" << std::endl;
 	
 }
 

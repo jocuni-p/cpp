@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/31 10:19:00 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/01/03 17:42:08 by jocuni-p         ###   ########.fr       */
+/*   Created: 2024/12/31 10:19:48 by jocuni-p          #+#    #+#             */
+/*   Updated: 2025/01/03 18:06:59 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
-class Dog : public Animal {
-		
+class Cat : public Animal { 
+
+	private:
+		Brain	*_catbrain;
+
 	public: // accesible from everywhere of the program
-		Dog(); 	// Default constructor
-		~Dog(); 	// Destroyer
-		Dog(const Dog& copy); // Copy constructor
-		Dog&	operator=(const Dog& other); // Copy asignment operator overloaded
+		Cat(); 	// Default constructor
+		~Cat(); 	// Destroyer
+		Cat(const Cat& other); // Copy constructor
+		Cat&	operator=(const Cat& other); // Assignment operator overloaded
 				
-		void	makeSound() const; 
+		void	makeSound() const;
 };
-
 #endif

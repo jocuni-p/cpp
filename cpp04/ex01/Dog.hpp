@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 10:19:00 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/01/03 17:42:08 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/01/03 18:07:27 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 #define DOG_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Dog : public Animal {
+
+	private:
+		Brain	*_dogbrain;
 		
 	public: // accesible from everywhere of the program
 		Dog(); 	// Default constructor

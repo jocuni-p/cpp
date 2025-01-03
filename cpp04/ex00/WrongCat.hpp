@@ -15,12 +15,11 @@
 
 #include "WrongAnimal.hpp"
 
-class WrongCat : public WrongAnimal { //AVERIGUAR PERQUE AQUI public 
+class WrongCat : public WrongAnimal { 
 		
 	public: // accesible from everywhere of the program
 		WrongCat(); 	// Default constructor
 		~WrongCat(); 	// Destroyer
-//		WrongCat(const std::string& type); // Overload constructor
 		WrongCat(const WrongCat& other); // Copy constructor
 		WrongCat&	operator=(const WrongCat& other); // Assignment operator overloaded
 				

@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/31 10:19:00 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/01/03 17:42:08 by jocuni-p         ###   ########.fr       */
+/*   Created: 2025/01/03 17:29:37 by jocuni-p          #+#    #+#             */
+/*   Updated: 2025/01/03 18:11:24 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
-#include "Animal.hpp"
+#include <iostream>
+#include <string>
 
-class Dog : public Animal {
-		
-	public: // accesible from everywhere of the program
-		Dog(); 	// Default constructor
-		~Dog(); 	// Destroyer
-		Dog(const Dog& copy); // Copy constructor
-		Dog&	operator=(const Dog& other); // Copy asignment operator overloaded
-				
-		void	makeSound() const; 
+class Brain {
+	
+	pr......:
+		std::string	_ideas[100];
+
+	public:
+		Brain();
+		~Brain();
+		Brain(const Brain& other); // Copy constructor
+		Brain&	operator=(const Brain& other); // Copy assignment operator overloaded
+	
 };
 
 #endif
