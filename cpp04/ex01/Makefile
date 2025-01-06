@@ -6,25 +6,25 @@
 #    By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 15:49:52 by jocuni-p          #+#    #+#              #
-#    Updated: 2025/01/03 15:58:22 by jocuni-p         ###   ########.fr        #
+#    Updated: 2025/01/06 18:21:11 by jocuni-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Nombre del ejecutable
-NAME = animal
+NAME = brain
 
 # Nombre del compilador
 CXX = c++
 
 # Flags de compilación (opcional)
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -fsanitize=address
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -fsanitize=address -g
 
 
 # Flags para las dependencias
 DEPFLAGS = -MMD -MP
 
 # Archivos fuente
-SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp
+SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
 
 # Directorio para los objetos
 DIR_OBJS = objs/
@@ -42,7 +42,7 @@ $(DIR_OBJS):
 	
 # Regla para compilar el ejecutable
 $(NAME): $(OBJS) Makefile
-	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS) -fsanitize=address
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 # Regla para compilar archivos .cpp en archivos .o
 # Incluyo HDR como dependencia (si cambia algo en .hpp el compilador regenerara los archivos .o relacionados)

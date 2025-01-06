@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 10:19:11 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/01/03 18:16:41 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/01/06 16:10:42 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,34 @@
 
 /*----Default constructor----*/
 
-Dog::Dog() {
-	_type = "Dog";
-	_dogbrain = new Brain();
-	std::cout << "Dog default constructor called" << std::endl;
+Dog::Dog() : Animal("Dog"), _brain(new Brain()) {
+//	_type = "Dog";
+//	_brain = new Brain();
+	std::cout << "Dog created" << std::endl; // se printa despues de creado Brain
 }
 
 /*--------Destructor---------*/
 
 Dog::~Dog() {
-	std::cout << "Dog destructor called for " << _type << std::endl;
-	delete _dogbrain;
+	delete _brain; // quizas no hace falta si lo hace automatico ?? Provar
+	std::cout << "Dog destroyed" << std::endl;
 }
 
 /*----Copy constructor----*/
 
-Dog::Dog(const Dog& other) : Animal(other) {
+Dog::Dog(const Dog& other) : Animal(other), _brain(new Brain(*other._brain)) {
 //	*this = other; // aqui usara la sobrecarga del operador de asignacion
-	std::cout << "Dog copy constructor called for " << _type << std::endl;
+	std::cout << "Dog copied" << std::endl;
 }
 
 /*----Assignment operator overloaded----*/
 
 Dog& Dog::operator=(const Dog& other) {
 	if(this != &other) {
-		this->_type = other._type;
+		Animal::operator=(other);
+		*_brain = *other._brain;
 	}
-	std::cout << "Dog assignment operator called for " << _type << std::endl;
+//	std::cout << "Dog assignment operator called for " << _type << std::endl;
 	return *this;
 }
 

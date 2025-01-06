@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 10:19:58 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/01/03 18:15:43 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/01/06 16:52:49 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,33 @@
 
 /*----Default constructor----*/
 
-Cat::Cat() {
-	_type = "Cat";
-	_catbrain = new Brain();
-	std::cout << "Cat default constructor called" << std::endl;
+Cat::Cat() : Animal("Cat"), _brain(new Brain()) {
+//	_type = "Cat"; 
+//	_brain = new Brain();
+	std::cout << "Cat created" << std::endl; // se printa despues de crear Brain
 }
 
 /*--------Destructor---------*/
 
 Cat::~Cat() {
-	std::cout << "Cat destructor called for " << _type << std::endl;
-	delete _catbrain;
+	delete _brain; // No estic segur si fa falta
+	std::cout << "Cat destroyed" << std::endl;
 }
 
 /*----Copy constructor----*/
 
-Cat::Cat(const Cat& other) : Animal(other) {
-	std::cout << "Cat copy constructor called for " << _type << std::endl;
+Cat::Cat(const Cat& other) : Animal(other), _brain(new Brain(*other._brain)){
+	std::cout << "Cat " << _type << " copied" << std::endl; //TODO eliminar _type
 }
 
 /*----Assignment operator overloaded----*/
 
 Cat& Cat::operator=(const Cat& other) {
 	if(this != &other) {
-		this->_type = other._type;
+		Animal::operator=(other);
+		*_brain = *other._brain;
 	}
-	std::cout << "Cat assignment operator called for " << _type << std::endl;
+//	std::cout << "Cat assignment operator called for " << _type << std::endl;
 	return *this;
 }
 
