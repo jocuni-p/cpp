@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 18:19:47 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/01/06 22:00:46 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/01/06 22:37:46 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main()
 	std::cout << std::endl;
 	std::cout << "=== ARRAY OF ANIMAL OBJECTS TEST ===" << std::endl;
 	 
-	Animal *animal_arr[5]; // Declaro puntero tipo Animal de 4 elementos
+	Animal *animal_arr[4]; // Declaro puntero tipo Animal de 4 elementos
 
 	for(int i = 0; i < 4; i++){ // inicializo los elementos con obj Dog y Cat dinamicos
 		if(i % 2 == 0 ){
@@ -43,10 +43,9 @@ int main()
 		}
 	}
 	
-	animal_arr[4] = new Animal();
 	std::cout << "-" << std::endl; 
 
-	for(int i = 0; i < 5; i++) { // cada elemento llama a su funcion makesound()
+	for(int i = 0; i < 4; i++) { // cada elemento llama a su funcion makesound()
 		animal_arr[i]->makeSound();
 	}
 
@@ -60,7 +59,7 @@ int main()
 //	}
 	
 	std::cout << "===" << std::endl;
-	for(int i = 0; i < 5; i++){ // se libera cada elemento
+	for(int i = 0; i < 4; i++){ // se libera cada elemento
 		delete animal_arr[i];
 		std::cout << "-" << std::endl;
 	}
