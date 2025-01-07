@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 10:15:43 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/01/06 11:53:00 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/01/07 12:39:17 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ class Animal {
 	public: // accesible from everywhere of the program
 		Animal(); //Default constructor
 		Animal(const std::string& type); // Parameterized constructor
-		// Destructor virtual: para que se llamen correctamente los destructores 
+		// 'virtual' destroyer: para que se llamen correctamente los destructores 
 		// de las clases derivadas si se creo a traves de un puntero.
 		virtual ~Animal(); 
 		Animal(const Animal& copy); // Copy constructor
-		Animal&			operator=(const Animal& other); // Copy asignment operator overloaded
+		Animal&			operator=(const Animal& other); // Copy assignment operator overloaded
 		
 		const std::string&		getType(void) const;		
-		virtual void	makeSound() const; // permite ser sobreescrito por clases derivadas
+		virtual void	makeSound() const; // 'virtual' allows to be overridden by derived classes
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 10:19:00 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/01/06 12:06:34 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/01/07 13:07:03 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,16 @@
 
 #include "Animal.hpp"
 #include "Brain.hpp"
-//#include <iostream> // ?
-//#include <string> // ?
 
-class Dog : public Animal {
+
+class Dog : public Animal { // Dog is an Animal derived class
 
 	private:
 		Brain	*_brain;
 		
 	public: // accesible from everywhere of the program
-		Dog(); 	// Default constructor
-		~Dog(); 	// Destroyer
+		Dog();
+		~Dog();
 		Dog(const Dog& copy); // Copy constructor
 		Dog&	operator=(const Dog& other); // Copy asignment operator overloaded
 				

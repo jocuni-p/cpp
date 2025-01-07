@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 12:35:45 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/01/03 15:33:41 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/01/07 16:46:36 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,12 @@ int main()
 
 		beta->makeSound(); //will output the WrongAnimal sound!
 		j->makeSound(); //will output the dog sound!
-		i->makeSound(); //Won't output the WrongCat sound!
+		i->makeSound(); //ATTENTION TO THIS OUTPUT!
 		std::cout << "---" << std::endl;
 		
 		delete beta;
-		delete j; // Llama ~Dog() y luego ~Animal() si el destructor es virtual
-		delete i; // Llama ~Cat() y luego ~Animal() si el destructor es virtual
+		delete j; // Llama ~Dog() y luego ~Animal() si su destructor es virtual
+		delete i; // ATTENTION TO THIS OUTPUT!
 	}
 	return 0;
 }

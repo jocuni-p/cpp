@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 10:15:58 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/01/03 13:53:19 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/01/07 14:58:34 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ Animal::~Animal() {
 /*----Copy constructor----*/
 
 Animal::Animal(const Animal& other) : _type(other._type){
-//	*this = other; // aqui usara la sobrecarga del operador de asignacion
 	std::cout << "Animal copy constructor called for " << _type << std::endl;
 }
 

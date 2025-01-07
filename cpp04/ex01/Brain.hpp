@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 17:29:37 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/01/04 20:01:31 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/01/07 12:40:21 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,8 @@ class Brain {
 	public:
 		Brain();
 		~Brain();
-		Brain(const Brain& other); // Copy constructor
-		Brain&	operator=(const Brain& other); // Copy assignment operator overloaded
-	
+		Brain(const Brain& other);
+		Brain&	operator=(const Brain& other);
 };
 
 #endif

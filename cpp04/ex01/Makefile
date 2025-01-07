@@ -6,7 +6,7 @@
 #    By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 15:49:52 by jocuni-p          #+#    #+#              #
-#    Updated: 2025/01/06 18:21:11 by jocuni-p         ###   ########.fr        #
+#    Updated: 2025/01/07 14:33:43 by jocuni-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME = brain
 CXX = c++
 
 # Flags de compilación (opcional)
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -fsanitize=address -g
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic #-fsanitize=address -g
 
 
 # Flags para las dependencias

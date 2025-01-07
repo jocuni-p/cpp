@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 10:15:58 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/01/06 21:56:35 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/01/07 12:59:56 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Animal::Animal() : _type("Default") {
 
 /*----Parameterized constructor----*/
 
-Animal::Animal(const std::string& type) : _type(type) { // Provar si funciona be
+Animal::Animal(const std::string& type) : _type(type) {
 	std::cout << "Animal type " << _type << " created" << std::endl;
 }
 
@@ -31,10 +31,10 @@ Animal::~Animal() {
 }
 
 /*----Copy constructor----*/
-
+// La lista de inicialización permite que los miembros sean inicializados 
+// directamente en el momento de la construcción. Es lo mas eficiente.
 Animal::Animal(const Animal& other) : _type(other._type){
-//	*this = other; // aqui usara la sobrecarga del operador de asignacion
-	std::cout << "Animal type " << _type << "copied" << std::endl;
+	std::cout << "Animal type " << _type << " copied" << std::endl;
 }
 
 /*----Assignment operator overloaded----*/
@@ -43,14 +43,13 @@ Animal& Animal::operator=(const Animal& other) {
 	if(this != &other) {
 		this->_type = other._type;
 	}
-//	std::cout << "Animal assignment operator called for " << _type << std::endl;
 	return *this;
 }
 
 /*--------Member functions--------*/
 
 void	Animal::makeSound() const {
-	std::cout << "Animal " << _type << " does not make sound" << std::endl; //TODO arreglar texte
+	std::cout << "Animal " << _type << " does not make sound" << std::endl;
 }
 
 /*-------Accessors---------*/

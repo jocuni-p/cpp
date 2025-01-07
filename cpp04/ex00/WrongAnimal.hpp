@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 12:45:43 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/01/03 14:36:31 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/01/07 16:43:31 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class WrongAnimal
 		
 	public: // accesible from everywhere of the program
 		WrongAnimal(); 	// Default constructor
-		virtual ~WrongAnimal(); 	// Destroyer
-//		~WrongAnimal();
+		~WrongAnimal(); // Destruyer. 
+
 		WrongAnimal(const WrongAnimal& other); // Copy constructor
 		WrongAnimal&	operator=(const WrongAnimal& other); // Copy assignment operator overloaded
 
