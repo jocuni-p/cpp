@@ -6,19 +6,18 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 10:19:48 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/01/06 12:06:42 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:42:45 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CAT_HPP
 # define CAT_HPP
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
-//#include <iostream>
-//#include <string>
 
-class Cat : public Animal { 
+
+class Cat : public AAnimal { 
 
 	private:
 		Brain	*_brain; //Puntero de classe/tipo Brain

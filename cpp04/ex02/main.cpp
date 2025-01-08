@@ -6,11 +6,11 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 18:19:47 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/01/07 14:19:55 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/01/08 16:37:12 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "Brain.hpp"
@@ -21,9 +21,9 @@ int main()
 	
 	std::cout << std::endl;
 	std::cout << "=== SUBJECT TEST ===" << std::endl;
-	const Animal* j = new Dog();
+	const AAnimal* j = new Dog();
 	std::cout << "----" << std::endl;
-	const Animal* i = new Cat();
+	const AAnimal* i = new Cat();
 	std::cout << std::endl;
 
 	delete j;//should not create a leak
@@ -32,9 +32,9 @@ int main()
 
 
 	std::cout << std::endl;
-	std::cout << "=== ARRAY OF ANIMAL OBJECTS TEST ===" << std::endl;
+	std::cout << "=== ARRAY OF AAnimal OBJECTS TEST ===" << std::endl;
 	 
-	Animal *animal_arr[4]; // Declaro puntero tipo Animal de 5 elementos
+	AAnimal *animal_arr[4]; // Declaro un puntero de tipo AAnimal de 4 elementos
 
 	for(int i = 0; i < 4; i++){ // inicializo 4 elementos con obj Dog y Cat dinamicos
 		if(i % 2 == 0 ){
@@ -60,8 +60,8 @@ int main()
 	
 	std::cout << std::endl;
 	std::cout << "=== ABSTRACT CLASS TEST ===" << std::endl;
-//	Animal abst;
-	std::cout << "error: variable type 'Animal' is an abstract class" << std::endl;
+//	AAnimal abst;
+	std::cout << "'AAnimal' class objects are NOT instantiable because it is an abstract class" << std::endl;
 	
 	
 	std::cout << std::endl;
