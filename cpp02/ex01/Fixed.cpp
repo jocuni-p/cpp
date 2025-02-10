@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:16:00 by jocuni-p          #+#    #+#             */
-/*   Updated: 2024/12/23 11:41:39 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:11:29 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,8 @@ float	Fixed::toFloat(void) const { // fixed-point to float
 }
 
 /*=============Overload operator implementation==============*/
+//	Inserta en el flujo de salida (ostream) el float (mediante toFloat) 
+// del _rawValue (fixed-point) del objeto pasado como parametro.
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed) {
 	out << fixed.toFloat();
 	return out;
