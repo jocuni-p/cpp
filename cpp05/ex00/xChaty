@@ -1,3 +1,47 @@
+
+// Bureaucrat.hpp
+
+#include <iostream>
+#include <exception>
+
+class Bureaucrat {
+	private:
+		const std::string 	_name;
+		int 				_grade;
+
+	public:
+		Bureaucrat(); // Constructor por default. Lo exije la forma canonica
+		Bureaucrat(const std::string name, int grade); // const parametrizado
+		Bureaucrat(const Bureaucrat& obj); // const de copia
+		~Bureaucrat();
+
+		Bureaucrat& operator=(const Bureaucrat& obj);
+
+		const std::string& getName() const; 
+		int getGrade() const;
+
+		
+		void incrementGrade();
+		void decrementGrade();
+
+		// Clases de excepciones
+    	class GradeTooHighException : public std::exception {
+        	public:
+            	virtual const char* what() const throw();
+    	};
+
+		class GradeTooLowException : public std::exception {
+			public:
+				virtual const char* what() const throw();
+		};
+};
+/* La declaro fuera de la clase*/ //PORQUE???
+/*=======overload "<<" operator definition========*/
+std::ostream& operator<<(std::ostream& out, const Bureaucrat& obj);
+
+
+// Bureaucrat.cpp
+
 #include "Bureaucrat.hpp"
 
 /*Default constructor*/
@@ -61,3 +105,34 @@ std::ostream& operator<<(std::ostream& out, const Bureaucrat& obj) {
 	return out;
 }
 
+
+
+// main.cpp
+
+#include <iostream>
+#include "Bureaucrat.hpp"
+
+
+int main() {
+    try {
+
+		Bureaucrat a;
+		std::cout << a << std::endl;
+
+        Bureaucrat b("Alice", 149);
+        std::cout << b << std::endl;
+
+        b.decrementGrade(); 
+        std::cout << b << std::endl;
+
+		b.decrementGrade();  
+      	std::cout << b << std::endl;
+
+        // Intento de crear un burócrata con grade inválido
+        Bureaucrat b2("Bob", 151);  // Esto lanzará GradeTooLowException
+    }
+    catch (std::exception &e) {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+    }
+    return 0;
+}

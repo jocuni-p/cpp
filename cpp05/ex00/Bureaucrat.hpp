@@ -7,19 +7,19 @@ class Bureaucrat {
 		int 				_grade;
 
 	public:
-		Bureaucrat(); // No lo implementare, para que no se pueda instanciar sin parametros.
+		Bureaucrat(); // Constructor por default. Lo exije la forma canonica
 		Bureaucrat(const std::string name, int grade); // const parametrizado
 		Bureaucrat(const Bureaucrat& obj); // const de copia
-		~Bureaucrat();
-
+		virtual ~Bureaucrat(); 
+		// virtual me asegura una correcta destruccion en caso de posibles herencias
 		Bureaucrat& operator=(const Bureaucrat& obj);
 
 		const std::string& getName() const; 
 		int getGrade() const;
 
 		
-		void incrementGrade(); // es un setter
-		void decrementGrade(); // es un setter
+		void incrementGrade();
+		void decrementGrade();
 
 // Clases de excepciones
     	class GradeTooHighException : public std::exception {
