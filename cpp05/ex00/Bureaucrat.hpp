@@ -32,7 +32,8 @@ class Bureaucrat {
 				virtual const char* what() const throw();
 		};
 };
-/* La declaro fuera de la clase*/ //PORQUE???
-/*=======overload "<<" operator definition========*/
+
+//La declaro fuera de la clase Bureaucrat PORQUE RETORNA UN OBJETO DE LA CLASE ostream
+/*======= "<<" insertion operator overload========*/
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& obj);
 

@@ -5,7 +5,7 @@ Bureaucrat::Bureaucrat() : _name("Default"), _grade(42) {}
 
 /* Constructor parametrizado */
 Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _grade(grade) {
-	if (_grade < 1) //OJO->no se deberia poder instanciar si el parametro _grade esta fuera de rango !!!
+	if (_grade < 1) // Exception in out of range case!!!
 		throw GradeTooHighException();
 	if (_grade > 150)
 		throw GradeTooLowException();
@@ -18,7 +18,7 @@ Bureaucrat::~Bureaucrat() {}
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj) {
 	if (this != &obj) {
-	// name es const y no se puede asignar de nuevo
+	// name es const y no se puede re-asignar de nuevo
 		_grade = obj._grade;
 	}
 	return *this;
@@ -30,14 +30,14 @@ int Bureaucrat::getGrade() const { return _grade; }
 
 
 void Bureaucrat::incrementGrade() {
-	if (_grade == 1) //No podra ser menor porque el constructor no permite el fuera de rango
+	if (_grade == 1) // Creamos nuestra excepcion
 	  	throw GradeTooHighException();
 	else
 		_grade -= 1;
 }
 
 void Bureaucrat::decrementGrade() { 
-	 if (_grade == 150) //No podra ser menor porque el constructor lo topara
+	 if (_grade == 150) // Creamos otra excepcion
 		throw GradeTooLowException();
 	else
 		_grade += 1;
@@ -53,9 +53,7 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
 }
 
 
-
-/*--------------------------out of the Bureaucratic class----------------------------*/
-
+/*----------------Insertion operator overloading------------------*/
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& obj) {
 	out << obj.getName() << ", bureaucrat grade " << obj.getGrade() << "." << std::endl;
 	return out;
