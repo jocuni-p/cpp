@@ -1,7 +1,9 @@
 #pragma once
 #include <iostream>
 #include <exception>
-#include <lalibreria de booleans>
+#include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form {
 private:
@@ -12,7 +14,7 @@ private:
 
 public:
 	Form(); // Constructor por default. Lo exije la forma canonica
-	Form(const std::string name, int grade); // const parametrizado
+	Form(const std::string name, bool issigned, int gradetosign, int gradetoexecute); // const parametrizado
 	Form(const Form& obj); // const de copia
 	virtual ~Form(); 
 	// virtual me asegura una correcta destruccion en caso de posibles herencias
@@ -21,9 +23,9 @@ public:
 	const std::string& getName() const;
 	bool getIsSigned() const;
 	const int& getGradeToSign() const; // OJO ha de llevar & el retorno ???
-	const int& getGradeExecute() const; // OJO ha de llevar & el retorno ???
+	const int& getGradeToExecute() const; // OJO ha de llevar & el retorno ???
 
-	void beSigned(const Bureaucrat& name);//pone el bool como true si el grade del Bureaucrat es igual o superior al requerido
+	void beSigned(const Bureaucrat& b);//pone el bool a true si el Bureaucrat lo puede firmar
 
 // Clases de excepciones
    	class GradeTooHighException : public std::exception {

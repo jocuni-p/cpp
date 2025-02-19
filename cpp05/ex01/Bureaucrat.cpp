@@ -1,7 +1,7 @@
 #include "Bureaucrat.hpp"
 
 /*Default constructor*/
-Bureaucrat::Bureaucrat() : _name("Default"), _grade(42) {}
+Bureaucrat::Bureaucrat() : _name("DefBureaucrat"), _grade(42) {}
 
 /* Constructor parametrizado */
 Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _grade(grade) {
@@ -12,7 +12,9 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _grade(
 }
 
 /* Constructor de copia */
-Bureaucrat::Bureaucrat(const Bureaucrat& obj) : _name(obj._name), _grade(obj._grade) {}
+Bureaucrat::Bureaucrat(const Bureaucrat& obj) {
+	*this = obj;
+}
 
 Bureaucrat::~Bureaucrat() {}
 
@@ -28,7 +30,12 @@ const std::string& Bureaucrat::getName() const { return _name; }
 
 int Bureaucrat::getGrade() const { return _grade; }
 
-
+void Bureaucrat::signForm(Form& f) const {
+	if (f.getIsSigned() == true)
+		std::cout << _name << " signed " << f.getName() << std::endl;
+	else
+		std::cout << _name << " is NOT AUTHORIZED to sign " << f.getName() << std::endl;
+}
 void Bureaucrat::incrementGrade() {
 	if (_grade == 1) // Creamos nuestra excepcion
 	  	throw GradeTooHighException();
