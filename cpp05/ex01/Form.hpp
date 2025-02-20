@@ -8,9 +8,9 @@ class Bureaucrat;
 class Form {
 private:
 	const std::string 	_name;
-	bool				_isSigned;
-	const int			_gradeToSign;//saltara una exception si no llega
-	const int			_gradeToExecute;//saltara una exception si no llega
+	bool				_isSigned;//true = signed
+	const int			_gradeToSign;//saltara una exception si el Burocrata no llega a este grado
+	const int			_gradeToExecute;//saltara una exception si el Burocrata no llega a este grado
 
 public:
 	Form(); // Constructor por default. Lo exije la forma canonica
