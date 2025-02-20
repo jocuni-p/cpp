@@ -1,0 +1,231 @@
+//Bureaucrat.hpp
+#pragma once
+#include <iostream>
+#include <exception>
+#include "Form.hpp"
+
+class Form; //PORQUE SE ANYADE AQUI???
+
+class Bureaucrat {
+	private:
+		const std::string 	_name;
+		int 				_grade;
+
+	public:
+		Bureaucrat(); // Constructor por default. Lo exije la forma canonica
+		Bureaucrat(const std::string name, int grade); // const parametrizado
+		Bureaucrat(const Bureaucrat& obj); // const de copia
+		virtual ~Bureaucrat(); 
+		// virtual me asegura una correcta destruccion en caso de posibles herencias
+		Bureaucrat& operator=(const Bureaucrat& obj);
+
+		const std::string& getName() const; 
+		int getGrade() const;
+		void signForm(Form& f) const;
+		
+		
+		void incrementGrade();
+		void decrementGrade();
+
+	// Clases de excepciones
+    	class GradeTooHighException : public std::exception {
+        	public:
+            	virtual const char* what() const throw();
+    	};
+
+		class GradeTooLowException : public std::exception {
+			public:
+				virtual const char* what() const throw();
+		};
+};
+
+//La declaro fuera de la clase Bureaucrat PORQUE RETORNA UN OBJETO DE LA CLASE ostream
+/*======= "<<" insertion operator overload========*/
+std::ostream& operator<<(std::ostream& out, const Bureaucrat& obj);
+
+
+//Bureaucrat.cpp
+#include "Bureaucrat.hpp"
+
+/*Default constructor*/
+Bureaucrat::Bureaucrat() : _name("Default_Bureaucrat"), _grade(10) {}
+
+/* Constructor parametrizado */
+Bureaucrat::Bureaucrat(const std::string name, int grade) 
+	: _name(name), _grade(grade) {
+	if (_grade < 1)
+		throw GradeTooHighException();
+	if (_grade > 150)
+		throw GradeTooLowException();
+}
+
+/* Constructor de copia */
+Bureaucrat::Bureaucrat(const Bureaucrat& obj) : _name(obj._name), _grade(obj._grade) {}
+
+Bureaucrat::~Bureaucrat() {}
+
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj) {
+	if (this != &obj) {
+	// _name es const y no se puede re-asignar de nuevo
+		_grade = obj._grade;
+	}
+	return *this;
+}
+
+const std::string& Bureaucrat::getName() const { return _name; }
+
+int Bureaucrat::getGrade() const { return _grade; }
+
+void Bureaucrat::signForm(Form& f) const {
+	try {
+		f.beSigned(*this);
+		std::cout << _name << " signed " << f.getName() << std::endl;
+	}
+	catch (std::exception &e) {
+		std::cout << "Exception caught! : " << _name 
+		<< " couldn't sign " << f.getName() 
+		<< " because " << e.what() << std::endl;
+	}
+}
+
+void Bureaucrat::incrementGrade() { // Creamos nuestra excepcion
+	if (_grade == 1) 
+	  	throw GradeTooHighException();
+	else
+		_grade -= 1;
+}
+
+void Bureaucrat::decrementGrade() { // Creamos otra excepcion
+	 if (_grade == 150) 
+		throw GradeTooLowException();
+	else
+		_grade += 1;
+}
+
+
+const char* Bureaucrat::GradeTooHighException::what() const throw() {
+	return "Grade is too high!";
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw() {
+	return "Grade is too low!";
+}
+
+
+/*----------------Insertion operator overloading------------------*/
+std::ostream& operator<<(std::ostream& out, const Bureaucrat& obj) {
+	out << obj.getName() << ", bureaucrat grade " 
+		<< obj.getGrade() << "." << std::endl;
+	return out;
+}
+
+
+
+//Form.hpp
+#pragma once
+#include <iostream>
+#include <exception>
+#include "Bureaucrat.hpp"
+
+class Bureaucrat;
+
+class Form {
+private:
+	const std::string 	_name;
+	bool				_isSigned;//true = signed
+	const int			_gradeToSign;//saltara una exception si el Burocrata no llega a este grado
+	const int			_gradeToExecute;//saltara una exception si el Burocrata no llega a este grado
+
+public:
+	Form(); // Constructor por default. Lo exije la forma canonica
+	Form(const std::string name, bool issigned, int gradetosign, int gradetoexecute); // const parametrizado
+	Form(const Form& obj); // const de copia
+	virtual ~Form(); 
+	// virtual me asegura una correcta destruccion en caso de posibles herencias
+	Form& operator=(const Form& obj);
+
+	const std::string& getName() const;
+	bool getIsSigned() const;
+	const int& getGradeToSign() const; // Tengo dudas de si ha de retornar una referencia!!
+	const int& getGradeToExecute() const; // Tengo dudas de si ha de retornar una referencia!!
+
+	void beSigned(const Bureaucrat& b);//pone el bool a true si el Bureaucrat lo puede firmar
+
+// Clases de excepciones
+   	class GradeTooHighException : public std::exception {
+   	public:
+       	virtual const char* what() const throw();
+   	};
+
+	class GradeTooLowException : public std::exception {
+	public:
+		virtual const char* what() const throw();
+	};
+};
+
+//La declaro fuera de la clase Form PORQUE RETORNA UN OBJETO DE LA CLASE ostream
+/*======= "<<" insertion operator overload========*/
+std::ostream& operator<<(std::ostream& out, const Form& obj);
+
+//Form.cpp
+#include "Form.hpp"
+
+/*Default constructor*/
+Form::Form() : _name("Default_Form"), _isSigned(false), _gradeToSign(42), _gradeToExecute(42) {}
+
+/* Constructor parametrizado */
+Form::Form(const std::string name, bool issigned, int gradetosign, int gradetoexecute) 
+	: _name(name), _isSigned(issigned), _gradeToSign(gradetosign), _gradeToExecute(gradetoexecute) {
+	if (_gradeToSign < 1 || _gradeToExecute < 1)
+		throw GradeTooHighException();
+	if (_gradeToSign > 150 || _gradeToExecute > 150)
+		throw GradeTooLowException();
+}
+
+/* Constructor de copia */
+Form::Form(const Form& obj): _name(obj._name), _isSigned(obj._isSigned), 
+	_gradeToSign(obj._gradeToSign), _gradeToExecute(obj._gradeToExecute) {}
+
+Form::~Form() {}
+
+Form& Form::operator=(const Form& obj) {
+	if (this != &obj) {
+	// hay variables const que no se pueden re-asignar de nuevo
+		_isSigned = obj._isSigned;
+	}
+	return *this;
+}
+
+const std::string& Form::getName() const { return _name; }
+
+bool Form::getIsSigned() const { return _isSigned; }
+
+const int& Form::getGradeToSign() const { return _gradeToSign; }
+
+const int& Form::getGradeToExecute() const { return _gradeToExecute; }
+
+void Form::beSigned(const Bureaucrat& b) {
+	if (b.getGrade() <= _gradeToSign)
+		_isSigned = true;
+	else
+		throw GradeTooLowException();
+}
+
+const char* Form::GradeTooHighException::what() const throw() {
+	return "Grade is too high!";
+}
+
+const char* Form::GradeTooLowException::what() const throw() {
+	return "Grade is too low!";
+}
+
+
+/*----------------Insertion operator overloading------------------*/
+std::ostream& operator<<(std::ostream& out, const Form& obj) {
+	out << "Form Name: " << obj.getName() << std::endl
+		<< "Is Signed: " << obj.getIsSigned() << std::endl
+		<< "Grade to Sign: " << obj.getGradeToSign() << std::endl
+		<< "Grade to Execute: " << obj.getGradeToExecute() << std::endl;
+	return out;
+}
+

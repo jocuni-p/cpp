@@ -22,8 +22,8 @@ public:
 
 	const std::string& getName() const;
 	bool getIsSigned() const;
-	const int& getGradeToSign() const; // OJO ha de llevar & el retorno ???
-	const int& getGradeToExecute() const; // OJO ha de llevar & el retorno ???
+	int getGradeToSign() const;
+	int getGradeToExecute() const;
 
 	void beSigned(const Bureaucrat& b);//pone el bool a true si el Bureaucrat lo puede firmar
 

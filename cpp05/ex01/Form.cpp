@@ -13,8 +13,10 @@ Form::Form(const std::string name, bool issigned, int gradetosign, int gradetoex
 }
 
 /* Constructor de copia */
-Form::Form(const Form& obj): _name(obj._name), _isSigned(obj._isSigned), 
-	_gradeToSign(obj._gradeToSign), _gradeToExecute(obj._gradeToExecute) {}
+Form::Form(const Form& obj): _name(obj._name), _gradeToSign(obj._gradeToSign),
+	 _gradeToExecute(obj._gradeToExecute) {
+		_isSigned = obj._isSigned;
+	}
 
 Form::~Form() {}
 
@@ -30,12 +32,14 @@ const std::string& Form::getName() const { return _name; }
 
 bool Form::getIsSigned() const { return _isSigned; }
 
-const int& Form::getGradeToSign() const { return _gradeToSign; }
+int Form::getGradeToSign() const { return _gradeToSign; }
 
-const int& Form::getGradeToExecute() const { return _gradeToExecute; }
+int Form::getGradeToExecute() const { return _gradeToExecute; }
 
 void Form::beSigned(const Bureaucrat& b) {
-	if (b.getGrade() <= _gradeToSign)
+	if (_isSigned == true)
+		std::cout << "Already signed" << std::endl;
+	else if (b.getGrade() <= _gradeToSign)
 		_isSigned = true;
 	else
 		throw GradeTooLowException();
@@ -52,10 +56,10 @@ const char* Form::GradeTooLowException::what() const throw() {
 
 /*----------------Insertion operator overloading------------------*/
 std::ostream& operator<<(std::ostream& out, const Form& obj) {
-	out << "Form Name: " << obj.getName() << std::endl
-		<< "Is Signed: " << obj.getIsSigned() << std::endl
-		<< "Grade to Sign: " << obj.getGradeToSign() << std::endl
-		<< "Grade to Execute: " << obj.getGradeToExecute() << std::endl;
+	out << "Form: " << obj.getName()
+		<< ", Signed: " << (obj.getIsSigned() ? "Yes" : "No")
+		<< ", Grade to Sign: " << obj.getGradeToSign()
+		<< ", Grade to Execute: " << obj.getGradeToExecute() << std::endl;
 	return out;
 }
 

@@ -6,7 +6,7 @@ Bureaucrat::Bureaucrat() : _name("Default_Bureaucrat"), _grade(10) {}
 /* Constructor parametrizado */
 Bureaucrat::Bureaucrat(const std::string name, int grade) 
 	: _name(name), _grade(grade) {
-	if (_grade < 1) // Exception in out of range case!!!
+	if (_grade < 1)
 		throw GradeTooHighException();
 	if (_grade > 150)
 		throw GradeTooLowException();
@@ -19,7 +19,7 @@ Bureaucrat::~Bureaucrat() {}
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj) {
 	if (this != &obj) {
-	// name es const y no se puede re-asignar de nuevo
+	// _name es const y no se puede re-asignar de nuevo
 		_grade = obj._grade;
 	}
 	return *this;
@@ -34,22 +34,21 @@ void Bureaucrat::signForm(Form& f) const {
 		f.beSigned(*this);
 		std::cout << _name << " signed " << f.getName() << std::endl;
 	}
-	catch (std::exception &e) {
-		std::cout << "Exception caught! : " << _name 
-		<< " couldn't sign " << f.getName() 
+	catch (std::exception& e) {
+		std::cout << _name << " couldn't sign " << f.getName() 
 		<< " because " << e.what() << std::endl;
 	}
 }
 
-void Bureaucrat::incrementGrade() {
-	if (_grade == 1) // Creamos nuestra excepcion
+void Bureaucrat::incrementGrade() { // Creamos nuestra excepcion
+	if (_grade == 1) 
 	  	throw GradeTooHighException();
 	else
 		_grade -= 1;
 }
 
-void Bureaucrat::decrementGrade() { 
-	 if (_grade == 150) // Creamos otra excepcion
+void Bureaucrat::decrementGrade() { // Creamos otra excepcion
+	 if (_grade == 150) 
 		throw GradeTooLowException();
 	else
 		_grade += 1;
