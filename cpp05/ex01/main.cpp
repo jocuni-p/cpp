@@ -1,34 +1,41 @@
 #include <iostream>
 #include <exception>
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 
 int main() {
     try {
 
-		Bureaucrat a; // Creara un Bureaucrat 'Default'
-		std::cout << a << std::endl; // El operador '<<' actuara segun defina mi sobrecarga
+		Bureaucrat b1; // Creara un Bureaucrat 'Default'
+		std::cout << b1 << std::endl; // El operador '<<' actuara segun defina mi sobrecarga
 
-        Bureaucrat b("Alice", 149);
-        std::cout << b << std::endl;
+        Bureaucrat b2("b2", 149);
+        std::cout << b2 << std::endl;
 
-        b.decrementGrade(); 
-        std::cout << b << std::endl;
+		Form f1;
+		std::cout << f1 << std::endl;
 
-		Bureaucrat bCopy(b); // Provando el constructor de copia
-		std::cout << "Copied Bureaucrat: " << bCopy <<std::endl;
+		Form f2("f2", 1, 10, 5);
+		std::cout << f2 << std::endl;
 
-		bCopy.decrementGrade();  
-//    	std::cout << b << std::endl;
+		b1.signForm(f1);
+		std::cout << f1 << std::endl;
 
-//		Bureaucrat c("Maggy", -9);
-//        std::cout << c << std::endl;
+		b2.signForm(f1);
+		std::cout << f1 << std::endl;
 
-        // Intento de crear un burócrata con grade inválido
-//        Bureaucrat b2("Bob", 151);  // Esto lanzará GradeTooLowException
+//		Bureaucrat b3("b3", 151);
+//		std::cout << b3 << std::endl;
+
+		Form f3("f3", 0, 180, 125);
+		std::cout << f3 << std::endl;
+
+		Bureaucrat b4("b4", 1);
+		std::cout << b4 << std::endl;
     }
     catch (std::exception& e) {
-        std::cerr << "Exception caught: " << e.what() << std::endl;
+        std::cerr << "Exception caught! : " << e.what() << std::endl;
     }
     return 0;
 }

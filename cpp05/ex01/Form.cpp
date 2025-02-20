@@ -1,7 +1,7 @@
 #include "Form.hpp"
 
 /*Default constructor*/
-Form::Form() : _name("DefForm"), _isSigned(false), _gradeToSign(42), _gradeToExecute(42) {}
+Form::Form() : _name("Default_Form"), _isSigned(false), _gradeToSign(42), _gradeToExecute(42) {}
 
 /* Constructor parametrizado */
 Form::Form(const std::string name, bool issigned, int gradetosign, int gradetoexecute) 
@@ -13,9 +13,8 @@ Form::Form(const std::string name, bool issigned, int gradetosign, int gradetoex
 }
 
 /* Constructor de copia */
-Form::Form(const Form& obj) {
-	*this = obj;
-}
+Form::Form(const Form& obj): _name(obj._name), _isSigned(obj._isSigned), 
+	_gradeToSign(obj._gradeToSign), _gradeToExecute(obj._gradeToExecute) {}
 
 Form::~Form() {}
 
@@ -35,7 +34,7 @@ const int& Form::getGradeToSign() const { return _gradeToSign; }
 
 const int& Form::getGradeToExecute() const { return _gradeToExecute; }
 
-void Form::beSigned(const Bureaucrat& b) { // No se si deberia comprobar antes que no este firmado
+void Form::beSigned(const Bureaucrat& b) {
 	if (b.getGrade() <= _gradeToSign)
 		_isSigned = true;
 	else
@@ -53,7 +52,8 @@ const char* Form::GradeTooLowException::what() const throw() {
 
 /*----------------Insertion operator overloading------------------*/
 std::ostream& operator<<(std::ostream& out, const Form& obj) {
-	out << "Form: " << obj.getName() << ", is " << obj.getIsSigned() << " signed." << std::endl
+	out << "Form Name: " << obj.getName() << std::endl
+		<< "Is Signed: " << obj.getIsSigned() << std::endl
 		<< "Grade to Sign: " << obj.getGradeToSign() << std::endl
 		<< "Grade to Execute: " << obj.getGradeToExecute() << std::endl;
 	return out;
