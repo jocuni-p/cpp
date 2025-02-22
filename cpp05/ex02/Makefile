@@ -6,12 +6,12 @@
 #    By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 15:49:52 by jocuni-p          #+#    #+#              #
-#    Updated: 2025/02/22 23:42:32 by jocuni-p         ###   ########.fr        #
+#    Updated: 2025/02/22 23:41:26 by jocuni-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Nombre del ejecutable
-NAME = ex01
+NAME = ex02
 
 # Nombre del compilador
 CXX = c++
@@ -24,7 +24,10 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic #-fsanitize=address -g
 DEPFLAGS = -MMD -MP
 
 # Archivos fuente
-SRCS = main.cpp Bureaucrat.cpp Form.cpp
+SRCS = main.cpp Bureaucrat.cpp AForm.cpp \
+				ShrubberyCreationForm.cpp \
+				RobotomyRequestForm.cpp \
+				PresidentialPardonForm.cpp
 
 # Directorio para los objetos
 DIR_OBJS = objs/
@@ -36,7 +39,7 @@ DEPS = $(OBJS:.o=.d)
 
 # Regla por defecto (se ejecuta al invocar `make` sin argumentos)
 all: $(DIR_OBJS) $(NAME)
-	@echo "ex01 COMPILED SUCCESSFULLY"
+	@echo "ex02 COMPILED SUCCESSFULLY"
 
 $(DIR_OBJS):
 	mkdir -p $(DIR_OBJS)
