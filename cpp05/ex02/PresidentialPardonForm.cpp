@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/23 13:46:03 by jocuni-p          #+#    #+#             */
+/*   Updated: 2025/02/23 13:46:04 by jocuni-p         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PresidentialPardonForm.hpp"
 
 /*Default constructor*/
 PresidentialPardonForm::PresidentialPardonForm() 
-	: AForm("Presidential pardon", 25, 5), _target("Default_target") {
+	: AForm("Default Presidential pardon", 25, 5), _target("Default_target") {
 }
 
 /* Constructor parametrizado */
@@ -33,7 +45,7 @@ void PresidentialPardonForm::execute(const Bureaucrat& executor) const {
 	if (!getIsSigned())
 		throw FormNotSignedException();
 	if (executor.getGrade() > getGradeToExecute())
-		throw NotGradeToExecuteException();
-	std::cout << "\"" << _target << "\" has been pardoned by Zaphod Beeblebrox." 
+		throw GradeTooLowException();
+	std::cout << "\"" << _target << "\" has been pardoned by Zaphod Beeblebrox.\n" 
 	<< std::endl;
 }

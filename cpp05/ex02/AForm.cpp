@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/23 13:46:45 by jocuni-p          #+#    #+#             */
+/*   Updated: 2025/02/23 13:46:46 by jocuni-p         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "AForm.hpp"
 
 
@@ -55,17 +67,14 @@ const char* AForm::FormNotSignedException::what() const throw() {
 	return "Form can't be executed because it is not signed!"; 
 }
 
-const char* AForm::NotGradeToExecuteException::what() const throw() {
-	return "Grade too low to Execute";
-}
-
 
 /*----------------Insertion operator overloading------------------*/
 std::ostream& operator<<(std::ostream& out, const AForm& obj) {
-	out << "\nAForm: " << obj.getName()
+	out << "AForm name: " << obj.getName()
 		<< "\nSigned: " << (obj.getIsSigned() ? "Yes" : "No")
 		<< "\nGrade to Sign: " << obj.getGradeToSign()
-		<< "\nGrade to Execute: " << obj.getGradeToExecute() << std::endl;
+		<< "\nGrade to Execute: " << obj.getGradeToExecute() 
+		<< std::endl;
 	return out;
 }
 

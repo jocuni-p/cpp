@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/23 13:46:33 by jocuni-p          #+#    #+#             */
+/*   Updated: 2025/02/23 13:46:34 by jocuni-p         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 
 /*Default constructor*/
-Bureaucrat::Bureaucrat() : _name("Default_Bureaucrat"), _grade(10) {}
+Bureaucrat::Bureaucrat() : _name("Default"), _grade(10) {}
 
 /* Constructor parametrizado */
 Bureaucrat::Bureaucrat(const std::string name, int grade) 
@@ -47,7 +59,7 @@ void Bureaucrat::decrementGrade() { // Creamos otra excepcion
 void Bureaucrat::signForm(AForm& form) const {
 	try {
 		form.beSigned(*this);
-		std::cout << _name << " signed " << form.getName() << std::endl;
+		std::cout << _name << " signed " << form.getName() << "!\n" << std::endl;
 	}
 	catch (std::exception& e) {
 		std::cout << _name << " couldn't sign " << form.getName() 
@@ -75,14 +87,10 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
 	return "Grade is too low!";
 }
 
-// const char* Bureaucrat::NotGradeToExecuteException::what() const throw() {
-// 	return "Grade too low to Execute";
-// }
-
 
 /*----------------Insertion operator overloading------------------*/
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& obj) {
-	out << std::endl << obj.getName() << ", bureaucrat grade " 
+	out << obj.getName() << ", bureaucrat grade " 
 		<< obj.getGrade() << "." << std::endl;
 	return out;
 }

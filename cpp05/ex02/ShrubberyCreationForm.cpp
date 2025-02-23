@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/23 13:45:30 by jocuni-p          #+#    #+#             */
+/*   Updated: 2025/02/23 13:45:34 by jocuni-p         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ShrubberyCreationForm.hpp"
 
 /*Default constructor*/
 ShrubberyCreationForm::ShrubberyCreationForm() 
-	: AForm("Shrubbery creation", 145, 137), _target("Default_target") {
+	: AForm("Default Shrubbery creation", 145, 137), _target("Default_target") {
 }
 
 /* Constructor parametrizado */
@@ -32,7 +44,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const {
 	if (!getIsSigned())
 		throw FormNotSignedException();
 	if (executor.getGrade() > getGradeToExecute())
-		throw NotGradeToExecuteException();
+		throw GradeTooLowException();
 	std::ofstream file((_target + "_shrubbery").c_str()); //crea un archivo
     if (file.is_open()) { //abre el archivo
         file << "       _-_\n" // escribe en el archivo

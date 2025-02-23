@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/23 13:46:38 by jocuni-p          #+#    #+#             */
+/*   Updated: 2025/02/23 13:46:39 by jocuni-p         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #pragma once
 #include <iostream>
 #include <string>
@@ -26,10 +38,10 @@ public:
 	int getGradeToSign() const;
 	int getGradeToExecute() const;
 
-	void beSigned(const Bureaucrat& b);//pone isSigned en 'true' si Bureaucrat tiene grado suficiente
+	void beSigned(const Bureaucrat& b);
 	virtual void execute(const Bureaucrat& executor) const = 0;//implementada por las clases derivadas 
 
-// Exception classes inside AForm
+	// Exception classes inside AForm
    	class GradeTooHighException : public std::exception {
    	public:
        	virtual const char* what() const throw();
@@ -43,11 +55,6 @@ public:
 	class FormNotSignedException : public std::exception {
 	public:
 		virtual const char* what() const throw();
-	};
-
-	class NotGradeToExecuteException : public std::exception {
-		public:
-			virtual const char* what() const throw();
 	};
 };
 
