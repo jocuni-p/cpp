@@ -6,12 +6,12 @@
 #    By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 15:49:52 by jocuni-p          #+#    #+#              #
-#    Updated: 2025/02/23 21:25:47 by jocuni-p         ###   ########.fr        #
+#    Updated: 2025/02/23 21:28:07 by jocuni-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Nombre del ejecutable
-NAME = ex02
+NAME = ex03
 
 # Nombre del compilador
 CXX = c++
