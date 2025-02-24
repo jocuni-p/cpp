@@ -6,11 +6,11 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 21:29:15 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/02/24 17:46:51 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/02/24 23:08:50 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Intern.hpp";
+#include "Intern.hpp"
 
 
 Intern::Intern() {}
@@ -23,6 +23,8 @@ Intern& Intern::operator=(const Intern& obj) {
 	(void)obj; // No copia nada porque en Intern no hay atributos
 	return *this;
 }
+
+Intern::~Intern() {}
 
 
 /*--Funciones auxiliares--*/
@@ -42,26 +44,24 @@ AForm* createPresidential(std::string target) {
 
 
 AForm* Intern::makeForm(const std::string& formName, const std::string& target) {
-	std::string formNames[3] = {
+	std::string formNames[3] = { // Array de 'name' de los forms existentes
 			"Shrubbery creation",
 			"Robotomy request",
 			"Presidential pardon"
 	};
 
-	AForm* (*formCreators[3])(std::string) = {
+	AForm* (*formCreators[3])(std::string) = { // Array de funciones que crean forms
 								createShrubbery,
 								createRobotomy, 
 								createPresidential
 	};
 
-	for (int i = 0; i < 3; i++) {
-		if (formName == formNames[i]) {
+	for (int i = 0; i < 3; i++) { // recorre los arrays
+		if (formName == formNames[i]) { // busca el 'name' del form
 			std::cout << "Intern creates " << formName << std::endl;
-			return formCreators[i](target);
+			return formCreators[i](target); // crea el form y inicializa su target
 		}
 	}
 	std::cerr << "Error: Form '" << formName << "' not found." << std::endl;
-    return NULL;
+    return NULL; // en caso que no exista el formName pasado como parametro
 }
-
-	
