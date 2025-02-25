@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 21:29:15 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/02/25 15:19:48 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/02/25 15:27:06 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 Intern::Intern() {}
 
-Intern::Intern(const Intern& copy) { /// No attributes to copy
+Intern::Intern(const Intern& copy) { // No attributes to copy
 	*this = copy;
 }
 
