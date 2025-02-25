@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 22:27:30 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/02/24 11:30:36 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/02/25 12:48:01 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,10 @@ void RobotomyRequestForm::execute(const Bureaucrat& executor) const {
 		throw FormNotSignedException();
 	if (executor.getGrade() > getGradeToExecute())
 		throw GradeTooLowException();
-	std::srand(std::time(0)); // Inicializa la semilla del generador de números aleatorios
+//	std::srand(std::time(0)); // Inicializa la semilla del generador de números aleatorios
 	if (std::rand() % 2 == 0) {// Entra si el num aleatorio que genera rand() es par
-		std::cout << "Drilling noises... \"" << _target << "\"" 
-		<< " has been robotomized successfully!\n" << std::endl;
+		std::cout << "Drilling noises..." << std::endl;
+		std::cout << "\"" << _target << "\"" << " has been robotomized successfully!\n" << std::endl;
 	}
 	else
 		std::cout << "\"" << _target << "\" Robotomy failed!\n" << std::endl;

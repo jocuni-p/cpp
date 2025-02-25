@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 13:46:25 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/02/23 13:46:26 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/02/25 14:58:09 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ class Bureaucrat {
 		int 				_grade;
 
 	public:
-		Bureaucrat(); // Const default (forma canonica)
-		Bureaucrat(const std::string name, int grade); // const parametrizado
-		Bureaucrat(const Bureaucrat& obj); // const de copia
+		Bureaucrat(); 
+		Bureaucrat(const std::string name, int grade); 
+		Bureaucrat(const Bureaucrat& obj); 
 		Bureaucrat& operator=(const Bureaucrat& obj);
-		virtual ~Bureaucrat(); // virtual asegura correcta destruccion de herencias
+		virtual ~Bureaucrat();
 
 		const std::string& getName() const; 
 		int getGrade() const;
@@ -50,6 +50,6 @@ class Bureaucrat {
 		};
 };
 
-//Fuera de la clase PORQUE RETORNA UN OBJETO ostream
+
 /*======= "<<" insertion operator overload========*/
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& obj);

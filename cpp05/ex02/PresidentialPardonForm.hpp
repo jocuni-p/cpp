@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 13:45:54 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/02/23 13:45:55 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/02/25 14:59:13 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ private:
 	std::string	_target;
 	
 	public:
-	PresidentialPardonForm(); // Default constructor
-	PresidentialPardonForm(const std::string& target); // const parametrizado
-	PresidentialPardonForm(const PresidentialPardonForm& obj); // const de copia
+	PresidentialPardonForm();
+	PresidentialPardonForm(const std::string& target);
+	PresidentialPardonForm(const PresidentialPardonForm& obj);
 	PresidentialPardonForm& operator=(const PresidentialPardonForm& obj);
 	~PresidentialPardonForm();
 

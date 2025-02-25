@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/25 14:40:59 by jocuni-p          #+#    #+#             */
+/*   Updated: 2025/02/25 14:44:50 by jocuni-p         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #pragma once
 #include <iostream>
 #include <exception>
@@ -13,10 +25,10 @@ private:
 	const int			_gradeToExecute;
 
 public:
-	Form(); // Constructor por default (forma canonica)
-	Form(const std::string name, int gradetosign, int gradetoexecute); // const parametrizado
-	Form(const Form& obj); // const de copia
-	virtual ~Form(); // virtual asegura correcta destruccion de herencias
+	Form(); 
+	Form(const std::string name, int gradetosign, int gradetoexecute);
+	Form(const Form& obj);
+	virtual ~Form();
 	Form& operator=(const Form& obj);
 
 	const std::string& getName() const;
@@ -38,7 +50,6 @@ public:
 	};
 };
 
-//Fuera de la clase PORQUE RETORNA UN OBJETO ostream
 /*======= "<<" insertion operator overload========*/
 std::ostream& operator<<(std::ostream& out, const Form& obj);
 

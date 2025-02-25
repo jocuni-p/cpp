@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 13:44:39 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/02/23 13:44:40 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/02/25 15:01:41 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include <fstream> // para manejar archivos 'file()' (lectura y escritura)
+#include <fstream> // to manage 'file()'
 #include "AForm.hpp"
 
 class ShrubberyCreationForm : public AForm {
@@ -22,9 +22,9 @@ private:
 	std::string	_target;
 	
 	public:
-	ShrubberyCreationForm(); // Default constructor
-	ShrubberyCreationForm(const std::string& target); // const parametrizado
-	ShrubberyCreationForm(const ShrubberyCreationForm& obj); // const de copia
+	ShrubberyCreationForm(); 
+	ShrubberyCreationForm(const std::string& target);
+	ShrubberyCreationForm(const ShrubberyCreationForm& obj);
 	ShrubberyCreationForm& operator=(const ShrubberyCreationForm& obj);
 	~ShrubberyCreationForm(); 
 	

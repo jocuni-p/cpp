@@ -24,11 +24,11 @@ class Bureaucrat {
 		int 				_grade;
 
 	public:
-		Bureaucrat(); // Const default (forma canonica)
-		Bureaucrat(const std::string name, int grade); // const parametrizado
-		Bureaucrat(const Bureaucrat& obj); // const de copia
+		Bureaucrat();
+		Bureaucrat(const std::string name, int grade);
+		Bureaucrat(const Bureaucrat& obj);
 		Bureaucrat& operator=(const Bureaucrat& obj);
-		virtual ~Bureaucrat(); // virtual asegura correcta destruccion de herencias
+		virtual ~Bureaucrat();
 
 		const std::string& getName() const; 
 		int getGrade() const;
@@ -38,7 +38,7 @@ class Bureaucrat {
 		void signForm(AForm& form) const;
 		void executeForm(const AForm& form);
 
-	// Clases de excepciones
+		/*=======Excepcion classes=========*/
     	class GradeTooHighException : public std::exception {
         	public:
             	virtual const char* what() const throw();
@@ -50,6 +50,6 @@ class Bureaucrat {
 		};
 };
 
-//Fuera de la clase PORQUE RETORNA UN OBJETO ostream
+
 /*======= "<<" insertion operator overload========*/
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& obj);

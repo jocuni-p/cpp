@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 13:46:38 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/02/23 13:46:39 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/02/25 15:12:53 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ public:
 	int getGradeToExecute() const;
 
 	void beSigned(const Bureaucrat& b);
-	virtual void execute(const Bureaucrat& executor) const = 0;//implementada por las clases derivadas 
+	virtual void execute(const Bureaucrat& executor) const = 0;//sera implementada por las clases derivadas 
 
 	// Exception classes inside AForm
    	class GradeTooHighException : public std::exception {

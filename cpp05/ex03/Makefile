@@ -6,7 +6,7 @@
 #    By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 15:49:52 by jocuni-p          #+#    #+#              #
-#    Updated: 2025/02/24 11:16:15 by jocuni-p         ###   ########.fr        #
+#    Updated: 2025/02/25 15:17:55 by jocuni-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME = ex03
 CXX = c++
 
 # Flags de compilación (opcional)
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic #-fsanitize=address -g
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -fsanitize=address -g
 
 
 # Flags para las dependencias

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Form.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/25 14:41:07 by jocuni-p          #+#    #+#             */
+/*   Updated: 2025/02/25 14:51:58 by jocuni-p         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Form.hpp"
 
 /*Default constructor*/
@@ -37,8 +49,6 @@ int Form::getGradeToSign() const { return _gradeToSign; }
 int Form::getGradeToExecute() const { return _gradeToExecute; }
 
 void Form::beSigned(const Bureaucrat& b) {
-//	if (_isSigned == true)
-//		std::cout << _name << " was already signed by other Bureaucrat" << std::endl;
 	if (b.getGrade() <= _gradeToSign)
 		_isSigned = true;
 	else
@@ -53,12 +63,12 @@ const char* Form::GradeTooLowException::what() const throw() {
 	return "Grade is too low!";
 }
 
-/*----------------Insertion operator overloading------------------*/
+/*----------------Insertion operator overload------------------*/
 std::ostream& operator<<(std::ostream& out, const Form& obj) {
 	out << "Form: " << obj.getName()
-		<< ", Signed: " << (obj.getIsSigned() ? "Yes" : "No")
-		<< ", Grade to Sign: " << obj.getGradeToSign()
-		<< ", Grade to Execute: " << obj.getGradeToExecute() << std::endl;
+		<< "\nSigned: " << (obj.getIsSigned() ? "Yes" : "No")
+		<< "\nGrade to Sign: " << obj.getGradeToSign()
+		<< "\nGrade to Execute: " << obj.getGradeToExecute() << std::endl;
 	return out;
 }
 

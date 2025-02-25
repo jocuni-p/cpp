@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 13:45:30 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/02/23 13:45:34 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/02/25 12:22:05 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const {
 		throw FormNotSignedException();
 	if (executor.getGrade() > getGradeToExecute())
 		throw GradeTooLowException();
-	std::ofstream file((_target + "_shrubbery").c_str()); //crea un archivo
-    if (file.is_open()) { //abre el archivo
-        file << "       _-_\n" // escribe en el archivo
+	std::ofstream file((_target + "_shrubbery").c_str()); //creates a file
+    if (file.is_open()) { //opens the file
+        file << "       _-_\n" // writes into the file
              << "    /~~   ~~\\\n"
              << " /~~         ~~\\\n"
              << "{               }\n"
@@ -56,7 +56,9 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const {
              << "_- -   | | _- _\n"
              << "  _ -  | |   -_\n"
              << "      // \\\\\n";
-        file.close(); // cierra el archivo
+        file.close(); // close the file
+		std::cout << "The file \"" << _target << "_shrubbery\"" 
+		<< " has been created.\n" << std::endl;  
     } else {
         std::cerr << "Error: Could not open file." << std::endl;
     }

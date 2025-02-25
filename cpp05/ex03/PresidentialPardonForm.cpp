@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 13:46:03 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/02/23 13:46:04 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/02/25 15:17:37 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ PresidentialPardonForm::PresidentialPardonForm()
 }
 
 /* Constructor parametrizado */
-//llama al const parametrizado de su clase base con los parametros fijos 
-//y inicializa target
 PresidentialPardonForm::PresidentialPardonForm(const std::string& target) 
 	: AForm("Presidential pardon", 25, 5), _target(target) { 
 }

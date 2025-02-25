@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 13:46:45 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/02/23 13:46:46 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/02/25 15:11:55 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ _gradeToSign(obj._gradeToSign), _gradeToExecute(obj._gradeToExecute) {}
 
 AForm& AForm::operator=(const AForm& obj) {
 	if (this != &obj) {
-		// Los atributos 'const' NO se pueden re-asignar
 		_isSigned = obj._isSigned;
 	}
 	return *this;
@@ -64,11 +63,11 @@ const char* AForm::GradeTooLowException::what() const throw() {
 }
 
 const char* AForm::FormNotSignedException::what() const throw() {
-	return "Form can't be executed because it is not signed!"; 
+	return "the form is not signed!"; 
 }
 
 
-/*----------------Insertion operator overloading------------------*/
+/*----------------Insertion operator overload------------------*/
 std::ostream& operator<<(std::ostream& out, const AForm& obj) {
 	out << "AForm name: " << obj.getName()
 		<< "\nSigned: " << (obj.getIsSigned() ? "Yes" : "No")

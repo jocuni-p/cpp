@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 21:29:15 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/02/24 23:08:02 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/02/25 15:18:41 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 class Intern {
 	public:
 	
-		Intern(); // Default constructor
-		Intern(const Intern& copy); // copy constructor
-		Intern& operator=(const Intern& obj); // Asignation operator
-		~Intern(); // Destroyer
+		Intern();
+		Intern(const Intern& copy);
+		Intern& operator=(const Intern& obj);
+		~Intern();
 		
 		AForm* makeForm(const std::string& formName, const std::string& target);	
 };

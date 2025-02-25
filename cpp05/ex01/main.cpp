@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/25 14:41:11 by jocuni-p          #+#    #+#             */
+/*   Updated: 2025/02/25 14:48:24 by jocuni-p         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <exception>
 #include "Bureaucrat.hpp"
@@ -16,7 +28,7 @@ int main() {
 		Form f1;
 		std::cout << f1 << std::endl;
 
-		Form f2("f2", 1, 10, 5);
+		Form f2("f2", 10, 5);
 		std::cout << f2 << std::endl;
 
 		b1.signForm(f1);

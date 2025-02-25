@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 13:46:19 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/02/23 13:46:20 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/02/25 15:09:49 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main() {
         Bureaucrat b1("John", 1);
         Bureaucrat b2("Alice", 150);
 		Bureaucrat b3;
-		// Bureaucrat b4("mikel", 151);
+		//  Bureaucrat b4("mikel", 151); // Should fail, grade too low
 		
         ShrubberyCreationForm f1("My_garden");
         RobotomyRequestForm f2("Spiderman");
@@ -29,7 +29,8 @@ int main() {
 		std::cout << std::endl;
         std::cout << b1 << std::endl;
         std::cout << b2 << std::endl;
-		std::cout << b3 << std::endl;//
+		std::cout << b3 << std::endl;
+		
         std::cout << f1 << std::endl;
         std::cout << f2 << std::endl;
         std::cout << f3 << std::endl;

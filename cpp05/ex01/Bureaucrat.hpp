@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/25 14:40:51 by jocuni-p          #+#    #+#             */
+/*   Updated: 2025/02/25 14:42:55 by jocuni-p         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #pragma once
 #include <iostream>
 #include <string>
@@ -12,10 +24,10 @@ class Bureaucrat {
 		int 				_grade;
 
 	public:
-		Bureaucrat(); // Constructor por default (forma canonica)
-		Bureaucrat(const std::string name, int grade); // const parametrizado
-		Bureaucrat(const Bureaucrat& obj); // const de copia
-		virtual ~Bureaucrat(); // virtual asegura correcta destruccion de herencias
+		Bureaucrat(); 
+		Bureaucrat(const std::string name, int grade);
+		Bureaucrat(const Bureaucrat& obj);
+		virtual ~Bureaucrat();
 		Bureaucrat& operator=(const Bureaucrat& obj);
 
 		const std::string& getName() const; 
@@ -25,7 +37,7 @@ class Bureaucrat {
 		void incrementGrade();
 		void decrementGrade();
 
-	// Clases de excepciones
+
     	class GradeTooHighException : public std::exception {
         	public:
             	virtual const char* what() const throw();
@@ -37,7 +49,6 @@ class Bureaucrat {
 		};
 };
 
-//Fuera de la clase PORQUE RETORNA UN OBJETO ostream
-/*======= "<<" insertion operator overload========*/
+
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& obj);
 

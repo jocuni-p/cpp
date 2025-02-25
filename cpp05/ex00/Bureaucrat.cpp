@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/25 14:30:42 by jocuni-p          #+#    #+#             */
+/*   Updated: 2025/02/25 14:38:59 by jocuni-p         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 
 /*Default constructor*/
@@ -53,7 +65,7 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
 }
 
 
-/*----------------Insertion operator overloading------------------*/
+/*----------------Insertion operator overload------------------*/
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& obj) {
 	out << obj.getName() << ", bureaucrat grade " << obj.getGrade() << "." << std::endl;
 	return out;

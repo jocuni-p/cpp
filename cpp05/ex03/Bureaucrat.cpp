@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 13:46:33 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/02/23 13:46:34 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/02/25 15:15:22 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ const std::string& Bureaucrat::getName() const { return _name; }
 
 int Bureaucrat::getGrade() const { return _grade; }
 
-void Bureaucrat::incrementGrade() { // Creamos nuestra excepcion
+void Bureaucrat::incrementGrade() {
 	if (_grade == 1) 
 	throw GradeTooHighException();
 	else
 	_grade -= 1;
 }
 
-void Bureaucrat::decrementGrade() { // Creamos otra excepcion
+void Bureaucrat::decrementGrade() {
 	if (_grade == 150) 
 	throw GradeTooLowException();
 	else
@@ -59,22 +59,24 @@ void Bureaucrat::decrementGrade() { // Creamos otra excepcion
 void Bureaucrat::signForm(AForm& form) const {
 	try {
 		form.beSigned(*this);
-		std::cout << _name << " signed " << form.getName() << "!\n" << std::endl;
+		std::cout << "\"" << _name << "\" signed a \"" 
+		<< form.getName() << "\"!\n" << std::endl;
 	}
 	catch (std::exception& e) {
-		std::cout << _name << " couldn't sign " << form.getName() 
-		<< " because " << e.what() << std::endl;
+		std::cout << "\"" << _name << "\" couldn't sign " << form.getName() 
+		<< " because " << e.what() << "!\n" << std::endl;
 	}
 }
 
 void Bureaucrat::executeForm(const AForm& form) {
 	try {
 		form.execute(*this);
-		std::cout << _name << " executed " << form.getName() << "!\n" << std::endl;
+		std::cout << "\"" << _name << "\" executed a \"" 
+		<< form.getName() << "\"!\n" << std::endl;
 	}
 	catch (std::exception& e) {
-		std::cout << _name << " couldn't execute " << form.getName() 
-		<< " because " << e.what() << "\n" << std::endl;
+		std::cout << "\"" << _name << "\" couldn't execute a \"" 
+		<< form.getName() << "\" because " << e.what() << "!\n" << std::endl;
 	}
 }
 
@@ -88,7 +90,7 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
 }
 
 
-/*----------------Insertion operator overloading------------------*/
+/*====Insertion operator overload====*/
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& obj) {
 	out << obj.getName() << ", bureaucrat grade " 
 		<< obj.getGrade() << "." << std::endl;

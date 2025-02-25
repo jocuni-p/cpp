@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/25 14:39:20 by jocuni-p          #+#    #+#             */
+/*   Updated: 2025/02/25 14:39:21 by jocuni-p         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <exception>
 #include "Bureaucrat.hpp"
@@ -18,7 +30,7 @@ int main() {
 		Bureaucrat bCopy(b); // Provando el constructor de copia
 		std::cout << "Copied Bureaucrat: " << bCopy <<std::endl;
 
-		bCopy.decrementGrade();  
+		bCopy.decrementGrade(); // Should launch an exception 
 //    	std::cout << b << std::endl;
 
 //		Bureaucrat c("Maggy", -9);
