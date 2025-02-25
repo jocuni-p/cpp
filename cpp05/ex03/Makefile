@@ -6,7 +6,7 @@
 #    By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 15:49:52 by jocuni-p          #+#    #+#              #
-#    Updated: 2025/02/25 15:17:55 by jocuni-p         ###   ########.fr        #
+#    Updated: 2025/02/25 17:05:12 by jocuni-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ DEPS = $(OBJS:.o=.d)
 
 # Regla por defecto (se ejecuta al invocar `make` sin argumentos)
 all: $(DIR_OBJS) $(NAME)
-	@echo "COMPILED SUCCESSFULLY ex02"
+	@echo "COMPILED SUCCESSFULLY ex03"
 
 $(DIR_OBJS):
 	mkdir -p $(DIR_OBJS)
