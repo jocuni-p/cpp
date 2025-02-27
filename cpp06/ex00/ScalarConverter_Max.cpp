@@ -5,7 +5,7 @@
 #include <cstdlib>
 #include <cmath>
 
-void ScalarConverter::convert(const std::string &literal)
+void ScalarConverter::convert(const std::string& literal)
 {
     char c = 0;
     int i = 0;

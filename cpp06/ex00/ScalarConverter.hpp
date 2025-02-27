@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 17:58:02 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/02/27 15:31:46 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/02/27 17:24:48 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ private:
 	
 public:
 
-	static void convert(std::string literal);
+	static void convert(const std::string& literal);
 };
