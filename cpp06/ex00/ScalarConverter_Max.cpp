@@ -12,6 +12,8 @@ void ScalarConverter::convert(const std::string& literal)
     float f = 0.0f;
     double d = 0.0;
     bool isChar = false, isInt = true, isFloat = false, isDouble = false;
+	
+	/*====DETECTAR SI ES CHAR=====*/
 
     if (literal.length() == 1 && !std::isdigit(literal[0]))
     {
@@ -19,10 +21,10 @@ void ScalarConverter::convert(const std::string& literal)
         // c = static_cast<char>(literal[0]);
         c = literal[0];
     }
-    else
-		isChar = false;
+    else // CREC QUE NO FA FALTA
+		isChar = false; // CREC QUE NO FA FALTA
 
-
+	/*=====DETECTAR SI ES NUMERO=====*/
     char *end;
 	d = std::strtod(literal.c_str(), &end);
     if ((*end == 'f' && *(end + 1) == '\0') || *end == '\0')

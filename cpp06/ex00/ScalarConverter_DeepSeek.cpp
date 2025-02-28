@@ -97,3 +97,4 @@ void ScalarConverter::convert(const std::string &literal)
     else
         std::cout << "impossible" << std::endl;
 }
+     
