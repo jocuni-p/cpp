@@ -6,12 +6,12 @@
 #    By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/02 17:15:20 by jocuni-p          #+#    #+#              #
-#    Updated: 2025/03/02 18:17:04 by jocuni-p         ###   ########.fr        #
+#    Updated: 2025/03/02 21:58:01 by jocuni-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Nombre del ejecutable
-NAME = ex00
+NAME = ex01
 
 # Nombre del compilador
 CXX = c++
@@ -24,7 +24,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic #-fsanitize=address -g
 DEPFLAGS = -MMD -MP
 
 # Archivos fuente
-SRCS = main.cpp ScalarConverter.cpp
+SRCS = main.cpp ????????????????.cpp
 
 # Directorio para los objetos
 DIR_OBJS = objs/
@@ -36,7 +36,7 @@ DEPS = $(OBJS:.o=.d)
 
 # Regla por defecto (se ejecuta al invocar `make` sin argumentos)
 all: $(DIR_OBJS) $(NAME)
-	@echo "COMPILED SUCCESSFULLY ex00"
+	@echo "COMPILED SUCCESSFULLY ex01"
 
 $(DIR_OBJS):
 	mkdir -p $(DIR_OBJS)
