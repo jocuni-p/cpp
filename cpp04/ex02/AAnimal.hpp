@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   AAnimal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 10:15:43 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/01/08 15:37:50 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/02/28 22:39:20 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class AAnimal {
 		AAnimal&			operator=(const AAnimal& other); // Copy asignment operator overloaded
 		
 		const std::string&		getType(void) const;		
-		virtual void	makeSound() const = 0; // declaro una funcion virtual como pura (=0) y asi toda la clase deviene abstracta.
+		virtual void	makeSound() const = 0; // declaro una funcion virtual como pura (=0) y asi la clase deviene abstracta.
 };
 
 #endif
