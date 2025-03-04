@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Serializer.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/02 17:15:43 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/03/04 12:20:47 by jocuni-p         ###   ########.fr       */
+/*   Created: 2025/02/26 17:58:02 by jocuni-p          #+#    #+#             */
+/*   Updated: 2025/03/02 16:59:52 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SERIALIZER_HPP
+#define SERIALIZER_HPP
+
 #include <iostream>
-#include <cstdlib> // para EXIT_FAILURE
-#include "ScalarConverter.hpp"
+#include "Data.hpp"
+#include <stdint.h> // uintptr_t
 
 
-int main(int argc, char **argv) {
-	if (argc == 2 && argv[1][0] != '\0')
-		ScalarConverter::convert(argv[1]);
-	else {
-		std::cout << "Error: missing correct argument" << std::endl;
-		std::cout << "Expected use: ./ex00 <argument>" << std::endl; 
-		return EXIT_FAILURE;
-	}
-	return 0;
-}
+class Serializer {
+private:
+	Serializer();
+	Serializer(const Serializer& copy);
+	Serializer& operator=(const Serializer& obj);
+	~Serializer();
+	
+public:
+	static uintptr_t serialize(Data* ptr);
+	static Data* deserialize(uintptr_t raw);
+};
 
+#endif

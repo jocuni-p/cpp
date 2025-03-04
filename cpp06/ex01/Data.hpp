@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/02 17:15:43 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/03/04 12:20:47 by jocuni-p         ###   ########.fr       */
+/*   Created: 2025/03/04 11:58:29 by jocuni-p          #+#    #+#             */
+/*   Updated: 2025/03/04 16:04:40 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef DATA_HPP
+#define DATA_HPP
+
 #include <iostream>
-#include <cstdlib> // para EXIT_FAILURE
-#include "ScalarConverter.hpp"
+#include <string>
 
+struct Data
+{
+	std::string name;
+	int			grade;	
+};
 
-int main(int argc, char **argv) {
-	if (argc == 2 && argv[1][0] != '\0')
-		ScalarConverter::convert(argv[1]);
-	else {
-		std::cout << "Error: missing correct argument" << std::endl;
-		std::cout << "Expected use: ./ex00 <argument>" << std::endl; 
-		return EXIT_FAILURE;
-	}
-	return 0;
-}
+#endif
 

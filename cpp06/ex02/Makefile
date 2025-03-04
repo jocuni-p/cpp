@@ -6,12 +6,12 @@
 #    By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/02 17:15:20 by jocuni-p          #+#    #+#              #
-#    Updated: 2025/03/04 13:36:11 by jocuni-p         ###   ########.fr        #
+#    Updated: 2025/03/04 16:34:36 by jocuni-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Nombre del ejecutable
-NAME = ex01
+NAME = ex02
 
 # Nombre del compilador
 CXX = c++
@@ -36,7 +36,7 @@ DEPS = $(OBJS:.o=.d)
 
 # Regla por defecto (se ejecuta al invocar `make` sin argumentos)
 all: $(DIR_OBJS) $(NAME)
-	@echo "COMPILED SUCCESSFULLY ex01"
+	@echo "COMPILED SUCCESSFULLY ex02"
 
 $(DIR_OBJS):
 	mkdir -p $(DIR_OBJS)
