@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 17:15:43 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/03/04 12:20:47 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/03/05 11:30:31 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,15 @@ int main(int argc, char **argv) {
 		std::cout << "Expected use: ./ex00 <argument>" << std::endl; 
 		return EXIT_FAILURE;
 	}
+	
+	std::cout << "\n=====================\n" << std::endl;
+	
+	float	f = 42.4f;
+
+	std::cout << "float f = " << f << std::endl;
+	std::cout << "static_cast<int>(f) = " << static_cast<int>(f) << std::endl;
+	std::cout << "static_cast<int> always truncates the fractional part of a float or double, without rounding.\n" << std::endl;
+
 	return 0;
 }
 

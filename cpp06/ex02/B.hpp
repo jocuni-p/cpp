@@ -6,17 +6,13 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 16:42:06 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/03/04 16:42:42 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/03/05 12:17:59 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Base.hpp"
 
-class B : public Base {
+class B : public Base {};
 
-
-
-	
-};
 
 
