@@ -6,7 +6,7 @@
 #    By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/02 17:15:20 by jocuni-p          #+#    #+#              #
-#    Updated: 2025/03/04 16:34:36 by jocuni-p         ###   ########.fr        #
+#    Updated: 2025/03/05 15:08:03 by jocuni-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,14 +17,14 @@ NAME = ex02
 CXX = c++
 
 # Flags de compilación (opcional)
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic #-fsanitize=address -g
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -fsanitize=address -g
 
 
 # Flags para las dependencias
 DEPFLAGS = -MMD -MP
 
 # Archivos fuente
-SRCS = main.cpp Serializer.cpp
+SRCS = main.cpp Base.cpp Identify.cpp
 
 # Directorio para los objetos
 DIR_OBJS = objs/

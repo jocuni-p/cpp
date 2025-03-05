@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 17:15:43 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/03/05 11:30:31 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/03/05 14:48:13 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@ int main(int argc, char **argv) {
 
 	std::cout << "float f = " << f << std::endl;
 	std::cout << "static_cast<int>(f) = " << static_cast<int>(f) << std::endl;
-	std::cout << "static_cast<int> always truncates the fractional part of a float or double, without rounding.\n" << std::endl;
-
+	std::cout << "\nMakes an explicit conversion and truncates the fractional part of a float or double, " << std::endl;
+	std::cout << "without rounding, which implies a loss of precision, especially in large numbers." << std::endl;
+	std::cout << "We also have to take care of overflows (int limits)..\n" << std::endl;
+	
 	return 0;
 }
 
