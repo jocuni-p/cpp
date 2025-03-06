@@ -6,12 +6,16 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 16:40:52 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/03/05 12:17:50 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/03/06 11:16:49 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef A_HPP
+#define A_HPP
 
 #include "Base.hpp"
 
 class A : public Base {};
 
+#endif
 

@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 12:32:44 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/03/05 17:22:42 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/03/06 12:34:48 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Base* generate(void){
 /*Si dynamic_cast<tipo*>(ptr) no puede castear devuelve nullptr*/
 void identify(Base* p){
 	if (!p){
-		std::cout << "Base* p is a NULL pointer." << std::endl;
+		std::cout << "Base* is a NULL pointer." << std::endl;
 		return;
 	}
 	if (dynamic_cast<A*>(p))
@@ -59,19 +59,26 @@ void identify(Base& p){
 		std::cout << "Base& references an 'A' object." << std::endl;
 		return;
 	}
-	catch(...){}//catch generico, captura cualquier exception sin importar el tipo
+	catch(...){//catch generico, captura cualquier exception sin importar el tipo
+		std::cout << "catch 1" << std::endl;
+	}
 	try {
 		dynamic_cast<B&>(p);
-		std::cout << "Base& references an 'B' object." << std::endl;
+		std::cout << "Base& references a 'B' object." << std::endl;
 		return;
 	} 
-	catch(...){}
+	catch(...){
+		std::cout << "catch 2" << std::endl;
+	}
 	try {
 		dynamic_cast<C&>(p);
-		std::cout << "Base* references an 'C' object." << std::endl;
+		std::cout << "Base* references a 'C' object." << std::endl;
 		return;	
 	} 
-	catch(...){}
+	catch(...){
+		std::cout << "catch 3" << std::endl;
+	}
 	
 	std::cout << "Base& references an UNKNOWN TYPE" << std::endl;
 }
+

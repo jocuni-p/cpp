@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 12:32:24 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/03/05 14:49:49 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/03/06 11:18:26 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 
 #include <iostream>
 #include "Base.hpp"
-// #include "A.hpp"
-// #include "B.hpp"
-// #include "C.hpp"
 
 Base* generate(void);
 

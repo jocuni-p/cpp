@@ -6,12 +6,12 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 17:15:43 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/03/05 14:48:13 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/03/06 12:58:54 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <cstdlib> // para EXIT_FAILURE
+#include <cstdlib> // EXIT_FAILURE
 #include "ScalarConverter.hpp"
 
 

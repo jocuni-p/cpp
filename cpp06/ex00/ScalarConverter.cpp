@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 17:15:02 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/03/02 21:52:29 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/03/06 12:58:29 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,6 @@ void ScalarConverter::convert(const std::string &literal)
     else if (isInt && i >= 32 && i <= 126) // if char conversion is printable
        	std::cout << "'" << static_cast<char>(i) << "'" << std::endl;
     else if (isInt && ((i >= 0 && i <= 31) || i == 127)) // if char conversion is NOT printable
-//	else if (isInt)
         std::cout << "Non displayable" << std::endl; // if char conversion is NOT printable
     else
         std::cout << "impossible" << std::endl; 
@@ -119,3 +118,4 @@ void ScalarConverter::convert(const std::string &literal)
 	/*-------PRNT DOUBLE--------*/
     std::cout << "Double: " << d << std::endl;
 }
+
