@@ -53,5 +53,3 @@ Replace `program_name` with the appropriate executable name for each exercise.
 ## Additional Information
 
 For more details, refer to the cpp03_subject.pdf provided.
-
-```
