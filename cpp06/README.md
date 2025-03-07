@@ -2,7 +2,7 @@
 ## **README.md**  
 
 
-# CPP06 - Type Conversion in C++
+# C++ Module 06 - Type Conversion in C++
 
 ## Overview
 The **CPP06** module at **42 Barcelona** focuses on **type conversions** in C++, particularly between **scalar types** (`char`, `int`, `float`, `double`).  
