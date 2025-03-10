@@ -69,7 +69,8 @@
 		"stack": "cpp",
 		"variant": "cpp",
 		"fstream": "cpp",
-		"fet_pel_chatgpt": "cpp"
+		"fet_pel_chatgpt": "cpp",
+		"*.tpp": "cpp"
 	},
 	"C_Cpp.errorSquiggles": "enabled"
 }

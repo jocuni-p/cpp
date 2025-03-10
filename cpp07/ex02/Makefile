@@ -6,7 +6,7 @@
 #    By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/02 17:15:20 by jocuni-p          #+#    #+#              #
-#    Updated: 2025/03/09 20:55:05 by jocuni-p         ###   ########.fr        #
+#    Updated: 2025/03/10 17:21:03 by jocuni-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ NAME = ex02
 CXX = c++
 
 # Flags de compilación (opcional)
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic #-fsanitize=address -g
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -fsanitize=address -g
 
 # Flags para las dependencias
 DEPFLAGS = -MMD -MP
@@ -50,7 +50,7 @@ $(NAME): $(OBJS) Makefile
 
 # Regla para compilar archivos .cpp en archivos .o
 # Incluyo HDR como dependencia (si cambia algo en .hpp el compilador regenerara los archivos .o relacionados)
-$(DIR_OBJS)%.o: %.cpp
+$(DIR_OBJS)%.o: %.cpp Array.hpp
 	$(CXX) $(CXXFLAGS) $(DEPFLAGS) -c $< -o $@
 
 # Regla para limpiar archivos generados
