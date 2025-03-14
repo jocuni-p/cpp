@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header.hpp                                         :+:      :+:    :+:   */
+/*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 12:03:52 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/03/08 12:43:07 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/03/14 17:58:15 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_HPP
-#define HEADER_HPP
+#ifndef WHATEVER_HPP
+#define WHATEVER_HPP
 
 /*====Template functions definition====*/
 template <typename T>
