@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 17:15:02 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/03/06 12:58:29 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/03/19 21:12:35 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void ScalarConverter::convert(const std::string &literal)
 
 	/*-----FORMAT THE OUTPUT TO DECIMAL NOTATION-------*/
 	//Evita notacion cientifica y establece precision en 1 decimal (si es el caso)
-    std::cout << std::fixed << std::setprecision(1);
+	std::cout << std::fixed << std::setprecision(1);
 
 	/*--------PRINT CHAR---------*/
     std::cout << "Char: ";
