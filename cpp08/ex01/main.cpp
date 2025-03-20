@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 23:06:30 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/03/18 13:05:19 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/03/20 18:01:10 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ int main() {
 
 		printNumbers(sp1);
 
-		std::cout << sp.shortestSpan() << std::endl;
-		std::cout << sp.longestSpan() << std::endl;
+		std::cout << sp1.shortestSpan() << std::endl;
+		std::cout << sp1.longestSpan() << std::endl;
 		
 
 		std::cout << "\n==== BIG LIST TEST ====" << std::endl;
@@ -72,7 +72,7 @@ int main() {
 		
 		std::vector<int> bigList(10100);
 		for (size_t i = 0; i < bigList.size(); ++i)
-			bigList[i] = i * 2; // fills just with even numbers
+			bigList[i] = i * 2; // fills only the even numbers
 
 		sp2.addNumRange(bigList.begin(), bigList.end());
 

@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 12:16:37 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/03/14 22:27:43 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/03/20 17:55:02 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int main() {
 	{
 		std::cout << "list<int>: ";
 		printContainer(list);
-		std::list<int>::iterator it = easyfind(list, -22222); //includes a throw
+		std::list<int>::iterator it = easyfind(list, 5); //includes a throw
 		std::cout << "Found: " << *it << std::endl;
 		//		std::cout << "easyfind(list, nbr): OK\n" << std::endl;
 	}

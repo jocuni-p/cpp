@@ -6,7 +6,7 @@
 #    By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/02 17:15:20 by jocuni-p          #+#    #+#              #
-#    Updated: 2025/03/19 12:18:35 by jocuni-p         ###   ########.fr        #
+#    Updated: 2025/03/20 17:52:00 by jocuni-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -fsanitize=address -g
 DEPFLAGS = -MMD -MP
 
 # Archivos fuente
-SRCS = main.cpp ????????????
+SRCS = main.cpp 
 
 # Directorio para los objetos
 DIR_OBJS = objs/
@@ -67,3 +67,4 @@ re: fclean all
 # .PHONY indica que all, clean, fclean y re no son archivos, 
 # sino "etiquetas" para comandos de make.
 .PHONY: all clean fclean re
+
