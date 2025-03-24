@@ -71,7 +71,8 @@
 		"fstream": "cpp",
 		"fet_pel_chatgpt": "cpp",
 		"*.tpp": "cpp",
-		"list": "cpp"
+		"list": "cpp",
+		"map": "cpp"
 	},
 	"C_Cpp.errorSquiggles": "enabled"
 }
