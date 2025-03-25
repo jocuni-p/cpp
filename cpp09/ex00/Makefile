@@ -6,7 +6,7 @@
 #    By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/02 17:15:20 by jocuni-p          #+#    #+#              #
-#    Updated: 2025/03/22 22:06:23 by jocuni-p         ###   ########.fr        #
+#    Updated: 2025/03/25 16:39:22 by jocuni-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ DEPS = $(OBJS:.o=.d)
 
 # Regla por defecto (se ejecuta al invocar `make` sin argumentos)
 all: $(DIR_OBJS) $(NAME)
-	@echo "COMPILED SUCCESSFULLY ex02"
+	@echo "COMPILED SUCCESSFULLY btc"
 
 $(DIR_OBJS):
 	mkdir -p $(DIR_OBJS)

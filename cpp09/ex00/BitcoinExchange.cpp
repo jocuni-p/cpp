@@ -6,12 +6,14 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 22:05:42 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/03/24 13:27:45 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/03/25 16:52:11 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
+
+/*============= Canonical form =============*/
 
 /* Default constructor */
 BitcoinExchange::BitcoinExchange() {}
@@ -30,44 +32,99 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& obj) {
 
 BitcoinExchange::~BitcoinExchange() {}
 
-/* Member functions */
-void loadData(const std::string& filename) {
+
+
+/*============= Member functions ==============*/
+
+void BitcoinExchange::loadData(const std::string& filename) {
 	
-	std::ifstream file("./data.csv");
+	//CHECK APERTURA FILE CSV
+	std::ifstream file(filename.c_str()); // pasa 'string' a char *str 
 	if (!file || file.fail()) { // in case open fails or file does not exist
-		std::cerr << "Error. Open file.csv failure." << std::endl;
-		return;
+		// std::cerr << "Error. Open 'file.csv' failure." << std::endl;
+		// std::exit (1);
+		throw std::runtime_error("Error: Open 'file.csv' failed '" + filename + "'");
 	}
 
 	std::string line;
 	std::string date;
 	float value;
-
+	
+	//CARGA DEL CSV AL MAPA
+	std::getline(file, line); // Lee la primera linea sin informacion para map
+	
 	while (std::getline(file, line)){
 		std::stringstream ss(line);
-		std::getline(ss, date, ',');
-		ss >> value; // pongo el resto del stream en value y lo convierte a float
-		if (!ss.fail())
-		_BtcExchange[date] = value;
+		if (!std::getline(ss, date, ',') || !(ss >> value)){// pongo fecha en 'date' y el resto casteado a float en 'value'.
+			std::cerr << "Error: Invalid line in database" << std::endl;
+			continue;
+		}
+
+		//VALIDACION FECHA
+		if (!isDateValid(date)){
+			std::cout << "Error: Date is not valid" << std::endl;
+			continue;
+		}
+		
+		_BtcExchange[date] = value; // upload the value into the map container
 	}
 
-//	al final del scope si no se cierre el archivo file, cerrarlo con file.close()
+	file.close(); // No estoy seguro si es necesario
 }
 
-void processInput(const std::string& filename) {
 
+//void BitcoinExchange::processInput(const std::string& filename) {
+
+	// usar isDateValid para chequear fecha
+	// check value isdigit()
+	// check que value es un float o int entre 0 y 1000 "Error: Value is not a valid range"
+//}
+
+//float BitcoinExchange::getRate(const std::string& date) {
 
 	
+	
+//}
+
+
+void BitcoinExchange::printRate(const std::string& date) {
+	for (std::map<std::string, float>::iterator it = _BtcExchange.begin(); it->first != date; ++it)
+		std::cout << _BtcExchange[date] << std::endl;
 }
+//void addNumRange(std::vector<int>::iterator begin, std::vector<int>::iterator end); 
+//for (std::map<std::string, ASpell*>::iterator it = _book.begin(); it != _book.end(); ++it)
 
-float getRate(const std::string& date) {
 
+/* Validates if date exist and its format is correct*/
+/* Takes into account the leap years as well (leap year is % 4, if ends xx00 and % 400)*/
+bool BitcoinExchange::isDateValid(const std::string& date) {
 	
+	if (date.size() != 10 || date[4] != '-' || date[7] != '-') return false;
+	std::cout << "1" << std::endl;
+	for (size_t i = 0; i <= date.size(); ++i)
+	{
+		if ((i != 4 && i != 7) && !isdigit(date[i])) return false;
+	}
+
+	int year;
+	int month;
+	int day;
+	char sign1;
+	char sign2;
+//	std::cout << "2" << std::endl;
+	std::stringstream ss(date);
+	ss >> year >> sign1 >> month >> sign2 >> day;
+
+	if (ss.fail() || sign1 != '-' || sign2 != '-') return false;
+	if (month < 1 || month > 12 || day < 1 || day > 31) return false;
 	
-}
+	int daysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
-bool isDateValid(const std::string& date) {
-
-
+	//if it is february and a leap year must have 29 days
+    if (month == 2 && ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))) {
+        daysInMonth[1] = 29;
+    }
 	
+	//if the day fits into the number of days of that month returns 'true'
+    return day <= daysInMonth[month - 1];
 }
