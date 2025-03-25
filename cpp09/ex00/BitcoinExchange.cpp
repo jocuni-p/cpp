@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 22:05:42 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/03/25 16:52:11 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/03/25 19:28:54 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void BitcoinExchange::loadData(const std::string& filename) {
 		_BtcExchange[date] = value; // upload the value into the map container
 	}
 
-	file.close(); // No estoy seguro si es necesario
+//	file.close(); // No estoy seguro si lo necesita
 }
 
 
@@ -80,19 +80,34 @@ void BitcoinExchange::loadData(const std::string& filename) {
 	// check que value es un float o int entre 0 y 1000 "Error: Value is not a valid range"
 //}
 
-//float BitcoinExchange::getRate(const std::string& date) {
 
+
+
+/* lower_bound() encuentra un elemento igual o suprior a date*/
+float BitcoinExchange::getRate(const std::string& date) {
+
+	std::map<std::string, float>::iterator it = _BtcExchange.lower_bound(date);
 	
+	//Si llego al final o encontro una fecha distinta a date retrocedemos a un elemento anterior (menor) 
+	if (it == _BtcExchange.end() || (it != _BtcExchange.begin() && it->first != date)) {
+		--it;
+	}
 	
-//}
+	//Si encontro la fecha exacta retornamos su valor
+	if (it != _BtcExchange.end()) {
+		return it->second;
+	}
+	return -1;
+}
 
 
+
+//SOLO PER PROBAR IMPRIMIR //////ELIMINAR????????????/
 void BitcoinExchange::printRate(const std::string& date) {
 	for (std::map<std::string, float>::iterator it = _BtcExchange.begin(); it->first != date; ++it)
-		std::cout << _BtcExchange[date] << std::endl;
+		std::cout << it->second << std::endl;
 }
-//void addNumRange(std::vector<int>::iterator begin, std::vector<int>::iterator end); 
-//for (std::map<std::string, ASpell*>::iterator it = _book.begin(); it != _book.end(); ++it)
+
 
 
 /* Validates if date exist and its format is correct*/
@@ -100,8 +115,7 @@ void BitcoinExchange::printRate(const std::string& date) {
 bool BitcoinExchange::isDateValid(const std::string& date) {
 	
 	if (date.size() != 10 || date[4] != '-' || date[7] != '-') return false;
-	std::cout << "1" << std::endl;
-	for (size_t i = 0; i <= date.size(); ++i)
+	for (size_t i = 0; i < date.size(); ++i)
 	{
 		if ((i != 4 && i != 7) && !isdigit(date[i])) return false;
 	}
@@ -111,7 +125,7 @@ bool BitcoinExchange::isDateValid(const std::string& date) {
 	int day;
 	char sign1;
 	char sign2;
-//	std::cout << "2" << std::endl;
+
 	std::stringstream ss(date);
 	ss >> year >> sign1 >> month >> sign2 >> day;
 
@@ -120,11 +134,11 @@ bool BitcoinExchange::isDateValid(const std::string& date) {
 	
 	int daysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
-	//if it is february and a leap year must have 29 days
+	//if it is a february and a leap year must have 29 days
     if (month == 2 && ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))) {
         daysInMonth[1] = 29;
     }
-	
+
 	//if the day fits into the number of days of that month returns 'true'
     return day <= daysInMonth[month - 1];
 }

@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 21:55:34 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/03/25 16:34:56 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/03/25 18:40:16 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class BitcoinExchange {
 
 		void loadData(const std::string& filename);
 //		void processInput(const std::string& filename);
-//		float getRate(const std::string& date);
+		float getRate(const std::string& date);
 		bool isDateValid(const std::string& date);
 		void printRate(const std::string& date);
 };
