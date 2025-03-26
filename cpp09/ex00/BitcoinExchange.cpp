@@ -6,12 +6,12 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 22:05:42 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/03/25 19:28:54 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/03/26 18:19:30 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
-
+//#include <string>
 
 /*============= Canonical form =============*/
 
@@ -43,7 +43,7 @@ void BitcoinExchange::loadData(const std::string& filename) {
 	if (!file || file.fail()) { // in case open fails or file does not exist
 		// std::cerr << "Error. Open 'file.csv' failure." << std::endl;
 		// std::exit (1);
-		throw std::runtime_error("Error: Open 'file.csv' failed '" + filename + "'");
+		throw std::runtime_error("Error: Open '" + filename + "' failure");
 	}
 
 	std::string line;
@@ -69,18 +69,84 @@ void BitcoinExchange::loadData(const std::string& filename) {
 		_BtcExchange[date] = value; // upload the value into the map container
 	}
 
-//	file.close(); // No estoy seguro si lo necesita
+	file.close(); // cierro para no causar fugas de recursos
 }
 
 
-//void BitcoinExchange::processInput(const std::string& filename) {
+void BitcoinExchange::processInput(const std::string& filename) {
+	
+	std::ifstream file(filename.c_str());
+	if (!file || file.fail())
+		throw std::runtime_error("Error: Open '" + filename + "' failure");
 
-	// usar isDateValid para chequear fecha
-	// check value isdigit()
-	// check que value es un float o int entre 0 y 1000 "Error: Value is not a valid range"
-//}
+	std::string line;
+	bool firstLine = true;
+	
+	while (std::getline(file, line)) {//busca linea y verifica a la vez
 
+		if (firstLine){
+			if (line == "date | value"){
+				firstLine = false;
+				continue;
+			}
+		}
 
+		std::string date;
+		char separator;
+		std::string valueStr;
+		float value;
+
+		std::stringstream ss(line);
+		ss >> date >> separator >> valueStr;
+		
+		//Chequeo si la conversion de flujo de datos a sus tipos ha fallado
+		if (ss.fail() || separator != '|'){
+			std::cerr << "Error: bad input => " << line << std::endl;
+			continue;
+		}
+
+		if (!isDateValid(date)){
+			std::cerr << "Error: bad input date => " << line << std::endl;
+			continue;
+		}
+
+		if (valueStr[0] == '-'){
+			std::cerr << "Error: not a positive number." << std::endl;
+			continue;
+		}
+		
+		std::stringstream valueSS(valueStr);
+		valueSS >> value; // Lo guarda en la variable como float
+
+		if (valueSS.fail() || valueStr.find_first_not_of("0123456789.") != std::string::npos ||
+			std::count(valueStr.begin(), valueStr.end(), '.') > 1) {
+			std::cerr << "Error: wrong value => " << value << std::endl;
+			continue;
+		}
+
+		//Fijo la salida de error a notacion decimal y con solo dos digitos decimales
+		std::cerr << std::fixed << std::setprecision(2);
+		
+
+			if (value < 0 || value > 1000)
+			{
+				std::cerr << "Error: out of range value(0-1000) => " << value << std::endl;
+				continue;
+		}
+
+		float rate = getRate(date);
+		
+		//Fijo la salida standard a notacion decimal y con solo dos digitos decimales
+		std::cout << std::fixed << std::setprecision(2);
+
+		if (rate > 0)
+			std::cout << date << " => " << value << " = " << value * rate << std::endl;
+		else
+			std::cout << "Error: date not found, it is previous to the database. " << std::endl;
+		
+	}
+	file.close(); // cierro para no causar fugas de recursos
+}
 
 
 /* lower_bound() encuentra un elemento igual o suprior a date*/
@@ -101,13 +167,13 @@ float BitcoinExchange::getRate(const std::string& date) {
 }
 
 
-
-//SOLO PER PROBAR IMPRIMIR //////ELIMINAR????????????/
+/*
+//SOLO PER PROBAR IMPRIMIR //////ELIMINAR
 void BitcoinExchange::printRate(const std::string& date) {
 	for (std::map<std::string, float>::iterator it = _BtcExchange.begin(); it->first != date; ++it)
 		std::cout << it->second << std::endl;
 }
-
+*/
 
 
 /* Validates if date exist and its format is correct*/
