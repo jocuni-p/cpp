@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 22:05:42 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/03/27 13:24:27 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/03/27 16:45:23 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,7 @@ void BitcoinExchange::processInput(const std::string& filename) {
 		if (rate >= 0)
 			std::cout << date << " => " << value << " = " << value * rate << std::endl;
 		else
-			std::cout << "Error: date previous to the database => " << date << std::endl;
+			std::cerr << "Error: Not info before 2009-01-02 => " << date << std::endl;
 		
 	}
 	file.close();
@@ -148,13 +148,19 @@ float BitcoinExchange::getRate(const std::string& date) {
 
 	std::map<std::string, float>::iterator it = _BtcExchange.lower_bound(date);
 	if (it == _BtcExchange.end() || (it != _BtcExchange.begin() && it->first != date)) {
-//		if (it == _BtcExchange.begin())
 		--it;
 	}
-	
-	if (it != _BtcExchange.end()) {
+	if (it == _BtcExchange.begin() && it->first == date)
+		return it->second;
+		
+	if (it == _BtcExchange.begin() && it->first != date) {
+		return -1;
+	}
+		
+	if (it != _BtcExchange.end()){
 		return it->second;
 	}
+	
 	return -1;
 }
 
