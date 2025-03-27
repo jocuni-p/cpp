@@ -15,14 +15,14 @@ This C++ module focuses on the use of **containers**, **iterators**, and **algor
 ---
 
 ## Exercises
-### **ex00 - Easy Find**
+### **ex00**
 **Objective:** Implement a template function `easyfind` that searches for a number within an integer container.
 
 **Key Points:**
 - Use of iterators.
 - Exception handling if the number is not found.
 
-### **ex01 - Span**
+### **ex01**
 **Objective:** Implement a `Span` class that stores a fixed number of integers and finds the shortest and longest span between them.
 
 **Key Points:**
@@ -30,7 +30,7 @@ This C++ module focuses on the use of **containers**, **iterators**, and **algor
 - Implementation of algorithms to find minimum and maximum differences.
 - Allow addition of multiple elements using iterators.
 
-### **ex02 - MutantStack**
+### **ex02**
 **Objective:** Create a `MutantStack` class based on `std::stack` that allows iteration over its elements.
 
 **Key Points:**
