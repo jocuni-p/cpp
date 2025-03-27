@@ -3,5 +3,5 @@ scav
 clap
 *.o
 frag
-.vscode/
+.vscode
 animal
