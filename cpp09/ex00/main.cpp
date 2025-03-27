@@ -6,13 +6,13 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 21:54:13 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/03/26 17:59:01 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/03/27 12:33:06 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <stdexcept>
-#include <string>
+// #include <iostream>
+// #include <stdexcept>
+// #include <string>
 #include "BitcoinExchange.hpp"
 
 int main(int argc, char *argv[]){
@@ -22,7 +22,7 @@ int main(int argc, char *argv[]){
 		std::cout << "Usage: ./btc <inputfile.txt>" << std::endl;
 		return 1;
 	}
-	(void)argv[1];
+//	(void)argv[1];
 	
 	BitcoinExchange btc;
 

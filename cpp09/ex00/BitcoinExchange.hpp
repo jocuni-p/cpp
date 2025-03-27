@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 21:55:34 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/03/26 16:57:35 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/03/27 12:32:33 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 #define BITCOINEXCHANGE_HPP
 
 #include <iostream>
-#include <map>
-#include <fstream>
-#include <sstream>
-#include <exception>
+#include <string> // find_first_not_of()
+#include <map> // lower_bound()
+#include <fstream> // ifstream
+#include <sstream> //stringstream
+#include <exception> 
 #include <iomanip> // setprecision(), fixed()
 #include <algorithm> // count()
 
@@ -35,7 +36,6 @@ class BitcoinExchange {
 		void processInput(const std::string& filename);
 		float getRate(const std::string& date);
 		bool isDateValid(const std::string& date);
-		void printRate(const std::string& date);
 };
 
 #endif
