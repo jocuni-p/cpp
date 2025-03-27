@@ -1,13 +1,11 @@
 # C++ Module 00
 
 ## Description
-This repository contains my solutions for C++ Module 00 exercises, introducing basic concepts of the language such as namespaces, classes, member functions, input/output streams, initialization lists, `static`, `const`, and other fundamental features of C++98.
+This module introduces basic concepts of the language, such as namespaces, classes, member functions, input/output streams, initialization lists, `static`, `const`, and other fundamental features of C++98.
 
 ## Exercises
 
 ### Exercise 00: Megaphone
-- **Directory:** `ex00/`
-- **Files:** `Makefile`, `megaphone.cpp`
 - **Description:** A program that converts input to uppercase and displays it on the screen. If no input is provided, it prints a "loud and unbearable feedback noise" message.
 - **Usage example:**
   ```sh
@@ -16,9 +14,7 @@ This repository contains my solutions for C++ Module 00 exercises, introducing b
   ```
 
 ### Exercise 01: My Awesome PhoneBook
-- **Directory:** `ex01/`
-- **Files:** `Makefile`, `*.cpp`, `*.h`, `*.hpp`
-- **Description:** Implementation of a contact book with a maximum of 8 entries. Supports the commands `ADD`, `SEARCH`, and `EXIT`.
+- **Description:** Implement a contact book with a maximum of 8 entries. Supports the commands `ADD`, `SEARCH`, and `EXIT`.
 - **Usage example:**
   ```sh
   > ADD
@@ -27,8 +23,6 @@ This repository contains my solutions for C++ Module 00 exercises, introducing b
   ```
 
 ### Exercise 02: The Job Of Your Dreams
-- **Directory:** `ex02/`
-- **Files:** `Makefile`, `Account.cpp`, `Account.hpp`, `tests.cpp`
 - **Description:** Reconstruction of a lost implementation of the `Account` class based on a header file and an execution log.
 
 ## Rules and Requirements
