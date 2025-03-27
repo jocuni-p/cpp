@@ -1,12 +1,12 @@
 # C++ Module 07 - Templates
 
 ## 📌 Overview
-This repository contains my solutions for **C++ Module 07**, which focuses on **templates** in C++. The exercises cover function templates and class templates, demonstrating how to create reusable and generic code.
+This repository focuses on **templates** in C++. The exercises cover function templates and class templates, demonstrating how to create reusable and generic code.
 
 Each exercise is structured with a `Makefile`, a main test file, and the necessary headers and implementation files.
 
 ## 📂 Exercises
-### **Exercise 00: Start with a few functions**
+### **ex00**
 - **Description:**
   - Implements three function templates:
     - `swap`: Swaps two given arguments.
@@ -14,15 +14,15 @@ Each exercise is structured with a `Makefile`, a main test file, and the necessa
     - `max`: Returns the largest of two arguments.
   - These functions work with any type that supports comparison operators.
 
-### **Exercise 01: Iter**
+### **ex01**
 - **Description:**
   - Implements a function template `iter` that:
     - Takes a pointer to an array, its size, and a function.
     - Applies the function to each element of the array.
   - Works with any data type and callable function.
 
-### **Exercise 02: Array**
-- **Files:** added a new tipe of file `Array.tpp` to implement the class template members.
+### **ex02**
+- **Files:** added a new type of file `Array.tpp` to implement the class template members.
 - **Description:**
   - Implements a class template `Array<T>` with:
     - Default constructor (empty array).
@@ -44,8 +44,4 @@ To clean up object files and executables:
 ```sh
 make clean
 ```
-
-## 📜 License
-This project is for educational purposes only and follows the guidelines of **42 School**'s C++ modules.
-
 
