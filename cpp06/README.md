@@ -5,26 +5,26 @@
 # C++ Module 06 - Type Conversion in C++
 
 ## Overview
-The **CPP06** module at **42 Barcelona** focuses on **type conversions** in C++, particularly between **scalar types** (`char`, `int`, `float`, `double`).  
+The **CPP06** module focuses on **type conversions** in C++, particularly between **scalar types** (`char`, `int`, `float`, `double`).  
 The goal is to understand how to safely convert values while avoiding common issues such as **precision loss or invalid conversions**.
 
 ---
 
 ## **Exercises**
-### **ex00: ScalarConverter**
+### **ex00**
 - Implement a `ScalarConverter` class that converts a **string** into different scalar types (`char`, `int`, `float`, `double`).
 - Correctly handle special values such as `nan`, `inf`, `-inf`.
 - Ensure the output format follows the **subject**.
 
 ---
 
-### **ex01: Serialization**
+### **ex01**
 - Implement a **simple data serialization and deserialization** mechanism.
 - Convert a `Data` structure into a `uintptr_t` and back without losing information.
 
 ---
 
-### **ex02: Dynamic Casting**
+### **ex02**
 - Implement **polymorphism and dynamic casting** using `dynamic_cast`.
 - Create a base class and multiple derived classes.
 - Generate random objects and identify them at runtime.
