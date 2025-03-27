@@ -5,7 +5,7 @@ This module introduces basic concepts of the language, such as namespaces, class
 
 ## Exercises
 
-### Exercise 00: Megaphone
+### ex00
 - **Description:** A program that converts input to uppercase and displays it on the screen. If no input is provided, it prints a "loud and unbearable feedback noise" message.
 - **Usage example:**
   ```sh
@@ -13,7 +13,7 @@ This module introduces basic concepts of the language, such as namespaces, class
   HELLO WORLD
   ```
 
-### Exercise 01: My Awesome PhoneBook
+### ex01
 - **Description:** Implement a contact book with a maximum of 8 entries. Supports the commands `ADD`, `SEARCH`, and `EXIT`.
 - **Usage example:**
   ```sh
@@ -22,7 +22,7 @@ This module introduces basic concepts of the language, such as namespaces, class
   > EXIT
   ```
 
-### Exercise 02: The Job Of Your Dreams
+### ex02
 - **Description:** Reconstruction of a lost implementation of the `Account` class based on a header file and an execution log.
 
 ## Rules and Requirements
