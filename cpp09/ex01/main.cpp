@@ -5,30 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/22 21:54:13 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/03/30 12:29:08 by jocuni-p         ###   ########.fr       */
+/*   Created: 2025/03/30 13:01:21 by jocuni-p          #+#    #+#             */
+/*   Updated: 2025/03/31 15:37:34 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp"
 
-int main(int argc, char *argv[]){
+#include "RPN.hpp"
 
+int main(int argc, char **argv) {
+	
 	if (argc != 2) {
-		std::cerr << "Error: could not open file" << std::endl;
-		std::cout << "Usage: ./btc <inputfile.txt>" << std::endl;
+		std::cerr << "Error: Incorrect number of arguments." << std::endl;
+		std::cout << "Usage: ./RPN <\"3 5 + 9 -...\"" << std::endl;
 		return 1;
 	}
 
-	BitcoinExchange btc;
-
+	RPN myRpn;
+	
+	
 	try {
+		std::string input = argv[1];
 
-		btc.loadData("data.csv");
-		btc.processInput(argv[1]);
+		std::cout << "Input: " << input << std::endl;
+		std::cout << myRpn.calculation(input) << std::endl;
 	}
-	catch (std::exception &e) {
-			std::cerr << e.what() << std::endl;
+	catch(std::exception& e) {
+		std::cerr << e.what() << std::endl; // aporta un error explicito
 	}
+
 	return 0;
 }

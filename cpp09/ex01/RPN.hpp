@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/22 21:54:13 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/03/30 12:29:08 by jocuni-p         ###   ########.fr       */
+/*   Created: 2025/03/30 12:40:57 by jocuni-p          #+#    #+#             */
+/*   Updated: 2025/03/30 22:35:38 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp"
+#ifndef RPN_HPP
+#define RPN_HPP
 
-int main(int argc, char *argv[]){
+#include <iostream>
+#include <string>
+#include <stack>
+#include <sstream>
 
-	if (argc != 2) {
-		std::cerr << "Error: could not open file" << std::endl;
-		std::cout << "Usage: ./btc <inputfile.txt>" << std::endl;
-		return 1;
-	}
+class RPN {
+private:
+	std::stack<int> _stackRPN;
 
-	BitcoinExchange btc;
+	RPN(const RPN& copy);
+	RPN& operator=(const RPN& obj);
+	
+public:
+	RPN();
+	~RPN();
 
-	try {
+	int calculation(const std::string& input);
+};
 
-		btc.loadData("data.csv");
-		btc.processInput(argv[1]);
-	}
-	catch (std::exception &e) {
-			std::cerr << e.what() << std::endl;
-	}
-	return 0;
-}
+#endif
