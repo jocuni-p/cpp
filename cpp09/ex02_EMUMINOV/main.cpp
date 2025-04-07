@@ -18,6 +18,7 @@ static std::string validate_arg(std::string arg)
         return "Too big arguments are not allowed";
     return "";
 }
+//----------------------------------------------------------------
 
 static std::string validate(int argc, char** argv)
 {
@@ -31,6 +32,7 @@ static std::string validate(int argc, char** argv)
     }
     return "";
 }
+//-----------------------------------------------------------------
 
 static std::vector<int> argv_to_vector(int argc, char** argv)
 {
@@ -42,7 +44,7 @@ static std::vector<int> argv_to_vector(int argc, char** argv)
     }
     return res;
 }
-
+//--------------------------------------------------------------------
 static std::deque<int> argv_to_deque(int argc, char** argv)
 {
     std::deque<int> res;
@@ -52,6 +54,7 @@ static std::deque<int> argv_to_deque(int argc, char** argv)
     }
     return res;
 }
+//------------------------------------------------------------------
 
 static std::set<int> argv_to_set(int argc, char** argv)
 {
@@ -62,7 +65,8 @@ static std::set<int> argv_to_set(int argc, char** argv)
     }
     return res;
 }
-
+//-------------------------------------------------------------------
+//TEMPLATE QUE COMPRUEBA SI ESTA ORDENADO EL CONTAINER
 template <typename T> static bool is_sorted(const T& container)
 {
     if (container.size() == 0 || container.size() == 1)
@@ -78,7 +82,8 @@ template <typename T> static bool is_sorted(const T& container)
     }
     return true;
 }
-
+//--------------------------------------------------------------------
+//IMPRIME EL INPUT ENTRE []
 static std::string argv_to_str(int argc, char** argv)
 {
     std::string res("");
@@ -93,6 +98,7 @@ static std::string argv_to_str(int argc, char** argv)
     res += "]";
     return res;
 }
+//---------------------------------------------------------------------
 
 static std::string vec_to_str(std::vector<int>& vec)
 {
@@ -105,7 +111,9 @@ static std::string vec_to_str(std::vector<int>& vec)
     ss << "]";
     return ss.str();
 }
-/*
+
+//-----------------------------------------------------------------------
+//VERIFICA QUE EL CONTAINER VECTOR CONTENGA TODOS LOS VALORES DEL INPUT
 static bool retained_original_values(std::set<int>& original_values, std::vector<int>& vec)
 {
 	for (int i = 0; i < (int)vec.size(); i++)
@@ -115,38 +123,45 @@ static bool retained_original_values(std::set<int>& original_values, std::vector
 		original_values.erase(vec[i]);
 	}
 	return true;
-}*/
+}
+//------------------------------------------------------------------------
 
 int main(int argc, char** argv)
 {
     PmergeMe pm;
-	
+	//VALIDACION DEL INPUT
     std::string status = validate(argc, argv);
     if (status != "")
     {
         std::cerr << "Error: " << status << "\n";
         return EXIT_FAILURE;
     }
+	//PONE EL INPUT EN UN CONTAINER SET PARA COMPARAR SI CONTIENE LOS MISMOS NUMS QUE EL RES FINAL
 	std::set<int> original_values = argv_to_set(argc, argv);
 
-    clock_t start_vec = clock();
-    std::vector<int> vec = argv_to_vector(argc, argv);
-    pm.sort_vec(vec);
-    clock_t end_vec = clock();
-    double time_elapsed_vec = static_cast<double>(end_vec - start_vec) / CLOCKS_PER_SEC;
+	//----VECTOR-----
+    clock_t start_vec = clock(); //ARRANCA EL CONTADOR DE TIEMPO PARA VECTOR
+    std::vector<int> vec = argv_to_vector(argc, argv);//CARGA EL VECTOR
+    pm.sort_vec(vec); // LLAMA A LA CLASSE PmergeMe CON VECTOR
+    clock_t end_vec = clock(); //PARA EL TIEMPO
+    double time_elapsed_vec = static_cast<double>(end_vec - start_vec) / CLOCKS_PER_SEC;//TIEMPO TRANSCURRIDO
 
-	PmergeMe::nbr_of_comps = 0;
+	PmergeMe::nbr_of_comps = 0; // ?????????????????????????????/
+
+	//----DEQUE----
     clock_t start_deque = clock();
     std::deque<int> deque = argv_to_deque(argc, argv);
     pm.sort_deque(deque);
     clock_t end_deque = clock();
     double time_elapsed_deque = static_cast<double>(end_deque - start_deque) / CLOCKS_PER_SEC;
-// LI COMENTO AQUESTA FUNCIO PERQUE DONA ERROR AMB INPUTS DE MOLTS NUMEROS
-//    if (!is_sorted(vec) || (int)deque.size() != (argc - 1) || !retained_original_values(original_values, vec))
-	if (!is_sorted(vec) || (int)deque.size() != (argc - 1)) // || !retained_original_values(original_values, vec))
+
+	//----VERIFICACION DE ORDENACION (ordenacion, tamanyo correcto, mismos nums)------
+	//OJO: DONA ERROR AMB INPUTS DE MES DE 400 NUMEROS A MACOSX
+    if (!is_sorted(vec) || (int)deque.size() != (argc - 1) || !retained_original_values(original_values, vec))
+//	if (!is_sorted(vec) || (int)deque.size() != (argc - 1)) // || !retained_original_values(original_values, vec))
 	{
         std::cout << "Vector was not sorted properly.\n";
-		return 1; // ALGO NO FUNCIONA BIEN AQUI
+		return 1; // ALGO NO FUNCIONA BIEN EN ESTA FUNCION EN MACOSX
 	}
     if (!is_sorted(deque) || (int)deque.size() != (argc - 1))
 	{
