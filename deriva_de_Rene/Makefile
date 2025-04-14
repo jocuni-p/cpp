@@ -4,9 +4,9 @@ SRC = main.cpp PmergeMe.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
-CXX = -c++ -std=c++98
+CXX = c++ 
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -std=c++98 -pedantic
 
 all: $(NAME)
 

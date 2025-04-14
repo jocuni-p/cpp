@@ -1,4 +1,4 @@
-y# **************************************************************************** #
+# **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
@@ -6,7 +6,7 @@ y# **************************************************************************** 
 #    By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/02 17:15:20 by jocuni-p          #+#    #+#              #
-#    Updated: 2025/03/31 16:35:59 by jocuni-p         ###   ########.fr        #
+#    Updated: 2025/04/14 21:04:04 by jocuni-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ NAME = PmergeMe
 CXX = c++
 
 # Flags de compilación (opcional)
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -fsanitize=address -g
+#OJO: comentar 'fsanitize' para debbugar.
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -g -DPMERGEME_DEBUG #-fsanitize=address
 
 # Flags para las dependencias
 DEPFLAGS = -MMD -MP
@@ -39,7 +40,7 @@ DEPS = $(OBJS:.o=.d)
 
 # Regla por defecto (se ejecuta al invocar `make` sin argumentos)
 all: $(DIR_OBJS) $(NAME)
-	@echo "COMPILED SUCCESSFULLY PmergeMe"
+	@echo "SUCCESSFULLY COMPILED -> PmergeMe"
 
 $(DIR_OBJS):
 	mkdir -p $(DIR_OBJS)    

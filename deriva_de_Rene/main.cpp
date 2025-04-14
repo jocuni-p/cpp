@@ -1,17 +1,13 @@
 #include "PmergeMe.hpp"
+#include <cctype>
 
 void sortedCheck(std::vector<int> &vec)
 {
-	std::vector<int>::iterator it = vec.begin();
-	std::vector<int>::iterator it2 = vec.begin();
-	it2++;
-	while (it2 != vec.end()) {
-		if (*it > *it2) {
+	for (size_t i = 1; i < vec.size(); ++i) {
+		if (vec[i - 1] > vec[i]) {
 			std::cout << "Sequence is NOT sorted!\n";
 			exit(1);
 		}
-		it++;
-		it2++;
 	}
 	std::cout << "Sequence is sorted\n";
 }
@@ -24,23 +20,23 @@ std::vector<int> getVector(char **input)
 		exit(1);
 	}
 	while (*input) {
-		if (!isdigit(**input)) {
-			std::cerr << "Error\n";
-			exit(1);
+		std::string s(*input);
+		for (size_t i = 0; i < s.length(); ++i) {
+			if (!isdigit(s[i])) {
+				std::cerr << "Error: invalid input '" << s << "'\n";
+				exit(1);
+			}
 		}
-		vec.push_back(atoi(*input));
+		vec.push_back(std::atoi(*input));
 		input++;
 	}
 	return vec;
 }
 
-void printVec(std::vector<int> &vec)
+void printVec(const std::vector<int> &vec)
 {
-	std::vector<int>::iterator it = vec.begin();
-	while (it != vec.end()) {
-		std::cout << *it << " ";
-		it++;
-	}
+	for (size_t i = 0; i < vec.size(); ++i)
+		std::cout << vec[i] << " ";
 	std::cout << std::endl;
 }
 
@@ -54,19 +50,17 @@ int main(int argc, char **argv)
 	std::vector<int> vec = getVector(++argv);
 	std::deque<int> deq(vec.begin(), vec.end());
 
-	// std::cout << "Before: ";
-	// printVec(vec);
+	std::cout << "Before: ";
+	printVec(vec);
 
-	// double timeVec = PmergeMeVec(&vec);
-	// double timeDeq = PmergeMeDeque(&deq);
-
-	// std::cout << "After: ";
-	// printVec(vec);
-
-	//sortedCheck(vec);
-	
 	double timeVec = PmergeMe(&vec);
 	double timeDeq = PmergeMe(&deq);
+
+	std::cout << "After: ";
+	printVec(vec);
+
+	sortedCheck(vec);
+
 	std::cout << "Time to process a range of " << vec.size() << " elements with std::vector: " << timeVec << " ms\n";
 	std::cout << "Time to process a range of " << deq.size() << " elements with std::deque:  " << timeDeq << " ms\n";
 
