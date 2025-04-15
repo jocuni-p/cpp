@@ -3,11 +3,12 @@
 
 #include <vector>
 #include <deque>
-#include <algorithm>
+#include <algorithm>	// std::lower_bound(), std::upper_bound()
 #include <iterator>
 #include <iostream>
 #include <cstdlib>
-#include <ctime>
+#include <ctime>		// clock()
+#include <climits>		// INT_MAX
 
 /**
  * La clase sirve solo como contenedor funcional para el algoritmo
@@ -22,19 +23,19 @@
 class PmergeMe {
 public:
 
-	// Función de ordenamiento principal
+	// Main sorting function
 	template <typename T>
 	static void mergeInsertSort(T& container);
 
 private:
 
-	// Canonical Orthodox Form. No se permite instanciar
+	// Canonical Orthodox Form. Not allowed to instanciate
 	PmergeMe();
 	PmergeMe(const PmergeMe& other);
 	PmergeMe& operator=(const PmergeMe& other);
 	~PmergeMe();
 
-	// Funciones auxiliares
+	// Auxiliar methods
     static std::vector<size_t> generateJacobsthalSequence(size_t n);
 
     template <typename T>

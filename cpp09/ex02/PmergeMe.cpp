@@ -1,17 +1,18 @@
+
 #include "PmergeMe.hpp"
 
-/*Requisitos para cumplir forma Canonica ortodoxa*/
+
+
 PmergeMe::PmergeMe() {}
 PmergeMe::PmergeMe(const PmergeMe& other) { (void)other; }
 PmergeMe& PmergeMe::operator=(const PmergeMe& other) { (void)other; return *this; }
 PmergeMe::~PmergeMe() {}
 
 /**
- * Retorna la secuencia Jacobsthal, empezando por el 1 (omite el 0 y el primer 1),
- *  hasta el numero de la secuencia que sea menor que el size de pendings a insertar
- * y luego le agrega los que se han omitido en orden inverso. Por lo tanto, usaremos
- * los numeros que retorna como orden (no como indices) de insercion de los pendings
- *  a la lista principal. 
+ * Retorna la secuencia Jacobsthal (omite el 0 y el primer 1) hasta el numero de la 
+ * secuencia que sea menor que el size de pendings a insertar y luego le agrega los 
+ * que se han omitido en orden inverso. Por lo tanto, usaremos los numeros que 
+ * retorna como orden (no como indices) de insercion de los pendings a la lista principal. 
  */
 std::vector<size_t> PmergeMe::generateJacobsthalSequence(size_t n) {
     std::vector<size_t> sequence;
@@ -28,7 +29,7 @@ std::vector<size_t> PmergeMe::generateJacobsthalSequence(size_t n) {
         next = sequence.back() + 2 * sequence[sequence.size()-2];
     }
 
-    // Añade núms intermedios, que se salto antes, en orden descendente
+    // Añade los núms intermedios, que se salto antes, en orden descendente
     for (size_t i = sequence.size()-1; i > 0; --i) {
         for (size_t j = sequence[i-1] + 1; j < sequence[i]; ++j) {
             if (j <= n) {

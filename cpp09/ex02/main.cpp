@@ -1,3 +1,4 @@
+
 #include "PmergeMe.hpp"
 
 /**
@@ -17,7 +18,7 @@ static bool isInputValid(int argc, char **argv, std::string& errorMsg){
 				return false;
 			}
 		}
-        long nbr = strtol(arg.c_str(), nullptr, 10);
+        long nbr = strtol(arg.c_str(), NULL, 10);
 		if (nbr == 0 || nbr > INT_MAX){
 			errorMsg = "Input number out of range '" + arg + "'";
 			return false;
@@ -25,6 +26,25 @@ static bool isInputValid(int argc, char **argv, std::string& errorMsg){
 	}
 	return true;
 }
+
+/**
+ * Check if the sequence is sorted in ascending order.
+ */
+template <typename Iterator>
+static bool isSorted(Iterator first, Iterator last) {
+	if (first == last)
+		return true;
+	Iterator next = first;
+	next++;
+	while (next != last) {
+		if (*next < *first)
+			return false;
+		next++;
+		first++;
+	}
+	return true;
+}
+
 
 
 int main(int argc, char** argv)
@@ -37,34 +57,48 @@ int main(int argc, char** argv)
 
 	std::vector<unsigned int> vec;
 	std::deque<unsigned int> deq;
+//	std::vector<unsigned int> vec_test;
 
 	for (int i = 1; i < argc; ++i) {
         int value = std::atoi(argv[i]);//uso atoi porque he validado que los argv son correctos
         vec.push_back(value);
         deq.push_back(value);
+//		vec_test.push_back(value)
+
 	}
+//	std::vector<unsigned int> test = vec; // para pruebas mias de ordenacion con isSort()
 
-	std::cout << "Before: ";
-    for (size_t i = 0; i < vec.size(); ++i)
-        std::cout << vec[i] << " ";
-    std::cout << std::endl;
+	// std::cout << "Before: ";
+	// for (size_t i = 0; i < vec.size(); ++i)
+	//     std::cout << vec[i] << " ";
+	// std::cout << std::endl;
 
-    clock_t startVec = clock();
+	clock_t startVec = clock();
 	PmergeMe::mergeInsertSort(vec);
 	clock_t endVec = clock();
 
-	std::cout << "\n-----------------" << std::endl;
+#ifdef PMERGEME_DEBUG
+	std::cout << "/=====SECOND CONTAINER=====/\n" << std::endl;
+#endif
 
 	clock_t startDeq = clock();
 	PmergeMe::mergeInsertSort(deq);
     clock_t endDeq = clock();
-	
-    std::cout << "After:  ";
+
+	std::cout << "Before: ";
+	for (int i = 1; i < argc; ++i)
+		std::cout << argv[i] << " ";
+	std::cout << std::endl;
+
+	std::cout << "After:  ";
     for (size_t i = 0; i < vec.size(); ++i)
-	std::cout << vec[i] << " ";
+		std::cout << vec[i] << " ";
 	std::cout << std::endl
 			  << std::endl;
 
+	/** clock() counts CPU time in 'tick' units, not in real time. It's useful
+	 * to count computing processes. To convert ticks in seconds we divide by 
+	 * CLOCKS_PER_SEC. To convert seconds in ms we multiply by (double)1000.0 */
 	std::cout << "Time to process a range of " << vec.size()
               << " elements with std::vector : "
               << 1000.0 * (endVec - startVec) / CLOCKS_PER_SEC << " ms" << std::endl;
@@ -75,9 +109,10 @@ int main(int argc, char** argv)
 
 	//Result validation
 	std::cout << std::boolalpha; // imprime booleanos como "true" o "false" (en lugar de 1 o 0).
-	std::cout << "\nIs vector sorted? " << std::is_sorted(vec.begin(), vec.end()) << std::endl;
-	std::cout << "Is deque sorted? " << std::is_sorted(deq.begin(), deq.end()) << std::endl;
+	std::cout << "\nIs vector sorted? " << isSorted(vec.begin(), vec.end()) << std::endl;
+	std::cout << "Is deque sorted? " << isSorted(deq.begin(), deq.end()) << std::endl;
 
+//	std::cout << "\nIs vec_test sorted? " << isSorted(test.begin(), test.end()) << std::endl;
 	return 0;
 }
 

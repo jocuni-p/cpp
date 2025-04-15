@@ -26,6 +26,7 @@ typename T::iterator PmergeMe::binaryInsert(T& container,
     return container.insert(pos, value);
 }
 
+
 template <typename T>
 void PmergeMe::mergeInsertSort(T& container) {
     if (container.size() <= 1)
@@ -35,8 +36,8 @@ void PmergeMe::mergeInsertSort(T& container) {
     T larger;
     T pendings;
 
-	#ifdef PMERGEME_DEBUG
-    std::cout << "\nDividiendo en pares...\n";
+#ifdef PMERGEME_DEBUG
+    std::cout << "Dividiendo en pares...\n";
 #endif
 
 
@@ -51,50 +52,57 @@ void PmergeMe::mergeInsertSort(T& container) {
                 pendings.push_back(container[i + 1]);
             }
         } else {
-            pendings.push_back(container[i]);
+            pendings.push_back(container[i]); // si hay elemento impar lo envio a pendings
         }
     }
 
 #ifdef PMERGEME_DEBUG
     std::cout << "Larger: ";
-    for (size_t i = 0; i < larger.size(); ++i)
+    for (size_t i = 0; i < larger.size(); ++i){
         std::cout << larger[i] << " ";
+	}
     std::cout << "\nPendings: ";
-    for (size_t i = 0; i < pendings.size(); ++i)
-        std::cout << pendings[i] << " ";
-//    std::cout << "\n========ENTRA EN RECURSIVIDAD\n";
+    for (size_t i = 0; i < pendings.size(); ++i){
+		std::cout << pendings[i] << " ";
+	}
+	std::cout << std::endl
+			  << std::endl;
 #endif
-	
-    // Paso 2: Ordenar recursivamente los mayores
+
+	// Paso 2: Ordenar recursivamente los mayores
     mergeInsertSort(larger);
 
     // Paso 3: Generar secuencia de Jacobsthal para inserciones
     std::vector<size_t> jacob = generateJacobsthalSequence(pendings.size());
-    std::vector<bool> inserted(pendings.size(), false);
+    std::vector<bool> inserted(pendings.size(), false); //nos dice que indices se han insertado ya
 
 #ifdef PMERGEME_DEBUG
-    std::cout << "\nJacobsthal: ";
+    std::cout << "Jacobsthal: ";
     for (size_t i = 0; i < jacob.size(); ++i)
-        std::cout << jacob[i] << " ";
+		std::cout << jacob[i] << " ";
 	std::cout << "(pendings.size() = " << pendings.size() << ")";
     std::cout << "\nInsertando con Jacobsthal...\n";
 #endif
 
     // Insertar según el orden de Jacobsthal
     for (size_t j = 0; j < jacob.size(); ++j) {
-        size_t idx = jacob[j] - 1; // Convertir a índice 0-based
-        if (idx < pendings.size() && !inserted[idx]) {
+		size_t idx = jacob[j]-1;											   // Convertir a índice 0-based
+		if (idx < pendings.size() && !inserted[idx]) { // si indice valido y no insertado aun
             typename T::iterator start = larger.begin();
-            typename T::iterator end = larger.end();
+            typename T::iterator end = larger.end();  // rango completo
             
-            // Si tiene compañero, limitar el rango de búsqueda
+            //Si tiene pareja, acota el rango de búsqueda
             if (idx * 2 + 1 < container.size()) {
                 Value partner = container[idx * 2 + 1];
                 end = std::upper_bound(start, end, partner);
-            }
+			}	
+			// if (idx < larger.size()) {  // El compañero está en larger[idx]
+			// 	Value partner = larger[idx];
+			// 	end = std::upper_bound(start, end, partner);
+			// }
             
-            binaryInsert(larger, pendings[idx], start, end);
-            inserted[idx] = true;
+            binaryInsert(larger, pendings[idx], start, end); //inserta el pendiente en rango acotado de busqueda
+            inserted[idx] = true; 
         }
     }
 
@@ -103,26 +111,32 @@ void PmergeMe::mergeInsertSort(T& container) {
 #endif
 
 
-    // Insertar elementos restantes
+    // Insertar los elementos restantes, no cubiertos por Jacobsthal
     for (size_t i = 0; i < pendings.size(); ++i) {
         if (!inserted[i]) {
             typename T::iterator start = larger.begin();
-            typename T::iterator end = larger.end();
+            typename T::iterator end = larger.end(); // rango completo
             
-            if (i * 2 + 1 < container.size()) {
+            if (i * 2 + 1 < container.size()) { // si tiene pareja, acotamos rango
                 Value partner = container[i * 2 + 1];
-                end = std::upper_bound(start, end, partner);
+                end = std::upper_bound(start, end, partner); //ponemos el end donde estaria la pareja
             }
-            
+            // if (i < larger.size()) {  // El compañero está en larger[i]
+			// 	Value partner = larger[i];
+			// 	end = std::upper_bound(start, end, partner);
+			// }
+
+
             binaryInsert(larger, pendings[i], start, end);
         }
     }
 
 #ifdef PMERGEME_DEBUG
     std::cout << "Resultado final: ";
-    for (typename T::iterator it = larger.begin(); it != larger.end(); ++it)
+    for (typename T::iterator it = larger.begin(); it != larger.end(); ++it){
         std::cout << *it << " ";
-    std::cout << "\n";
+	}
+	std::cout << "\n" << std::endl;
 #endif
 
     container = larger;
