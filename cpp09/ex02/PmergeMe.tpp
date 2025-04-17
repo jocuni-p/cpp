@@ -4,7 +4,7 @@
 #include "PmergeMe.hpp"
 
 /**
- * En binaryInsert uso 'std::lower_bound()' que actua como binary_search,
+ * En binaryInsert uso 'std::lower_bound()' que por debajo actua como binary_search,
  *  dividiendo el rango en mitades hasta encontrar la posicion correcta
  * y luego coloco el valor con 'insert'. Sin embargo, la insercion no se 
  * realiza en todo el rango sino en sub-rangos acotados, usando la informacion
@@ -15,6 +15,7 @@ typename T::iterator PmergeMe::binaryInsert(T& container,
                                           typename T::value_type value,
                                           typename T::iterator begin,
                                           typename T::iterator end) {
+											
 #ifdef PMERGEME_DEBUG
     std::cout << "  Insertando " << value << " en rango [";
     for (typename T::iterator it = begin; it != end; ++it)
@@ -39,7 +40,6 @@ void PmergeMe::mergeInsertSort(T& container) {
 #ifdef PMERGEME_DEBUG
     std::cout << "Dividiendo en pares...\n";
 #endif
-
 
     // Paso 1: Formar pares y separar mayores/menores
     for (size_t i = 0; i < container.size(); i += 2) {
@@ -72,7 +72,7 @@ void PmergeMe::mergeInsertSort(T& container) {
 	// Paso 2: Ordenar recursivamente los mayores
     mergeInsertSort(larger);
 
-    // Paso 3: Generar secuencia de Jacobsthal para inserciones
+    // Paso 3: Generar secuencia de Jacobsthal para inserciones (Jacobsthal puros + intermedios descendentes)
     std::vector<size_t> jacob = generateJacobsthalSequence(pendings.size());
     std::vector<bool> inserted(pendings.size(), false); //nos dice que indices se han insertado ya
 
@@ -84,22 +84,18 @@ void PmergeMe::mergeInsertSort(T& container) {
     std::cout << "\nInsertando con Jacobsthal...\n";
 #endif
 
-    // Insertar según el orden de Jacobsthal
+    // Insertar segun el orden de Jacobsthal
     for (size_t j = 0; j < jacob.size(); ++j) {
-		size_t idx = jacob[j]-1;											   // Convertir a índice 0-based
+		size_t idx = jacob[j]-1; // Convierte a indice 0-based
 		if (idx < pendings.size() && !inserted[idx]) { // si indice valido y no insertado aun
             typename T::iterator start = larger.begin();
             typename T::iterator end = larger.end();  // rango completo
             
-            //Si tiene pareja, acota el rango de búsqueda
+            //Si tiene pareja, acota el rango de busqueda
             if (idx * 2 + 1 < container.size()) {
                 Value partner = container[idx * 2 + 1];
                 end = std::upper_bound(start, end, partner);
 			}	
-			// if (idx < larger.size()) {  // El compañero está en larger[idx]
-			// 	Value partner = larger[idx];
-			// 	end = std::upper_bound(start, end, partner);
-			// }
             
             binaryInsert(larger, pendings[idx], start, end); //inserta el pendiente en rango acotado de busqueda
             inserted[idx] = true; 
@@ -109,7 +105,6 @@ void PmergeMe::mergeInsertSort(T& container) {
 #ifdef PMERGEME_DEBUG
     std::cout << "Insertando pendientes restantes...\n";
 #endif
-
 
     // Insertar los elementos restantes, no cubiertos por Jacobsthal
     for (size_t i = 0; i < pendings.size(); ++i) {
@@ -121,11 +116,6 @@ void PmergeMe::mergeInsertSort(T& container) {
                 Value partner = container[i * 2 + 1];
                 end = std::upper_bound(start, end, partner); //ponemos el end donde estaria la pareja
             }
-            // if (i < larger.size()) {  // El compañero está en larger[i]
-			// 	Value partner = larger[i];
-			// 	end = std::upper_bound(start, end, partner);
-			// }
-
 
             binaryInsert(larger, pendings[i], start, end);
         }

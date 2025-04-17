@@ -2,7 +2,7 @@
 #include "PmergeMe.hpp"
 
 /**
- * Verifies if all input are positive integers.
+ * Verifies if all input are positive integers (0 is not accepted).
  * Duplicates are accepted.*/
 static bool isInputValid(int argc, char **argv, std::string& errorMsg){
 	if (argc < 3) {
@@ -57,21 +57,12 @@ int main(int argc, char** argv)
 
 	std::vector<unsigned int> vec;
 	std::deque<unsigned int> deq;
-//	std::vector<unsigned int> vec_test;
 
 	for (int i = 1; i < argc; ++i) {
         int value = std::atoi(argv[i]);//uso atoi porque he validado que los argv son correctos
         vec.push_back(value);
         deq.push_back(value);
-//		vec_test.push_back(value)
-
 	}
-//	std::vector<unsigned int> test = vec; // para pruebas mias de ordenacion con isSort()
-
-	// std::cout << "Before: ";
-	// for (size_t i = 0; i < vec.size(); ++i)
-	//     std::cout << vec[i] << " ";
-	// std::cout << std::endl;
 
 	clock_t startVec = clock();
 	PmergeMe::mergeInsertSort(vec);
@@ -96,6 +87,7 @@ int main(int argc, char** argv)
 	std::cout << std::endl
 			  << std::endl;
 
+	//Print info
 	/** clock() counts CPU time in 'tick' units, not in real time. It's useful
 	 * to count computing processes. To convert ticks in seconds we divide by 
 	 * CLOCKS_PER_SEC. To convert seconds in ms we multiply by (double)1000.0 */
@@ -107,74 +99,11 @@ int main(int argc, char** argv)
               << " elements with std::deque  : "
               << 1000.0 * (endDeq - startDeq) / CLOCKS_PER_SEC << " ms" << std::endl;
 
-	//Result validation
+	//My validation test
 	std::cout << std::boolalpha; // imprime booleanos como "true" o "false" (en lugar de 1 o 0).
 	std::cout << "\nIs vector sorted? " << isSorted(vec.begin(), vec.end()) << std::endl;
 	std::cout << "Is deque sorted? " << isSorted(deq.begin(), deq.end()) << std::endl;
 
-//	std::cout << "\nIs vec_test sorted? " << isSorted(test.begin(), test.end()) << std::endl;
 	return 0;
 }
-
-/*
-#include "PmergeMe.hpp"
-#include <vector>
-#include <deque>
-#include <algorithm> // std::sort
-#include <iostream>
-#include <cstdlib>   // std::rand, std::srand
-#include <ctime>     // std::time
-
-int main() {
-    std::srand(std::time(0));
-
-    // Crear un vector aleatorio
-    std::vector<int> original;
-    for (int i = 0; i < 21; ++i)
-        original.push_back(std::rand() % 1000); // números entre 0 y 999
-		//Print
-		std::cout << "Original: ";
-		for (size_t i = 0; i < original.size(); ++i)
-			std::cout << original[i] << " ";
-		std::cout << "\n";
-
-
-    // Copiar a std::vector y std::deque
-    std::vector<int> vec = original;
-    std::deque<int> deq(original.begin(), original.end());
-
-    // Ordenar usando PmergeMe
-    PmergeMe::mergeInsertSort(vec);
-    PmergeMe::mergeInsertSort(deq);
-
-    // Ordenar con std::sort para comparar
-    std::vector<int> expected = original;
-    std::sort(expected.begin(), expected.end());
-
-	std::cout << "\n================================\n" << std::endl;
-
-	// Mostrar resultados
-    std::cout << "Sorted with mergeInsertSort (vector): ";
-    for (size_t i = 0; i < vec.size(); ++i)
-        std::cout << vec[i] << " ";
-    std::cout << "\n";
-
-    std::cout << "Sorted with std::sort (expected):     ";
-    for (size_t i = 0; i < expected.size(); ++i)
-        std::cout << expected[i] << " ";
-    std::cout << "\n";
-
-    if (vec == expected)
-        std::cout << "\n[✔] std::vector está correctamente ordenado.\n";
-    else
-        std::cout << "[✘] Error en la ordenación con std::vector.\n";
-
-    if (std::vector<int>(deq.begin(), deq.end()) == expected)
-        std::cout << "[✔] std::deque está correctamente ordenado.\n";
-    else
-        std::cout << "[✘] Error en la ordenación con std::deque.\n";
-
-    return 0;
-}
-*/
 

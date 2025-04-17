@@ -6,7 +6,7 @@
 #    By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/02 17:15:20 by jocuni-p          #+#    #+#              #
-#    Updated: 2025/03/30 20:50:29 by jocuni-p         ###   ########.fr        #
+#    Updated: 2025/04/16 16:31:11 by jocuni-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ NAME = RPN
 CXX = c++
 
 # Flags de compilación (opcional)
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -fsanitize=address -g
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -g #-fsanitize=address
 
 # Flags para las dependencias
 DEPFLAGS = -MMD -MP

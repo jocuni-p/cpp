@@ -6,7 +6,7 @@
 /*   By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 13:31:08 by jocuni-p          #+#    #+#             */
-/*   Updated: 2025/03/31 16:31:22 by jocuni-p         ###   ########.fr       */
+/*   Updated: 2025/04/16 16:24:20 by jocuni-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ int RPN::calculation(const std::string& input) {
 	std::string token;
 
 	while (ss >> token) { // mientras haya algo en el flujo
-		
+		// si es un digito
 		if (token.size() == 1 && isdigit(token[0])) {
 			int num = token[0] - '0'; // lo convierto a entero
 			_stackRPN.push(num); // lo subo al stack
 		}
-		
+		//si es un operador valido
 		else if (token == "+" || token == "-" || token == "*" || token == "/") {
 			if (_stackRPN.size() < 2) //quizas seria mejor != 2  ???
 				throw std::runtime_error("Error: Invalid expression found.");
@@ -57,7 +57,8 @@ int RPN::calculation(const std::string& input) {
 					throw std::runtime_error("Error: found a division by 0.");
 				_stackRPN.push(a / b);
 			}		
-		}
+		} 
+		// si es cualquier otra cosa
 		else {
 			throw std::runtime_error("Error: bad input expression.");
 		}
