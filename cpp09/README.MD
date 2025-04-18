@@ -78,17 +78,20 @@ Time to process a range of 5 elements with std::deque  : 0.00014 us
 
 ---
 
-## 🧪 Quick stress test (macOS)
+## 🧪 Quick stress test
 
 ```sh
+MacOSX:
 ./PmergeMe `jot -r 3000 1 100000 | tr '\n' ' '`
-```
-## 🧪 Quick stress test (Linux)
 
-```sh
+Linux:
 ./PmergeMe `shuf -i 1-100000 -n 3000 | tr "\n" " "`
 ```
+
+
 ---
+
+
 
 
 # CPP Module 09 - STL y Algoritmos Avanzados
