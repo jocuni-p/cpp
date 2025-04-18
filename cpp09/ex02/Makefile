@@ -6,7 +6,7 @@
 #    By: jocuni-p <jocuni-p@student.42barcelona.com +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/02 17:15:20 by jocuni-p          #+#    #+#              #
-#    Updated: 2025/04/16 16:31:25 by jocuni-p         ###   ########.fr        #
+#    Updated: 2025/04/18 10:08:35 by jocuni-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ CXX = c++
 
 # Flags de compilación (opcional)
 #OJO: comentar 'fsanitize' para debbugar.
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -g #-DPMERGEME_DEBUG #-fsanitize=address
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -g -DPMERGEME_DEBUG #-fsanitize=address
 
 # Flags para las dependencias
 DEPFLAGS = -MMD -MP

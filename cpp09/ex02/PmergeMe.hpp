@@ -45,6 +45,6 @@ private:
                                              typename T::iterator end);
 };
 
-#include "PmergeMe.tpp" // template methods
+#include "PmergeMe.tpp" // template methods implementation
 
 #endif
