@@ -1,4 +1,95 @@
-## 📄 `README_ES.md`
+# CPP Module 09 - STL and Advanced Algorithms
+
+This module focuses on using the **Standard Template Library (STL)** and applying efficient data algorithms, fully written in C++98.
+
+---
+
+## 🎓 What You Will Learn
+
+- Practical use of STL containers (`vector`, `deque`, `map`, etc.).
+- Implementing efficient algorithms under C++98 constraints.
+- Designing and using custom data structures.
+- Handling complex input (files, CLI arguments).
+- Parsing and evaluating expressions in Reverse Polish Notation (RPN).
+- Applying the **Merge-Insertion Sort** algorithm using the **Jacobsthal sequence**.
+- Measuring performance of container-based algorithms.
+
+---
+
+## 📦 Module Structure
+
+- `ex00` – Bitcoin Exchange  
+- `ex01` – Reverse Polish Notation  
+- `ex02` – PmergeMe (Efficient Sorting)
+
+---
+
+## 🔧 Requirements
+
+- Compiler: `c++`
+- Standard: `-std=c++98`
+- Flags: `-Wall -Wextra -Werror`
+
+Each exercise includes its own `Makefile` with rules: `all`, `clean`, `fclean`, `re`.
+
+---
+
+## 🪙 ex00: Bitcoin Exchange
+
+### Description:
+Reads historical bitcoin prices and matches them with input values by date.
+
+### Usage:
+```sh
+./btc input.txt
+```
+
+---
+
+## ➕ ex01: Reverse Polish Notation
+
+### Description:
+Simulates a calculator using Reverse Polish Notation.
+
+### Usage:
+```sh
+./RPN "8 9 * 9 - 9 - 9 - 4 - 1 +"
+```
+
+---
+
+## 📊 ex02: PmergeMe
+
+### Description:
+Implements Merge-Insertion Sort to sort a large sequence of positive integers efficiently, using both `std::vector` and `std::deque`.
+
+### Usage:
+```sh
+./PmergeMe 3 5 9 7 4
+```
+
+### Example output:
+```
+Before: 3 5 9 7 4
+After: 3 4 5 7 9
+Time to process a range of 5 elements with std::vector : 0.00031 us
+Time to process a range of 5 elements with std::deque  : 0.00014 us
+```
+
+---
+
+## 🧪 Quick stress test (macOS)
+
+```sh
+./PmergeMe `jot -r 3000 1 100000 | tr '\n' ' '`
+```
+## 🧪 Quick stress test (Linux)
+
+```sh
+./PmergeMe `shuf -i 1-100000 -n 3000 | tr "\n" " "`
+
+---
+
 
 # CPP Module 09 - STL y Algoritmos Avanzados
 
@@ -97,108 +188,4 @@ Para Linux:
 ```sh
 ./PmergeMe `shuf -i 1-100000 -n 3000 | tr "\n" " "`
 ```
----
-
-## 🧠 Reglas y restricciones
-
-- Sin `printf`, `malloc`, `free`, ni librerías externas.
-- Sin fugas de memoria.
-- Clases en **Canonical Orthodox Form**, incluso si no se instancian.
-- Código modular, limpio y bien organizado.
-
----
-
-
-## 📄 `README_EN.md`
-
-# CPP Module 09 - STL and Advanced Algorithms
-
-This module focuses on using the **Standard Template Library (STL)** and applying efficient data algorithms, fully written in C++98.
-
----
-
-## 🎓 What You Will Learn
-
-- Practical use of STL containers (`vector`, `deque`, `map`, etc.).
-- Implementing efficient algorithms under C++98 constraints.
-- Designing and using custom data structures.
-- Handling complex input (files, CLI arguments).
-- Parsing and evaluating expressions in Reverse Polish Notation (RPN).
-- Applying the **Merge-Insertion Sort** algorithm using the **Jacobsthal sequence**.
-- Measuring performance of container-based algorithms.
-
----
-
-## 📦 Module Structure
-
-- `ex00` – Bitcoin Exchange  
-- `ex01` – Reverse Polish Notation  
-- `ex02` – PmergeMe (Efficient Sorting)
-
----
-
-## 🔧 Requirements
-
-- Compiler: `c++`
-- Standard: `-std=c++98`
-- Flags: `-Wall -Wextra -Werror`
-
-Each exercise includes its own `Makefile` with rules: `all`, `clean`, `fclean`, `re`.
-
----
-
-## 🪙 ex00: Bitcoin Exchange
-
-### Description:
-Reads historical bitcoin prices and matches them with input values by date.
-
-### Usage:
-```sh
-./btc input.txt
-```
-
----
-
-## ➕ ex01: Reverse Polish Notation
-
-### Description:
-Simulates a calculator using Reverse Polish Notation.
-
-### Usage:
-```bash
-./RPN "8 9 * 9 - 9 - 9 - 4 - 1 +"
-```
-
----
-
-## 📊 ex02: PmergeMe
-
-### Description:
-Implements Merge-Insertion Sort to sort a large sequence of positive integers efficiently, using both `std::vector` and `std::deque`.
-
-### Usage:
-```bash
-./PmergeMe 3 5 9 7 4
-```
-
-### Example output:
-```
-Before: 3 5 9 7 4
-After: 3 4 5 7 9
-Time to process a range of 5 elements with std::vector : 0.00031 us
-Time to process a range of 5 elements with std::deque  : 0.00014 us
-```
-
----
-
-## 🧪 Quick stress test (macOS)
-
-```sh
-./PmergeMe `jot -r 3000 1 100000 | tr '\n' ' '`
-```
-## 🧪 Quick stress test (Linux)
-
-```sh
-./PmergeMe `shuf -i 1-100000 -n 3000 | tr "\n" " "`
-
 ---
