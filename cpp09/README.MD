@@ -1,6 +1,5 @@
 ## 📄 `README_ES.md`
 
-```markdown
 # CPP Module 09 - STL y Algoritmos Avanzados
 
 Este módulo se centra en el uso de la **STL (Standard Template Library)** y en la aplicación de algoritmos avanzados de ordenamiento, manipulación de datos y estructuras.
@@ -43,13 +42,8 @@ Cada ejercicio cuenta con su propio `Makefile` que incluye: `all`, `clean`, `fcl
 Este ejercicio procesa datos históricos del precio del bitcoin y los cruza con fechas introducidas por el usuario.
 
 ### Uso:
-```bash
+```sh
 ./btc input.txt
-```
-
-### Formato del archivo:
-```
-YYYY-MM-DD | valor
 ```
 
 ---
@@ -60,7 +54,7 @@ YYYY-MM-DD | valor
 Simula una calculadora que evalúa expresiones matemáticas en notación polaca inversa.
 
 ### Uso:
-```bash
+```sh
 ./RPN "8 9 * 9 - 9 - 9 - 4 - 1 +"
 ```
 
@@ -72,7 +66,7 @@ Simula una calculadora que evalúa expresiones matemáticas en notación polaca 
 Implementación del algoritmo Merge-Insertion Sort. Ordena eficientemente una gran secuencia de enteros positivos y mide el rendimiento con diferentes contenedores.
 
 ### Uso:
-```bash
+```sh
 ./PmergeMe 3 5 9 7 4
 ```
 
@@ -95,10 +89,14 @@ Time to process a range of 5 elements with std::deque  : 0.00014 us
 
 En macOS puedes generar una prueba con 3000 enteros aleatorios:
 
-```bash
+```sh
 ./PmergeMe `jot -r 3000 1 100000 | tr '\n' ' '`
 ```
+Para Linux:
 
+```sh
+./PmergeMe `shuf -i 1-100000 -n 3000 | tr "\n" " "`
+```
 ---
 
 ## 🧠 Reglas y restricciones
@@ -110,25 +108,9 @@ En macOS puedes generar una prueba con 3000 enteros aleatorios:
 
 ---
 
-## 📚 Recursos recomendados
 
-- Knuth, *The Art of Computer Programming Vol. 3 - Sorting and Searching*, sección Merge-Insertion Sort.
+## 📄 `README_EN.md`
 
----
-
-## 🧠 Evaluación esperada
-
-- Correcta implementación de estructuras STL.
-- Algoritmos eficientes.
-- Validación de errores y entradas.
-- Rendimiento medido correctamente.
-```
-
----
-
-## 📄 `README_EN.md` (in English)
-
-```markdown
 # CPP Module 09 - STL and Advanced Algorithms
 
 This module focuses on using the **Standard Template Library (STL)** and applying efficient data algorithms, fully written in C++98.
@@ -171,13 +153,8 @@ Each exercise includes its own `Makefile` with rules: `all`, `clean`, `fclean`, 
 Reads historical bitcoin prices and matches them with input values by date.
 
 ### Usage:
-```bash
+```sh
 ./btc input.txt
-```
-
-### Input format:
-```
-YYYY-MM-DD | value
 ```
 
 ---
@@ -204,11 +181,6 @@ Implements Merge-Insertion Sort to sort a large sequence of positive integers ef
 ./PmergeMe 3 5 9 7 4
 ```
 
-- Must support at least 3000 integers.
-- Use both `std::vector` and `std::deque`.
-- Insertion order must follow the Jacobsthal sequence.
-- Show processing time for both containers.
-
 ### Example output:
 ```
 Before: 3 5 9 7 4
@@ -221,33 +193,12 @@ Time to process a range of 5 elements with std::deque  : 0.00014 us
 
 ## 🧪 Quick stress test (macOS)
 
-```bash
+```sh
 ./PmergeMe `jot -r 3000 1 100000 | tr '\n' ' '`
 ```
+## 🧪 Quick stress test (Linux)
 
----
-
-## 🧠 Constraints
-
-- No use of `printf`, `malloc`, `free`, or external libraries.
-- No memory leaks.
-- Classes must follow Canonical Orthodox Form.
-- Clean, modular, and readable code.
-
----
-
-## 📚 Recommended reading
-
-- Knuth, *The Art of Computer Programming Vol. 3 – Sorting and Searching*, Merge-Insertion Sort.
-
----
-
-## ✅ Evaluation Criteria
-
-- Correct use of STL containers
-- Efficient and readable algorithms
-- Input validation and error handling
-- Performance measurement
-```
+```sh
+./PmergeMe `shuf -i 1-100000 -n 3000 | tr "\n" " "`
 
 ---
