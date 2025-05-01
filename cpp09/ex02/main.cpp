@@ -28,7 +28,7 @@ static bool isInputValid(int argc, char **argv, std::string& errorMsg){
 }
 
 /**
- * Check if the sequence is sorted in ascending order.
+ * Check if a sequence is sorted in ascending order.
  */
 template <typename Iterator>
 static bool isSorted(Iterator first, Iterator last) {
@@ -59,7 +59,7 @@ int main(int argc, char** argv)
 	std::deque<unsigned int> deq;
 
 	for (int i = 1; i < argc; ++i) {
-        int value = std::atoi(argv[i]);//uso atoi porque he validado que los argv son correctos
+        int value = std::atoi(argv[i]);
         vec.push_back(value);
         deq.push_back(value);
 	}
@@ -100,7 +100,7 @@ int main(int argc, char** argv)
               << 1000.0 * (endDeq - startDeq) / CLOCKS_PER_SEC << " ms" << std::endl;
 
 	//My validation test
-	std::cout << std::boolalpha; // imprime booleanos como "true" o "false" (en lugar de 1 o 0).
+	std::cout << std::boolalpha; // prints booleans like "true" o "false" instead of 1 or 0
 	std::cout << "\nIs vector sorted? " << isSorted(vec.begin(), vec.end()) << std::endl;
 	std::cout << "Is deque sorted? " << isSorted(deq.begin(), deq.end()) << std::endl;
 

@@ -1,0 +1,21 @@
+{
+	// Use IntelliSense para saber los atributos posibles.
+	// Mantenga el puntero para ver las descripciones de los existentes atributos.
+	// Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
+	{
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"type": "cppdbg",
+				"request": "launch",
+				"name": "Debug btc",
+				"program": "${workspaceFolder}/cpp09/ex00/btc", // Ruta al ejecutable
+				"args": ["input.txt"], // Argumentos si los necesitas
+				"cwd": "${workspaceFolder}/cpp09/ex00", // Directorio de trabajo
+				"stopAtEntry": false,
+				"environment": [],
+				"externalConsole": false,
+				"preLaunchTask": "C/C++: g++ compilar archivo activo" // Tarea de compilación
+			}
+		]
+	}
