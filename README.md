@@ -1,6 +1,5 @@
 # CPP Modules – 42 Cursus
 
-## 🇬🇧 English Version
 
 Welcome to my repository for the **42 C++ Modules project**.  
 This set of modules aims to progressively build up your knowledge of C++ features, from basic object-oriented programming to templates and efficient algorithms.
@@ -64,8 +63,8 @@ Part of the **42 School curriculum**
 Made by [jocuni-p] – [2023.joan.code@gmail.com]
 
 ---
+---
 
-## 🇪🇸 Versión en Español
 
 Bienvenido a mi repositorio de módulos del proyecto **C++ de 42**.  
 Este conjunto de módulos tiene como objetivo guiar el aprendizaje progresivo de las funcionalidades clave del lenguaje C++, desde la orientación a objetos básica hasta plantillas y algoritmos avanzados.
